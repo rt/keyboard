@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #cp -r qmk/* $1/
-cp -r qmk/* ../../qmk_firmware/
+cp -r qmk/* ../qmk_firmware/
 
 #   if in /* Git ...
 #     write and end current file >>i read-only-keymaps/keymap_git.h

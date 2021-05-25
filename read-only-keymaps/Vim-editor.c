@@ -1,10 +1,10 @@
 /* Vim-editor
  * ,----------------------------------.  ,----------------------------------.
- * |      |      |      |VPASTE|      |  |      | New  | Copy | Move | Del  |
+ * |      |      |      |VPASTE|      |  |      |      |      |      |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |      |      |COMNT |FORMAT|      |  |      |      |EX_ABV|EX_BLW|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      | SNIP | DIFF |  |      |      |      |      |DP_NPM|
+ * |      |      |      | SNIP | DIFF |  |      |      |      |      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |ComplX|Compl |  |SP_ABV|SP_BLW|      |
  *               `--------------------'  `--------------------'
@@ -35,10 +35,10 @@
 
 // Right
 #define VHOME_R01     _______
-#define VHOME_R02     VIM_NERD_NEW                  // [*]
-#define VHOME_R03     VIM_NERD_COPY                 // [*]
-#define VHOME_R04     VIM_NERD_MOVE                 // [*]
-#define VHOME_R05     VIM_NERD_DEL                  // [*]
+#define VHOME_R02     _______
+#define VHOME_R03     _______
+#define VHOME_R04     _______
+#define VHOME_R05     _______
 
 #define VHOME_R11     _______
 #define VHOME_R12     _______
@@ -50,7 +50,7 @@
 #define VHOME_R22     _______
 #define VHOME_R23     _______
 #define VHOME_R24     _______
-#define VHOME_R25     VIM_DISPATCH_NPM
+#define VHOME_R25     _______
 
 #define VHOME_R31     VIM_INSERT_SPACE_ABOVE
 #define VHOME_R32     VIM_INSERT_SPACE_BELOW

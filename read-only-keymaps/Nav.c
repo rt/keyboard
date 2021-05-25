@@ -1,22 +1,22 @@
 /* Nav
  * Global: System, Tmux, App, etc, Navigation
  * ,----------------------------------.  ,----------------------------------.
- * |VQUIT |VWRITE|VPRVFI|      |PrevAp|  |TWINP |TPANEN|TPANEP|TWINN |TEVENV|
+ * |VQUIT |VWRITE|VPRVFI|PrevAp|AppWin|  |TWINP |TPANEN|TPANEP|TWINN |TEVENV|
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |      |      |TSCRLL| PgUp | Home |  | Left | Down |  Up  |Right |TEVENH|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |FlScrn|      |AppWin|PgDown| End  |  |WkspL |WordL |WordR |WkspR |      |
+ * |FlScrn|      |      |PgDown| End  |  |WkspL |WordL |WordR |WkspR |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |TZMTOG|Enter |  | Bspc |AltBk | Del  |
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define NAV_L01     VIM_QUIT
-#define NAV_L02     VIM_WRITE
+#define NAV_L01     VIM_QUIT                        // vim-editor?
+#define NAV_L02     VIM_WRITE                       // vim-editor?
 #define NAV_L03     LCTL(KC_CIRC)
-#define NAV_L04     _______
-#define NAV_L05     LGUI(KC_TAB)
+#define NAV_L04     LGUI(KC_TAB)
+#define NAV_L05     LGUI(KC_GRV)
 
 #define NAV_L11     _______
 #define NAV_L12     _______
@@ -26,7 +26,7 @@
 
 #define NAV_L21     LCTL(LGUI(KC_F))
 #define NAV_L22     _______
-#define NAV_L23     LGUI(KC_GRV)
+#define NAV_L23     _______
 #define NAV_L24     KC_PGDOWN
 #define NAV_L25     KC_END
 

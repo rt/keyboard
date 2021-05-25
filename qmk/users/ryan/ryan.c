@@ -309,9 +309,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(SS_LCTRL("]"));
       }
         break;
-    case VIM_TAGS:
+    case VIM_BLINES:
       if (record->event.pressed) {
-        SEND_STRING(":Tags"SS_TAP(X_ENTER));
+        SEND_STRING(":BLines"SS_TAP(X_ENTER));
       }
         break;
     case VIM_TAGBAR_OPEN_AUTOCLOSE:
@@ -343,11 +343,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIM_MARKS:
       if (record->event.pressed) {
         SEND_STRING(":Marks"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_RECENT_CHANGES:
-      if (record->event.pressed) {
-        SEND_STRING("g;");
       }
         break;
     case VIM_FILES_RECENT:
