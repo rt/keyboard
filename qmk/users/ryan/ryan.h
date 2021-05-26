@@ -105,6 +105,8 @@ enum custom_keycodes {
   VIM_EXCHANGE_LINE_BELOW,
   VIM_INSERT_SPACE_ABOVE,
   VIM_INSERT_SPACE_BELOW,
+  VIM_INTELLIJ_INSERT_SPACE_ABOVE,
+  VIM_INTELLIJ_INSERT_SPACE_BELOW,
 	VIM_QUICK_FIRST,
 	VIM_QUICK_NEXT,
 	VIM_QUICK_PREV,
@@ -224,9 +226,9 @@ enum custom_keycodes {
  * Layers: Vim-editor, IntelliJ-editor
  * Things beyond base will have to use app specific cuts/leaders
  * ,----------------------------------.  ,----------------------------------.
- * |      |      |      |      |      |  |      |      |      |      |      |
+ * |      |      |      |      |      |  |      |      |      |      |  QE  |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |      |      |      |      |  |      |      |  LU  |  LD  |      |
+ * |  SA  |      |      |      |      |  |      |      |  LU  |  LD  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |      |      |      |      |      |  |      |      |      |      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -241,7 +243,7 @@ enum custom_keycodes {
 // L04     _______
 // L05     _______
 //
-// L11     _______
+// L11     Select all
 // L12     _______
 // L13     _______
 // L14     _______
@@ -262,7 +264,7 @@ enum custom_keycodes {
 // R02     _______
 // R03     _______
 // R04     _______
-// R05     _______
+// R05     Quit editor
 //
 // R11     _______
 // R12     _______
@@ -835,11 +837,11 @@ enum custom_keycodes {
  * ,----------------------------------.  ,----------------------------------.
  * |VWQUIT|VWRITE|VPRVFI|VPASTE|      |  |      |      |      |HSPLIT| VQUIT|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |SELALL|VSPLIT|      |      |      |  |      |      |EX_ABV|EX_BLW|      |
+ * |SELALL|VSPLIT|      |      |      |  |      |EX_BLW|EX_ABV|      |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      | SNIP | DIFF |  |      |      |      |      |      |
+ * |      |      |      | SNIP | DIFF |  |      |SP_BLW|SP_ABV|      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |ComplX|Compl |  |SP_ABV|SP_BLW|      |
+ *               |      |ComplX|Compl |  |      |      |      |
  *               `--------------------'  `--------------------'
  */
 
@@ -874,19 +876,19 @@ enum custom_keycodes {
 #define VHOME_R05     VIM_QUIT                        // [*] quit editor
 
 #define VHOME_R11     _______
-#define VHOME_R12     _______
+#define VHOME_R12     VIM_EXCHANGE_LINE_BELOW
 #define VHOME_R13     VIM_EXCHANGE_LINE_ABOVE
-#define VHOME_R14     VIM_EXCHANGE_LINE_BELOW
+#define VHOME_R14     _______
 #define VHOME_R15     _______
 
 #define VHOME_R21     _______
-#define VHOME_R22     _______
-#define VHOME_R23     _______
+#define VHOME_R22     VIM_INSERT_SPACE_BELOW
+#define VHOME_R23     VIM_INSERT_SPACE_ABOVE
 #define VHOME_R24     _______
 #define VHOME_R25     _______
 
-#define VHOME_R31     VIM_INSERT_SPACE_ABOVE
-#define VHOME_R32     VIM_INSERT_SPACE_BELOW
+#define VHOME_R31     _______
+#define VHOME_R32     _______
 #define VHOME_R33     _______
 
 
@@ -1017,9 +1019,9 @@ enum custom_keycodes {
  * ,----------------------------------.  ,----------------------------------.
  * |      |Rename|ChSig |ExtrtM|ExtrtV|  | Sel- |      |      | Sel+ |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |      |      |      |      |  |      |Suggst|  LU  |  LD  |      |
+ * |      |      |      |      |      |  |      |  LD  |  LU  |Suggst|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |OverM |ImplM |GenCd |LiveT |ParamI|  |      |      |CmpFi |CmpPrj|      |
+ * |OverM |ImplM |GenCd |LiveT |ParamI|  |      |  SD  |  SU  |CmpPrj|CmpFi |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |StatCm|CodeCm|  |      |      |      |
  *               `--------------------'  `--------------------'
@@ -1056,16 +1058,16 @@ enum custom_keycodes {
 #define IDEA_R05     _______
 
 #define IDEA_R11     _______
-#define IDEA_R12     LALT(KC_ENTER)               // Show intention actions and quick-fixes
+#define IDEA_R12     LALT(LSFT(KC_DOWN))          // [*] Move line down
 #define IDEA_R13     LALT(LSFT(KC_UP))            // [*] Move line up
-#define IDEA_R14     LALT(LSFT(KC_DOWN))          // [*] Move line down
+#define IDEA_R14     LALT(KC_ENTER)               // Show intention actions and quick-fixes
 #define IDEA_R15     _______
 
 #define IDEA_R21     _______
-#define IDEA_R22     _______
-#define IDEA_R23     LSFT(LGUI(KC_F9))            // Compile selected file
+#define IDEA_R22     VIM_INTELLIJ_INSERT_SPACE_BELOW
+#define IDEA_R23     VIM_INTELLIJ_INSERT_SPACE_ABOVE
 #define IDEA_R24     LGUI(KC_F9)                  // Make project 
-#define IDEA_R25     _______
+#define IDEA_R25     LSFT(LGUI(KC_F9))            // Compile selected file
 
 #define IDEA_R31     _______
 #define IDEA_R32     _______
@@ -1255,9 +1257,9 @@ enum custom_keycodes {
 
 /* Debug
  * ,----------------------------------.  ,----------------------------------.
- * |RunSnp|      |      |      | Eval |  |BRKPTS|PLYPAU|STPOVR|STPIN |STPOUT| - Chrome
+ * |RunSnp|      |      | Eval |BrkPts|  |      |PlyRes| Over |  In  |  Out | - Chrome
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |Debug |DebugL|      |TogBrk| Eval |  |BrkPts|PlyRes| Over |  In  |  Out | - IntelliJ
+ * |Debug |DebugL|TogBrk| Eval |BrkPts|  |      |PlyRes| Over |  In  |  Out | - IntelliJ
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |DP_NPM|      |      |      |      |  |      |      |      |      |      | - Node (Vim)
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -1266,17 +1268,17 @@ enum custom_keycodes {
  */
 
 // Left
-#define VWNAV_L01     LGUI(LSFT(KC_ENTER))    // run snipplet (not checked, select then run???)
+#define VWNAV_L01     LGUI(LSFT(KC_ENTER))          // run snipplet (not checked, select then run???)
 #define VWNAV_L02     _______
 #define VWNAV_L03     _______
-#define VWNAV_L04     _______
-#define VWNAV_L05     LCTL(LSFT(KC_E))        // evaluate selected text in console
+#define VWNAV_L04     LCTL(LSFT(KC_E))              // evaluate selected text in console
+#define VWNAV_L05     LGUI(KC_F8)                   // [*] breakpoints (this one is toggle)
 
-#define VWNAV_L11     LALT(LSFT(KC_D))             // Debug current target at top
-#define VWNAV_L12     LCTL(LSFT(KC_D))             // Debug context/cursor
-#define VWNAV_L13     _______
-#define VWNAV_L14     LGUI(KC_F8)                  // Toggle breakpoint
-#define VWNAV_L15     LALT(KC_F8)                  // Evaluate expression
+#define VWNAV_L11     LALT(LSFT(KC_D))              // Debug current target at top
+#define VWNAV_L12     LCTL(LSFT(KC_D))              // Debug context/cursor
+#define VWNAV_L13     LGUI(KC_F8)                   // Toggle breakpoint
+#define VWNAV_L14     LALT(KC_F8)                   // Evaluate expression
+#define VWNAV_L15     LGUI(LSFT(KC_F8))             // Breakpoints
 
 #define VWNAV_L21     VIM_DISPATCH_NPM
 #define VWNAV_L22     _______
@@ -1289,13 +1291,13 @@ enum custom_keycodes {
 #define VWNAV_L35     _______
 
 // Right
-#define VWNAV_R01     LGUI(KC_F8)             // [*] breakpoints (this one is toggle)
+#define VWNAV_R01     _______
 #define VWNAV_R02     KC_F8                   // [*] debug play
 #define VWNAV_R03     LGUI(KC_QUOT)           // [*] debug over
 #define VWNAV_R04     LGUI(KC_SCLN)           // [*] debug in
 #define VWNAV_R05     LGUI(LSFT(KC_SCLN))     // [*] debug out
                              
-#define VWNAV_R11     LGUI(LSFT(KC_F8))            // Breakpoints
+#define VWNAV_R11     _______
 #define VWNAV_R12     LALT(LGUI(KC_R))             // [*] Play/Pause
 #define VWNAV_R13     KC_F8                        // [*] Step over
 #define VWNAV_R14     KC_F7                        // [*] Step into

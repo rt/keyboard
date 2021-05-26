@@ -294,6 +294,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("[e");
       }
         break;
+    case VIM_INTELLIJ_INSERT_SPACE_BELOW:
+      if (record->event.pressed) {
+        SEND_STRING("o"SS_TAP(X_UP)SS_TAP(X_ESCAPE));
+      }
+        break;
+    case VIM_INTELLIJ_INSERT_SPACE_ABOVE:
+      if (record->event.pressed) {
+        SEND_STRING("O"SS_TAP(X_DOWN)SS_TAP(X_ESCAPE));
+      }
+        break;
     case VIM_INSERT_SPACE_BELOW:
       if (record->event.pressed) {
         SEND_STRING("] ");

@@ -2,11 +2,11 @@
  * ,----------------------------------.  ,----------------------------------.
  * |VWQUIT|VWRITE|VPRVFI|VPASTE|      |  |      |      |      |HSPLIT| VQUIT|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |SELALL|VSPLIT|      |      |      |  |      |      |EX_ABV|EX_BLW|      |
+ * |SELALL|VSPLIT|      |      |      |  |      |EX_BLW|EX_ABV|      |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      | SNIP | DIFF |  |      |      |      |      |      |
+ * |      |      |      | SNIP | DIFF |  |      |SP_BLW|SP_ABV|      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |ComplX|Compl |  |SP_ABV|SP_BLW|      |
+ *               |      |ComplX|Compl |  |      |      |      |
  *               `--------------------'  `--------------------'
  */
 
@@ -41,19 +41,19 @@
 #define VHOME_R05     VIM_QUIT                        // [*] quit editor
 
 #define VHOME_R11     _______
-#define VHOME_R12     _______
+#define VHOME_R12     VIM_EXCHANGE_LINE_BELOW
 #define VHOME_R13     VIM_EXCHANGE_LINE_ABOVE
-#define VHOME_R14     VIM_EXCHANGE_LINE_BELOW
+#define VHOME_R14     _______
 #define VHOME_R15     _______
 
 #define VHOME_R21     _______
-#define VHOME_R22     _______
-#define VHOME_R23     _______
+#define VHOME_R22     VIM_INSERT_SPACE_BELOW
+#define VHOME_R23     VIM_INSERT_SPACE_ABOVE
 #define VHOME_R24     _______
 #define VHOME_R25     _______
 
-#define VHOME_R31     VIM_INSERT_SPACE_ABOVE
-#define VHOME_R32     VIM_INSERT_SPACE_BELOW
+#define VHOME_R31     _______
+#define VHOME_R32     _______
 #define VHOME_R33     _______
 
 

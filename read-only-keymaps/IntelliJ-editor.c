@@ -4,9 +4,9 @@
  * ,----------------------------------.  ,----------------------------------.
  * |      |Rename|ChSig |ExtrtM|ExtrtV|  | Sel- |      |      | Sel+ |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |      |      |      |      |  |      |Suggst|  LU  |  LD  |      |
+ * |      |      |      |      |      |  |      |  LD  |  LU  |Suggst|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |OverM |ImplM |GenCd |LiveT |ParamI|  |      |      |CmpFi |CmpPrj|      |
+ * |OverM |ImplM |GenCd |LiveT |ParamI|  |      |  SD  |  SU  |CmpPrj|CmpFi |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |StatCm|CodeCm|  |      |      |      |
  *               `--------------------'  `--------------------'
@@ -43,16 +43,16 @@
 #define IDEA_R05     _______
 
 #define IDEA_R11     _______
-#define IDEA_R12     LALT(KC_ENTER)               // Show intention actions and quick-fixes
+#define IDEA_R12     LALT(LSFT(KC_DOWN))          // [*] Move line down
 #define IDEA_R13     LALT(LSFT(KC_UP))            // [*] Move line up
-#define IDEA_R14     LALT(LSFT(KC_DOWN))          // [*] Move line down
+#define IDEA_R14     LALT(KC_ENTER)               // Show intention actions and quick-fixes
 #define IDEA_R15     _______
 
 #define IDEA_R21     _______
-#define IDEA_R22     _______
-#define IDEA_R23     LSFT(LGUI(KC_F9))            // Compile selected file
+#define IDEA_R22     VIM_INTELLIJ_INSERT_SPACE_BELOW
+#define IDEA_R23     VIM_INTELLIJ_INSERT_SPACE_ABOVE
 #define IDEA_R24     LGUI(KC_F9)                  // Make project 
-#define IDEA_R25     _______
+#define IDEA_R25     LSFT(LGUI(KC_F9))            // Compile selected file
 
 #define IDEA_R31     _______
 #define IDEA_R32     _______
