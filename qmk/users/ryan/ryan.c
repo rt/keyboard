@@ -73,6 +73,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":w"SS_TAP(X_ENTER));
       }
         break;
+    case VIM_WRITE_QUIT:
+      if (record->event.pressed) {
+        SEND_STRING(":wq"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_SELECT_ALL:
+      if (record->event.pressed) {
+        SEND_STRING("ggVG");
+      }
+        break;
+    case VIM_VSPLIT:
+      if (record->event.pressed) {
+        SEND_STRING(":vsp"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_HSPLIT:
+      if (record->event.pressed) {
+        SEND_STRING(":sp"SS_TAP(X_ENTER));
+      }
+        break;
     case VIM_PASTE_LAST_YANK:
       if (record->event.pressed) {
         SEND_STRING("\"0p");
@@ -385,11 +405,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":only"SS_TAP(X_ENTER));
       }
         break;
-    case VIM_COMMENT:
-      if (record->event.pressed) {
-        SEND_STRING("gc");
-      }
-        break;
     case VIM_NERD_NEW:
       if (record->event.pressed) {
         SEND_STRING("ma");
@@ -505,6 +520,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(SS_LCTRL("b")"z");
       }
         break;
+    case TMUX_FIND_SESSION:
+      if (record->event.pressed) {
+        SEND_STRING("tm"SS_TAP(X_ENTER));
+      }
+        break;
+    case TMUX_DETACH:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("b")":detach"SS_TAP(X_ENTER));
+      }
+        break;
+    case TMUX_KILL_SESSION:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("b")":kill-session"SS_TAP(X_ENTER));
+      }
+        break;
     case TMUX_EVEN_HOR:
       if (record->event.pressed) {
         SEND_STRING(SS_LCTRL("b")":select-layout even-horizontal"SS_TAP(X_ENTER));
@@ -515,8 +545,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(SS_LCTRL("b")":select-layout even-vertical"SS_TAP(X_ENTER));
       }
         break;
-    
-
+    case TMUX_SIZE_UP:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("b")"K");
+      }
+        break;
+    case TMUX_SIZE_DOWN:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("b")"J");
+      }
+        break;
     case WORK_DB_MIGRATIONS_SHARED:
       if (record->event.pressed) {
         SEND_STRING(":WorkGetMigrationsShared"SS_TAP(X_ENTER));

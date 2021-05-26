@@ -1,8 +1,10 @@
 /* IntelliJ-editor
+ * IdeaVim is used so many vim key cuts can also be used without having them here
+ * IdeaVim plugin emulation (surround, exchange, commentary) : Use vim shortcuts
  * ,----------------------------------.  ,----------------------------------.
  * |      |Rename|ChSig |ExtrtM|ExtrtV|  | Sel- |      |      | Sel+ |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |Surnd |Commnt|Format|      |  |      |Suggst|  LU  |  LD  |      |
+ * |      |      |      |      |      |  |      |Suggst|  LU  |  LD  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |OverM |ImplM |GenCd |LiveT |ParamI|  |      |      |CmpFi |CmpPrj|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -18,9 +20,9 @@
 #define IDEA_L05     LGUI(LALT(KC_V))             // Extract variable
 
 #define IDEA_L11     _______
-#define IDEA_L12     LALT(LGUI(KC_T))             // Surround with ... 
-#define IDEA_L13     LGUI(KC_SLSH)                // [*] Comment/uncomment
-#define IDEA_L14     LALT(LGUI(KC_L))             // [*] Format
+#define IDEA_L12     _______
+#define IDEA_L13     _______
+#define IDEA_L14     _______
 #define IDEA_L15     _______
 
 #define IDEA_L21     LCTL(KC_O)                   // Override methods
