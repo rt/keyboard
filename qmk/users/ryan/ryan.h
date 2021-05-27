@@ -45,6 +45,8 @@ enum custom_keycodes {
   TMUX_EVEN_HOR,
   TMUX_SIZE_UP,
   TMUX_SIZE_DOWN,
+  TMUX_HSPLIT,
+  TMUX_VSPLIT,
   TMUX_KILL_SESSION,
   TMUX_DETACH,
   TMUX_FIND_SESSION,
@@ -57,6 +59,7 @@ enum custom_keycodes {
   VIM_HELP,
   VIM_QUIT,
   VIM_WRITE,
+  VIM_WRITE_ALL,
   VIM_WRITE_QUIT,
   VIM_SELECT_ALL,
   VIM_VSPLIT,
@@ -107,6 +110,8 @@ enum custom_keycodes {
   VIM_INSERT_SPACE_BELOW,
   VIM_INTELLIJ_INSERT_SPACE_ABOVE,
   VIM_INTELLIJ_INSERT_SPACE_BELOW,
+  VIM_ALE_PREV,
+  VIM_ALE_NEXT,
 	VIM_QUICK_FIRST,
 	VIM_QUICK_NEXT,
 	VIM_QUICK_PREV,
@@ -126,6 +131,10 @@ enum custom_keycodes {
   VIM_NERD_MOVE,
   VIM_NERD_DEL,
   VIM_ULTISNIPS_TRIGGER,
+  VIM_PREV_EDIT,
+  VIM_NEXT_EDIT,
+  VIM_PREV_BRACKET,
+  VIM_NEXT_BRACKET,
   VIM_DIR_ROOT,
   VIM_DIR_CURRENT_FILE,
   VIM_WORK_SHOW_NOTES,
@@ -224,23 +233,23 @@ enum custom_keycodes {
 
 /* Concept-editor
  * Layers: Vim-editor, IntelliJ-editor
- * Things beyond base will have to use app specific cuts/leaders
+ * Most edtiing is in vim or with a vim plugin so will often use Vim-editor keymaps or vim itself.
  * ,----------------------------------.  ,----------------------------------.
- * |      |      |      |      |      |  |      |      |      |      |  QE  |
+ * |  WA  |  WR  |  PF  | PLY  |      |  |  PB  |      |      |  NB  |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |  SA  |      |      |      |      |  |      |      |  LU  |  LD  |      |
+ * |  SA  |      |      |      |      |  |  PE  |  LD  |  LU  |  NE  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      |      |      |  |      |      |      |      |      |
+ * |  HS  |  VS  |      |      |      |  | PEr  |  SD  |  SU  | NEr  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |      |      |  |      |      |      |
+ *               |  G3  |  G2  |  G1  |  |  C1  |  C2  |  C3  |
  *               `--------------------'  `--------------------'
  */
 
 // Left
-// L01     _______
-// L02     _______
-// L03     _______
-// L04     _______
+// L01     Write all
+// L02     Write
+// L03     Previous File
+// L04     Paste Last Yank
 // L05     _______
 //
 // L11     Select all
@@ -255,32 +264,32 @@ enum custom_keycodes {
 // L24     _______
 // L25     _______
 //
-// L33     _______
-// L34     _______
-// L35     _______
+// L33     Generation Code 3
+// L34     Generation Code 2
+// L35     Generation Code 1
 
 // Right
-// R01     _______
+// R01     Previous Bracket
 // R02     _______
 // R03     _______
-// R04     _______
-// R05     Quit editor
+// R04     Next Bracket
+// R05     _______
 //
-// R11     _______
-// R12     _______
+// R11     Prev edit
+// R12     Move line down
 // R13     Move line up
-// R14     Move line down
+// R14     Next edit
 // R15     _______
 //
-// R21     _______
-// R22     _______
-// R23     _______
-// R24     _______
+// R21     Prev error
+// R22     Open line space down
+// R23     Open line space up
+// R24     Next error
 // R25     _______
 //
-// R31     _______
-// R32     _______
-// R33     _______
+// R31     Completion 1
+// R32     Completion 2
+// R33     Completion 3
 
 
 
@@ -714,46 +723,47 @@ enum custom_keycodes {
 
 /* Nav
  * Global: System, Tmux, App, etc, Navigation
+ * Mixture of concepts (item, editor)
  * ,----------------------------------.  ,----------------------------------.
- * |      |AppWin|PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
+ * |THSPLT|TVSPLT|PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |TEVENV|TSZUP |TSCRLL| PgUp | Home |  | Left | Down |  Up  |Right |TDETCH|
+ * |TSZDN |TSZUP |TSCRLL| PgUp | Home |  | Left | Down |  Up  |Right |TDETCH|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |TEVENH|TSZDN |      |PgDown| End  |  |WkspL |WordL |WordR |WkspR |      |
+ * |TEVENH|TEVENV|AppWin|PgDown| End  |  |WkspL |WordL |WordR |WkspR |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |FlScrn|TZMTOG|Enter |  | Bspc |AltBk | Del  |
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define NAV_L01     _______
-#define NAV_L02     LGUI(KC_GRV)                      // alternate win of same app
-#define NAV_L03     LGUI(KC_TAB)                      // prev app (follows position of prev file in vim editor)
-#define NAV_L04     TMUX_FIND_SESSION                 // [*] find tmux session
+#define NAV_L01     TMUX_HSPLIT
+#define NAV_L02     TMUX_VSPLIT
+#define NAV_L03     LGUI(KC_TAB)                      // editor [*] prev app (follows position of prev file in vim editor)
+#define NAV_L04     TMUX_FIND_SESSION                 // item [*] find tmux session
 #define NAV_L05     _______
 
-#define NAV_L11     TMUX_EVEN_VERT
+#define NAV_L11     TMUX_SIZE_DOWN
 #define NAV_L12     TMUX_SIZE_UP
 #define NAV_L13     TMUX_SCROLL
 #define NAV_L14     KC_PGUP
 #define NAV_L15     KC_HOME
 
 #define NAV_L21     TMUX_EVEN_HOR
-#define NAV_L22     TMUX_SIZE_DOWN
-#define NAV_L23     _______
+#define NAV_L22     TMUX_EVEN_VERT
+#define NAV_L23     LGUI(KC_GRV)                      // alternate win of same app
 #define NAV_L24     KC_PGDOWN
 #define NAV_L25     KC_END
 
 #define NAV_L33     LCTL(LGUI(KC_F))
-#define NAV_L34     TMUX_ZOOM_TOGGLE                  // [*]
+#define NAV_L34     TMUX_ZOOM_TOGGLE                  // item [*]
 #define NAV_L35     KC_ENTER
 
 // Right
-#define NAV_R01     TMUX_WIN_PREV
+#define NAV_R01     TMUX_WIN_PREV                     // 
 #define NAV_R02     TMUX_PANE_NEXT
 #define NAV_R03     TMUX_PANE_PREV
 #define NAV_R04     TMUX_WIN_NEXT
-#define NAV_R05     TMUX_KILL_SESSION                 // [*] kill tmux session
+#define NAV_R05     TMUX_KILL_SESSION                 // editor [*] kill tmux session
 
 #define NAV_R11     KC_LEFT
 #define NAV_R12     KC_DOWN
@@ -761,10 +771,10 @@ enum custom_keycodes {
 #define NAV_R14     KC_RIGHT
 #define NAV_R15     TMUX_DETACH
 
-#define NAV_R21     LCTL(KC_LEFT)
-#define NAV_R22     LALT(KC_LEFT)
-#define NAV_R23     LALT(KC_RIGHT)
-#define NAV_R24     LCTL(KC_RIGHT)
+#define NAV_R21     LCTL(KC_LEFT)                     // item [*]
+#define NAV_R22     LALT(KC_LEFT)                     // item [*]
+#define NAV_R23     LALT(KC_RIGHT)                    // item [*]
+#define NAV_R24     LCTL(KC_RIGHT)                    // item [*]
 #define NAV_R25     _______
 
 #define NAV_R31     KC_BSPC
@@ -806,10 +816,10 @@ enum custom_keycodes {
 
 #define VHNAV_L33     VIM_HELP                        // [*]
 #define VHNAV_L34     VIM_ONLY                        // [*]
-#define VHNAV_L35     _______
+#define VHNAV_L35     XXXXXXX
 
 // Right
-#define VHNAV_R01     _______
+#define VHNAV_R01     XXXXXXX
 #define VHNAV_R02     VIM_NERD_NEW                    // [*]
 #define VHNAV_R03     VIM_NERD_COPY                   // [*]
 #define VHNAV_R04     VIM_NERD_MOVE                   // [*]
@@ -835,60 +845,60 @@ enum custom_keycodes {
 
 /* Vim-editor
  * ,----------------------------------.  ,----------------------------------.
- * |VWQUIT|VWRITE|VPRVFI|VPASTE|      |  |      |      |      |HSPLIT| VQUIT|
+ * |VWALL |VWRITE|VPRVFI|VPASTE|      |  |PREVBR|      |      |NEXTBR| VQUIT|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |SELALL|VSPLIT|      |      |      |  |      |EX_BLW|EX_ABV|      |      |
+ * |SELALL|      |      |      |      |  |PREVED|EX_BLW|EX_ABV|NEXTED|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      | SNIP | DIFF |  |      |SP_BLW|SP_ABV|      |      |
+ * |VHSPLT|VVSPLT|      |      |DIFFTG|  |PREVER|SP_BLW|SP_ABV|NEXTER|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |ComplX|Compl |  |      |      |      |
+ *               |VWQUIT|      | SNIP |  |Compl |ComplX|      |
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define VHOME_L01     VIM_WRITE_QUIT                  // write quit editor
-#define VHOME_L02     VIM_WRITE                       // write
-#define VHOME_L03     LCTL(KC_CIRC)                   // prev file
-#define VHOME_L04     VIM_PASTE_LAST_YANK             // Paste last yank (instead of last selection)
+#define VHOME_L01     VIM_WRITE_ALL                   // [*] write quit editor
+#define VHOME_L02     VIM_WRITE                       // [*] write
+#define VHOME_L03     LCTL(KC_CIRC)                   // [*] prev file
+#define VHOME_L04     VIM_PASTE_LAST_YANK             // [*] Paste last yank (instead of last selection)
 #define VHOME_L05     _______
 
 #define VHOME_L11     VIM_SELECT_ALL
-#define VHOME_L12     VIM_VSPLIT                      // vert split
+#define VHOME_L12     _______
 #define VHOME_L13     _______
 #define VHOME_L14     _______
 #define VHOME_L15     _______
 
-#define VHOME_L21     _______
-#define VHOME_L22     _______
+#define VHOME_L21     VIM_HSPLIT                      // [*] hor split
+#define VHOME_L22     VIM_VSPLIT                      // [*] vert split
 #define VHOME_L23     _______
-#define VHOME_L24     VIM_SNIPPETS                    // [*] snipplets
+#define VHOME_L24     _______
 #define VHOME_L25     VIM_DIFF_TOGGLE
 
-#define VHOME_L33     _______
-#define VHOME_L34     LCTL(KC_X)                      // [*] Advanced completion (Ctl-L, query db, ets.)
-#define VHOME_L35     LCTL(KC_N)                      // [*] word complete
+#define VHOME_L33     VIM_WRITE_QUIT                  // write quit editor
+#define VHOME_L34     _______
+#define VHOME_L35     VIM_SNIPPETS                    // [*] snipplets
 
 // Right
-#define VHOME_R01     _______
+#define VHOME_R01     VIM_PREV_BRACKET
 #define VHOME_R02     _______
 #define VHOME_R03     _______
-#define VHOME_R04     VIM_HSPLIT                      // hor split
+#define VHOME_R04     VIM_NEXT_BRACKET
 #define VHOME_R05     VIM_QUIT                        // [*] quit editor
 
-#define VHOME_R11     _______
-#define VHOME_R12     VIM_EXCHANGE_LINE_BELOW
-#define VHOME_R13     VIM_EXCHANGE_LINE_ABOVE
-#define VHOME_R14     _______
+#define VHOME_R11     VIM_PREV_EDIT                   // [*] prev edit
+#define VHOME_R12     VIM_EXCHANGE_LINE_BELOW         // [*]
+#define VHOME_R13     VIM_EXCHANGE_LINE_ABOVE         // [*]
+#define VHOME_R14     VIM_NEXT_EDIT                   // [*] next edit
 #define VHOME_R15     _______
 
-#define VHOME_R21     _______
-#define VHOME_R22     VIM_INSERT_SPACE_BELOW
-#define VHOME_R23     VIM_INSERT_SPACE_ABOVE
-#define VHOME_R24     _______
+#define VHOME_R21     VIM_ALE_PREV                    // [*] prev error
+#define VHOME_R22     VIM_INSERT_SPACE_BELOW          // [*]
+#define VHOME_R23     VIM_INSERT_SPACE_ABOVE          // [*]
+#define VHOME_R24     VIM_ALE_NEXT                    // [*] next error
 #define VHOME_R25     _______
 
-#define VHOME_R31     _______
-#define VHOME_R32     _______
+#define VHOME_R31     LCTL(KC_N)                      // [*] word complete
+#define VHOME_R32     LCTL(KC_X)                      // [*] Advanced completion (Ctl-L, query db, ets.)
 #define VHOME_R33     _______
 
 
@@ -959,7 +969,7 @@ enum custom_keycodes {
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |FindAc|LocalC|Recent|ProjV | FnP  |  | Back | Decl | Impl | Fwd  |SupMC |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |TMnMx |StrctV|DebugV|GotoTe|      |  |NxtErr|FileHi|      |PrvErr|LstEdt|
+ * |TMnMx |StrctV|DebugV|GotoTe|      |  |      |FileHi|      |      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |LastTl|MaxMin| Term |  |Usages|CallHi|      |
  *               `--------------------'  `--------------------'
@@ -979,7 +989,7 @@ enum custom_keycodes {
 #define INAV_L15     LALT(KC_F1)                  // [*] Select current file (or symbol) in any view
 
 #define INAV_L21     LSFT(LGUI(KC_QUOT))          // Toggle tool min/max
-#define INAV_L22     LGUI(KC_7)                   // [*] Project Structure View
+#define INAV_L22     LGUI(KC_7)                   // Project Structure View
 #define INAV_L23     LGUI(KC_5)                   // Debug View
 #define INAV_L24     LSFT(LGUI(KC_T))             // [*] Go to test
 #define INAV_L25     _______
@@ -1001,11 +1011,11 @@ enum custom_keycodes {
 #define INAV_R14     LGUI(LALT(KC_RIGHT))         // [*] Navigate forward
 #define INAV_R15     LGUI(KC_U)                   // Go to super-method/super-class
 
-#define INAV_R21     KC_F2                        // Next highlighted error
+#define INAV_R21     _______
 #define INAV_R22     LGUI(KC_F12)                 // [*] File structure popup
 #define INAV_R23     _______
-#define INAV_R24     LSFT(KC_F2)                  // Previous highlighted error
-#define INAV_R25     LGUI(LSFT(KC_DEL))           // Go to last edit location
+#define INAV_R24     _______
+#define INAV_R25     _______
 
 #define INAV_R31     LALT(KC_F7)                  // [*] Find Usages
 #define INAV_R32     LCTL(LALT(KC_H))             // [*] Call hierarchy (usage analysis)
@@ -1017,61 +1027,61 @@ enum custom_keycodes {
  * IdeaVim is used so many vim key cuts can also be used without having them here
  * IdeaVim plugin emulation (surround, exchange, commentary) : Use vim shortcuts
  * ,----------------------------------.  ,----------------------------------.
- * |      |Rename|ChSig |ExtrtM|ExtrtV|  | Sel- |      |      | Sel+ |      |
+ * |VWALL |VWRITE|VPRVFI|VPASTE|      |  | Sel- |      |      | Sel+ |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |      |      |      |      |  |      |  LD  |  LU  |Suggst|      |
+ * |  SA  |Rename|ChSig |ExtrtM|ExtrtV|  |PrvEdt|  LD  |  LU  |NxtEdt|CmpPrj|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |OverM |ImplM |GenCd |LiveT |ParamI|  |      |  SD  |  SU  |CmpPrj|CmpFi |
+ * |VHSPLT|VVSPLT|OverM |ImplM |ParamI|  |PrvErr|  SD  |  SU  |NxtErr|CmpFi |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |StatCm|CodeCm|  |      |      |      |
+ *               |      |GenCd |LiveT |  |CodeCm|StatCm|Suggst|
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define IDEA_L01     _______
-#define IDEA_L02     LSFT(KC_F6)                  // Rename
-#define IDEA_L03     LGUI(KC_F6)                  // Change signature
-#define IDEA_L04     LGUI(LALT(KC_M))             // Extract method
-#define IDEA_L05     LGUI(LALT(KC_V))             // Extract variable
+#define IDEA_L01     VIM_WRITE_ALL                   // [*] write quit editor
+#define IDEA_L02     VIM_WRITE                       // [*] write
+#define IDEA_L03     LCTL(KC_CIRC)                   // [*] prev file
+#define IDEA_L04     VIM_PASTE_LAST_YANK             // [*] Paste last yank (instead of last selection)
+#define IDEA_L05     _______
 
-#define IDEA_L11     _______
-#define IDEA_L12     _______
-#define IDEA_L13     _______
-#define IDEA_L14     _______
-#define IDEA_L15     _______
+#define IDEA_L11     LGUI(KC_A)                   // [*] select all
+#define IDEA_L12     LSFT(KC_F6)                  // Rename
+#define IDEA_L13     LGUI(KC_F6)                  // Change signature
+#define IDEA_L14     LGUI(LALT(KC_M))             // Extract method
+#define IDEA_L15     LGUI(LALT(KC_V))             // Extract variable
 
-#define IDEA_L21     LCTL(KC_O)                   // Override methods
-#define IDEA_L22     LCTL(KC_I)                   // Implement methods
-#define IDEA_L23     LGUI(KC_N)                   // Generate code
-#define IDEA_L24     LGUI(KC_J)                   // [*] Insert live templates
+#define IDEA_L21     VIM_HSPLIT                      // [*] hor split
+#define IDEA_L22     VIM_VSPLIT                      // [*] vert split
+#define IDEA_L23     LCTL(KC_O)                   // Override methods
+#define IDEA_L24     LCTL(KC_I)                   // Implement methods
 #define IDEA_L25     LGUI(KC_P)                   // Get param infor
 
 #define IDEA_L33     _______
-#define IDEA_L34     LGUI(LSFT(KC_ENTER))         // [*] Statement complete
-#define IDEA_L35     LCTL(LSFT(KC_SPC))           // [*] Code complet
+#define IDEA_L34     LGUI(KC_N)                   // Generate code
+#define IDEA_L35     LGUI(KC_J)                   // [*] Insert live templates
 
 // Right
-#define IDEA_R01     LALT(KC_DOWN)                // Shrink selection
+#define IDEA_R01     LALT(KC_DOWN)                // Shrink selection (similar idea to editor but uses selection)
 #define IDEA_R02     _______
 #define IDEA_R03     _______
-#define IDEA_R04     LALT(KC_UP)                  // Extend selection
+#define IDEA_R04     LALT(KC_UP)                  // Extend selection (similar idea to editor but uses selection)
 #define IDEA_R05     _______
 
-#define IDEA_R11     _______
+#define IDEA_R11     LGUI(LSFT(KC_DEL))           // [*] prev edit location
 #define IDEA_R12     LALT(LSFT(KC_DOWN))          // [*] Move line down
 #define IDEA_R13     LALT(LSFT(KC_UP))            // [*] Move line up
-#define IDEA_R14     LALT(KC_ENTER)               // Show intention actions and quick-fixes
-#define IDEA_R15     _______
+#define IDEA_R14     LALT(KC_SCLN)                // [*] Next edit (custom keymap)
+#define IDEA_R15     LGUI(KC_F9)                  // Make project
 
-#define IDEA_R21     _______
-#define IDEA_R22     VIM_INTELLIJ_INSERT_SPACE_BELOW
-#define IDEA_R23     VIM_INTELLIJ_INSERT_SPACE_ABOVE
-#define IDEA_R24     LGUI(KC_F9)                  // Make project 
+#define IDEA_R21     LSFT(KC_F2)                  // [*] Previous highlighted error
+#define IDEA_R22     VIM_INTELLIJ_INSERT_SPACE_BELOW  // [*]
+#define IDEA_R23     VIM_INTELLIJ_INSERT_SPACE_ABOVE  // [*]
+#define IDEA_R24     KC_F2                        // [*] Next highlighted error
 #define IDEA_R25     LSFT(LGUI(KC_F9))            // Compile selected file
 
-#define IDEA_R31     _______
-#define IDEA_R32     _______
-#define IDEA_R33     _______
+#define IDEA_R31     LCTL(LSFT(KC_SPC))           // [*] Code complet
+#define IDEA_R32     LGUI(LSFT(KC_ENTER))         // [*] Statement complete
+#define IDEA_R33     LALT(KC_ENTER)               // [*] Show intention actions and quick-fixes
 
 
 
@@ -1141,34 +1151,34 @@ enum custom_keycodes {
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |      | Hist |Recent|      |      |  | Back |PgDown| PgUp | Fwd  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |HrdRld| Rld  |ClrDat|      |      |  | TabP |Vimium|      | TabN |      |
+ * |      |      |      |      |      |  | TabP |Vimium|      | TabN |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |DevTls|      |  |      |      |      |
+ *               |      |DevTls|HrdRld|  |      |      |      |
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define CHROME_L01     _______
+#define CHROME_L01     XXXXXXX
 #define CHROME_L02     LGUI(LALT(KC_F))         // [*] google search
 #define CHROME_L03     XXXXXXX
 #define CHROME_L04     LSFT(LGUI(KC_A))         // [*] search tabs
 #define CHROME_L05     LALT(LGUI(KC_B))         // [*] bookmarks
 
-#define CHROME_L11     _______
+#define CHROME_L11     XXXXXXX
 #define CHROME_L12     LGUI(KC_Y)               // [*] search history
 #define CHROME_L13     LGUI(LSFT(KC_T))         // [*] recents (actually last closed tab in this case)
-#define CHROME_L14     _______
-#define CHROME_L15     _______
+#define CHROME_L14     XXXXXXX
+#define CHROME_L15     XXXXXXX
 
-#define CHROME_L21     LGUI(LSFT(KC_R))         // hard reload
-#define CHROME_L22     LGUI(KC_R)               // reload
-#define CHROME_L23     LSFT(LGUI(KC_DEL))       // clear browsing data
+#define CHROME_L21     XXXXXXX
+#define CHROME_L22     XXXXXXX
+#define CHROME_L23     XXXXXXX
 #define CHROME_L24     XXXXXXX
 #define CHROME_L25     XXXXXXX
 
 #define CHROME_L33     XXXXXXX
 #define CHROME_L34     LALT(LGUI(KC_I))         // [*] not only but rather open devtools ...
-#define CHROME_L35     XXXXXXX
+#define CHROME_L35     LGUI(LSFT(KC_R))         // [x] hard reload
 
 // Right
 #define CHROME_R01     LGUI(LSFT(KC_N))
@@ -1178,20 +1188,20 @@ enum custom_keycodes {
 #define CHROME_R05     LGUI(KC_W)
 
 #define CHROME_R11     LGUI(KC_LEFT)            // [*] nav back
-#define CHROME_R12     KC_PGDOWN                // page down (no goto declaration)
-#define CHROME_R13     KC_PGUP                  // page up (no goto impl)
+#define CHROME_R12     KC_PGDOWN                // [o] page down (no goto declaration)
+#define CHROME_R13     KC_PGUP                  // [o] page up (no goto impl)
 #define CHROME_R14     LGUI(KC_RIGHT)           // [*] nav foward
 #define CHROME_R15     XXXXXXX
 
 #define CHROME_R21     LCTL(LSFT(KC_TAB))       // [*] prev tab
 #define CHROME_R22     KC_F                     // [*] vimium
-#define CHROME_R23     _______
+#define CHROME_R23     XXXXXXX
 #define CHROME_R24     LCTL(KC_TAB)             // [*] next tab
-#define CHROME_R25     _______
+#define CHROME_R25     XXXXXXX
 
-#define CHROME_R31     _______
-#define CHROME_R32     _______
-#define CHROME_R33     _______
+#define CHROME_R31     XXXXXXX
+#define CHROME_R32     XXXXXXX
+#define CHROME_R33     XXXXXXX
 
 
 
@@ -1211,10 +1221,10 @@ enum custom_keycodes {
 #define OTHER_L01     _______
 #define OTHER_L02     LGUI(LALT(KC_F))          // [*] search in all panel
 #define OTHER_L03     LGUI(KC_F)                // [*] search in panel
-#define OTHER_L04     LGUI(KC_O)               // [*] file search (add @ for methods or ! for snippets)
+#define OTHER_L04     LGUI(KC_O)                // [*] file search (add @ for methods or ! for snippets)
 #define OTHER_L05     _______
 
-#define OTHER_L11     LGUI(LSFT(KC_P))         // [*] run command
+#define OTHER_L11     LGUI(LSFT(KC_P))          // [*] run command
 #define OTHER_L12     _______
 #define OTHER_L13     _______
 #define OTHER_L14     _______
@@ -1227,11 +1237,11 @@ enum custom_keycodes {
 #define OTHER_L25     _______
 
 #define OTHER_L33     _______
-#define OTHER_L34     LGUI(LSFT(KC_M))        // toggle device
+#define OTHER_L34     LGUI(LSFT(KC_M))          // [o] toggle device
 #define OTHER_L35     _______
 
 // Right
-#define OTHER_R01     KC_A                    // profiling
+#define OTHER_R01     KC_A                      // profiling
 #define OTHER_R02     KC_S
 #define OTHER_R03     KC_W
 #define OTHER_R04     KC_D
@@ -1243,10 +1253,10 @@ enum custom_keycodes {
 #define OTHER_R14     _______
 #define OTHER_R15     _______
 
-#define OTHER_R21     LGUI(KC_LBRACKET)       // [*] devtools prev pane
+#define OTHER_R21     LGUI(KC_LBRACKET)         // [*] devtools prev pane
 #define OTHER_R22     _______
 #define OTHER_R23     _______
-#define OTHER_R24     LGUI(KC_RBRACKET)       // [*] devtools next pane
+#define OTHER_R24     LGUI(KC_RBRACKET)         // [*] devtools next pane
 #define OTHER_R25     _______
 
 #define OTHER_R31     _______

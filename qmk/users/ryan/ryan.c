@@ -73,9 +73,44 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":w"SS_TAP(X_ENTER));
       }
         break;
+    case VIM_WRITE_ALL:
+      if (record->event.pressed) {
+        SEND_STRING(":wa"SS_TAP(X_ENTER));
+      }
+        break;
     case VIM_WRITE_QUIT:
       if (record->event.pressed) {
         SEND_STRING(":wq"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_PREV_EDIT:
+      if (record->event.pressed) {
+        SEND_STRING("g;");
+      }
+        break;
+    case VIM_NEXT_EDIT:
+      if (record->event.pressed) {
+        SEND_STRING("g,");
+      }
+        break;
+    case VIM_PREV_BRACKET:
+      if (record->event.pressed) {
+        SEND_STRING("[{");
+      }
+        break;
+    case VIM_NEXT_BRACKET:
+      if (record->event.pressed) {
+        SEND_STRING("]}");
+      }
+        break;
+    case VIM_ALE_PREV:
+      if (record->event.pressed) {
+        SEND_STRING(":ALEPrevious"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_ALE_NEXT:
+      if (record->event.pressed) {
+        SEND_STRING(":ALENext"SS_TAP(X_ENTER));
       }
         break;
     case VIM_SELECT_ALL:
@@ -543,6 +578,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case TMUX_KILL_SESSION:
       if (record->event.pressed) {
         SEND_STRING(SS_LCTRL("b")":kill-session"SS_TAP(X_ENTER));
+      }
+        break;
+    case TMUX_HSPLIT:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("b")"|"SS_TAP(X_ENTER));
+      }
+        break;
+    case TMUX_VSPLIT:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("b")"-"SS_TAP(X_ENTER));
       }
         break;
     case TMUX_EVEN_HOR:

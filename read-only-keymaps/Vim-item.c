@@ -31,10 +31,10 @@
 
 #define VHNAV_L33     VIM_HELP                        // [*]
 #define VHNAV_L34     VIM_ONLY                        // [*]
-#define VHNAV_L35     _______
+#define VHNAV_L35     XXXXXXX
 
 // Right
-#define VHNAV_R01     _______
+#define VHNAV_R01     XXXXXXX
 #define VHNAV_R02     VIM_NERD_NEW                    // [*]
 #define VHNAV_R03     VIM_NERD_COPY                   // [*]
 #define VHNAV_R04     VIM_NERD_MOVE                   // [*]

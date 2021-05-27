@@ -4,7 +4,7 @@
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |FindAc|LocalC|Recent|ProjV | FnP  |  | Back | Decl | Impl | Fwd  |SupMC |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |TMnMx |StrctV|DebugV|GotoTe|      |  |NxtErr|FileHi|      |PrvErr|LstEdt|
+ * |TMnMx |StrctV|DebugV|GotoTe|      |  |      |FileHi|      |      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |LastTl|MaxMin| Term |  |Usages|CallHi|      |
  *               `--------------------'  `--------------------'
@@ -24,7 +24,7 @@
 #define INAV_L15     LALT(KC_F1)                  // [*] Select current file (or symbol) in any view
 
 #define INAV_L21     LSFT(LGUI(KC_QUOT))          // Toggle tool min/max
-#define INAV_L22     LGUI(KC_7)                   // [*] Project Structure View
+#define INAV_L22     LGUI(KC_7)                   // Project Structure View
 #define INAV_L23     LGUI(KC_5)                   // Debug View
 #define INAV_L24     LSFT(LGUI(KC_T))             // [*] Go to test
 #define INAV_L25     _______
@@ -46,11 +46,11 @@
 #define INAV_R14     LGUI(LALT(KC_RIGHT))         // [*] Navigate forward
 #define INAV_R15     LGUI(KC_U)                   // Go to super-method/super-class
 
-#define INAV_R21     KC_F2                        // Next highlighted error
+#define INAV_R21     _______
 #define INAV_R22     LGUI(KC_F12)                 // [*] File structure popup
 #define INAV_R23     _______
-#define INAV_R24     LSFT(KC_F2)                  // Previous highlighted error
-#define INAV_R25     LGUI(LSFT(KC_DEL))           // Go to last edit location
+#define INAV_R24     _______
+#define INAV_R25     _______
 
 #define INAV_R31     LALT(KC_F7)                  // [*] Find Usages
 #define INAV_R32     LCTL(LALT(KC_H))             // [*] Call hierarchy (usage analysis)
