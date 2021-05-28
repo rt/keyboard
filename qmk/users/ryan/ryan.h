@@ -842,11 +842,11 @@ enum custom_keycodes {
 
 /* Vim-editor
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|      |BLINES| TAGB |  |PREVBR|      |      |NEXTBR| VQUIT|
+ * |VWALL |VWRITE|      |BLINES| TAGB |  |      |NEXTBR|PREVBR|      | VQUIT|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |SELALL|      |      |      |      |  |PREVED|EX_BLW|EX_ABV|NEXTED|      |
+ * |SELALL|      |      |      |      |  |EX_ABV|NEXTED|PREVED|SP_ABV|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|DIFFTG| DIFF |VPASTE|  |PREVER|SP_BLW|SP_ABV|NEXTER|      |
+ * |VHSPLT|VVSPLT|DIFFTG| DIFF |VPASTE|  |EX_BLW|NEXTER|PREVER|SP_BLW|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |VWQUIT|      | SNIP |  |Compl |ComplX|      |
  *               `--------------------'  `--------------------'
@@ -876,22 +876,22 @@ enum custom_keycodes {
 #define VHOME_L35     VIM_SNIPPETS                    // [*] snipplets
 
 // Right
-#define VHOME_R01     VIM_PREV_BRACKET
-#define VHOME_R02     _______
-#define VHOME_R03     _______
-#define VHOME_R04     VIM_NEXT_BRACKET
+#define VHOME_R01     _______
+#define VHOME_R02     VIM_NEXT_BRACKET
+#define VHOME_R03     VIM_PREV_BRACKET
+#define VHOME_R04     _______
 #define VHOME_R05     VIM_QUIT                        // [*] quit editor
 
-#define VHOME_R11     VIM_PREV_EDIT                   // [*] prev edit
-#define VHOME_R12     VIM_EXCHANGE_LINE_BELOW         // [*]
-#define VHOME_R13     VIM_EXCHANGE_LINE_ABOVE         // [*]
-#define VHOME_R14     VIM_NEXT_EDIT                   // [*] next edit
+#define VHOME_R11     VIM_EXCHANGE_LINE_ABOVE         // [*]
+#define VHOME_R12     VIM_NEXT_EDIT                   // [*] next edit
+#define VHOME_R13     VIM_PREV_EDIT                   // [*] prev edit
+#define VHOME_R14     VIM_INSERT_SPACE_ABOVE          // [*]
 #define VHOME_R15     _______
 
-#define VHOME_R21     VIM_ALE_PREV                    // [*] prev error
-#define VHOME_R22     VIM_INSERT_SPACE_BELOW          // [*]
-#define VHOME_R23     VIM_INSERT_SPACE_ABOVE          // [*]
-#define VHOME_R24     VIM_ALE_NEXT                    // [*] next error
+#define VHOME_R21     VIM_EXCHANGE_LINE_BELOW         // [*]
+#define VHOME_R22     VIM_ALE_NEXT                    // [*] next error
+#define VHOME_R23     VIM_ALE_PREV                    // [*] prev error
+#define VHOME_R24     VIM_INSERT_SPACE_BELOW          // [*]
 #define VHOME_R25     _______
 
 #define VHOME_R31     LCTL(KC_N)                      // [*] word complete
@@ -928,7 +928,7 @@ enum custom_keycodes {
 #define GIT_L21     _______
 #define GIT_L22     _______
 #define GIT_L23     _______
-#define GIT_L24     VIM_DIFF_INDEX
+#define GIT_L24     VIM_DIFF_INDEX									// diff current file with index
 #define GIT_L25     _______
 
 #define GIT_L33     VIM_BROWSE
@@ -1026,9 +1026,9 @@ enum custom_keycodes {
  * ,----------------------------------.  ,----------------------------------.
  * |VWALL |VWRITE|      |ParamI|FileHi|  | Sel- |OverM |ImplM | Sel+ |VQUIT |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |  SA  |Rename|ChSig |ExtrtM|ExtrtV|  |PrvEdt|  LD  |  LU  |NxtEdt|CmpPrj|
+ * |  SA  |Rename|ChSig |ExtrtM|ExtrtV|  |  LU  |NxtEdt|PrvEdt|  SU  |CmpPrj|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|      |      |VPASTE|  |PrvErr|  SD  |  SU  |NxtErr|CmpFi |
+ * |VHSPLT|VVSPLT|      |      |VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |CmpFi |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |GenCd |LiveT |  |CodeCm|StatCm|Suggst|
  *               `--------------------'  `--------------------'
@@ -1064,16 +1064,16 @@ enum custom_keycodes {
 #define IDEA_R04     LALT(KC_UP)                    // Extend selection (similar idea to editor but uses selection)
 #define IDEA_R05     VIM_QUIT                       // [*]
 
-#define IDEA_R11     LGUI(LSFT(KC_DEL))             // [*] prev edit location
-#define IDEA_R12     LALT(LSFT(KC_DOWN))            // [*] Move line down
-#define IDEA_R13     LALT(LSFT(KC_UP))              // [*] Move line up
-#define IDEA_R14     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
+#define IDEA_R11     LALT(LSFT(KC_UP))              // [*] Move line up
+#define IDEA_R12     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
+#define IDEA_R13     LGUI(LSFT(KC_DEL))             // [*] prev edit location
+#define IDEA_R14     VIM_INTELLIJ_INSERT_SPACE_ABOVE// [*] space above
 #define IDEA_R15     LGUI(KC_F9)                    // Make project
 
-#define IDEA_R21     LSFT(KC_F2)                    // [*] Previous highlighted error
-#define IDEA_R22     VIM_INTELLIJ_INSERT_SPACE_BELOW// [*]
-#define IDEA_R23     VIM_INTELLIJ_INSERT_SPACE_ABOVE// [*]
-#define IDEA_R24     KC_F2                          // [*] Next highlighted error
+#define IDEA_R21     LALT(LSFT(KC_DOWN))            // [*] Move line down
+#define IDEA_R22     KC_F2                          // [*] Next highlighted error
+#define IDEA_R23     LSFT(KC_F2)                    // [*] Previous highlighted error
+#define IDEA_R24     VIM_INTELLIJ_INSERT_SPACE_BELOW// [*] space below
 #define IDEA_R25     LSFT(LGUI(KC_F9))              // Compile selected file
 
 #define IDEA_R31     LCTL(LSFT(KC_SPC))             // [*] Code complet
