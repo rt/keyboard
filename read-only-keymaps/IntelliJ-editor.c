@@ -4,9 +4,9 @@
  * ,----------------------------------.  ,----------------------------------.
  * |VWALL |VWRITE|      |ParamI|FileHi|  | Sel- |OverM |ImplM | Sel+ |VQUIT |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |  SA  |Rename|ChSig |ExtrtM|ExtrtV|  |PrvEdt|  LD  |  LU  |NxtEdt|CmpPrj|
+ * |  SA  |Rename|ChSig |ExtrtM|ExtrtV|  |  LU  |NxtEdt|PrvEdt|  SU  |CmpPrj|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|      |      |VPASTE|  |PrvErr|  SD  |  SU  |NxtErr|CmpFi |
+ * |VHSPLT|VVSPLT|      |      |VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |CmpFi |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |GenCd |LiveT |  |CodeCm|StatCm|Suggst|
  *               `--------------------'  `--------------------'
@@ -42,16 +42,16 @@
 #define IDEA_R04     LALT(KC_UP)                    // Extend selection (similar idea to editor but uses selection)
 #define IDEA_R05     VIM_QUIT                       // [*]
 
-#define IDEA_R11     LGUI(LSFT(KC_DEL))             // [*] prev edit location
-#define IDEA_R12     LALT(LSFT(KC_DOWN))            // [*] Move line down
-#define IDEA_R13     LALT(LSFT(KC_UP))              // [*] Move line up
-#define IDEA_R14     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
+#define IDEA_R11     LALT(LSFT(KC_UP))              // [*] Move line up
+#define IDEA_R12     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
+#define IDEA_R13     LGUI(LSFT(KC_DEL))             // [*] prev edit location
+#define IDEA_R14     VIM_INTELLIJ_INSERT_SPACE_ABOVE// [*] space above
 #define IDEA_R15     LGUI(KC_F9)                    // Make project
 
-#define IDEA_R21     LSFT(KC_F2)                    // [*] Previous highlighted error
-#define IDEA_R22     VIM_INTELLIJ_INSERT_SPACE_BELOW// [*]
-#define IDEA_R23     VIM_INTELLIJ_INSERT_SPACE_ABOVE// [*]
-#define IDEA_R24     KC_F2                          // [*] Next highlighted error
+#define IDEA_R21     LALT(LSFT(KC_DOWN))            // [*] Move line down
+#define IDEA_R22     KC_F2                          // [*] Next highlighted error
+#define IDEA_R23     LSFT(KC_F2)                    // [*] Previous highlighted error
+#define IDEA_R24     VIM_INTELLIJ_INSERT_SPACE_BELOW// [*] space below
 #define IDEA_R25     LSFT(LGUI(KC_F9))              // Compile selected file
 
 #define IDEA_R31     LCTL(LSFT(KC_SPC))             // [*] Code complet

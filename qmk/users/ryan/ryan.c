@@ -204,9 +204,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":Commits"SS_TAP(X_ENTER));
       }
         break;
-    case VIM_BROWSE:
+    case VIM_GIT_BROWSE:
       if (record->event.pressed) {
         SEND_STRING(":'<,'>GBrowse"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_GIT_PUSH:
+      if (record->event.pressed) {
+        SEND_STRING(":Git push"SS_TAP(X_ENTER));
       }
         break;
     case VIM_HUNK_NEXT:
@@ -332,17 +337,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     case VIM_DIFF_IT:
       if (record->event.pressed) {
-        SEND_STRING("dv");
+        SEND_STRING("dvgg:GitGutterNextHunk"SS_TAP(X_ENTER));
       }
         break;
     case VIM_DIFF_PREV:
       if (record->event.pressed) {
-        SEND_STRING(SS_LCTRL("e")SS_TAP(X_UP)"dv");
+        SEND_STRING(SS_LCTRL("e")SS_TAP(X_UP)"dvgg:GitGutterNextHunk"SS_TAP(X_ENTER));
       }
         break;
     case VIM_DIFF_NEXT:
       if (record->event.pressed) {
-        SEND_STRING(SS_LCTRL("e")SS_TAP(X_DOWN)"dv");
+        SEND_STRING(SS_LCTRL("e")SS_TAP(X_DOWN)"dvgg:GitGutterNextHunk"SS_TAP(X_ENTER));
       }
         break;
     case VIM_BUFFER_PREV:

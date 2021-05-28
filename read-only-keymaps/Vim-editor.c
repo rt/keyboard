@@ -1,10 +1,10 @@
 /* Vim-editor
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|      |BLINES| TAGB |  |PREVBR|      |      |NEXTBR| VQUIT|
+ * |VWALL |VWRITE|      |BLINES| TAGB |  |      |NEXTBR|PREVBR|      | VQUIT|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |SELALL|      |      |      |      |  |PREVED|EX_BLW|EX_ABV|NEXTED|      |
+ * |SELALL|      |      |      |      |  |EX_ABV|NEXTED|PREVED|SP_ABV|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|DIFFTG| DIFF |VPASTE|  |PREVER|SP_BLW|SP_ABV|NEXTER|      |
+ * |VHSPLT|VVSPLT|DIFFTG| DIFF |VPASTE|  |EX_BLW|NEXTER|PREVER|SP_BLW|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |VWQUIT|      | SNIP |  |Compl |ComplX|      |
  *               `--------------------'  `--------------------'
@@ -34,22 +34,22 @@
 #define VHOME_L35     VIM_SNIPPETS                    // [*] snipplets
 
 // Right
-#define VHOME_R01     VIM_PREV_BRACKET
-#define VHOME_R02     _______
-#define VHOME_R03     _______
-#define VHOME_R04     VIM_NEXT_BRACKET
+#define VHOME_R01     _______
+#define VHOME_R02     VIM_NEXT_BRACKET
+#define VHOME_R03     VIM_PREV_BRACKET
+#define VHOME_R04     _______
 #define VHOME_R05     VIM_QUIT                        // [*] quit editor
 
-#define VHOME_R11     VIM_PREV_EDIT                   // [*] prev edit
-#define VHOME_R12     VIM_EXCHANGE_LINE_BELOW         // [*]
-#define VHOME_R13     VIM_EXCHANGE_LINE_ABOVE         // [*]
-#define VHOME_R14     VIM_NEXT_EDIT                   // [*] next edit
+#define VHOME_R11     VIM_EXCHANGE_LINE_ABOVE         // [*]
+#define VHOME_R12     VIM_NEXT_EDIT                   // [*] next edit
+#define VHOME_R13     VIM_PREV_EDIT                   // [*] prev edit
+#define VHOME_R14     VIM_INSERT_SPACE_ABOVE          // [*]
 #define VHOME_R15     _______
 
-#define VHOME_R21     VIM_ALE_PREV                    // [*] prev error
-#define VHOME_R22     VIM_INSERT_SPACE_BELOW          // [*]
-#define VHOME_R23     VIM_INSERT_SPACE_ABOVE          // [*]
-#define VHOME_R24     VIM_ALE_NEXT                    // [*] next error
+#define VHOME_R21     VIM_EXCHANGE_LINE_BELOW         // [*]
+#define VHOME_R22     VIM_ALE_NEXT                    // [*] next error
+#define VHOME_R23     VIM_ALE_PREV                    // [*] prev error
+#define VHOME_R24     VIM_INSERT_SPACE_BELOW          // [*]
 #define VHOME_R25     _______
 
 #define VHOME_R31     LCTL(KC_N)                      // [*] word complete

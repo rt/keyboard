@@ -57,7 +57,8 @@ enum custom_keycodes {
   VIM_HUNK_PREV,
   VIM_TARGET_BRANCH_HUNK,
   VIM_MERGE_BRANCH_HUNK,
-  VIM_BROWSE,
+  VIM_GIT_BROWSE,
+	VIM_GIT_PUSH,
   VIM_HELP,
   VIM_QUIT,
   VIM_WRITE,
@@ -908,7 +909,7 @@ enum custom_keycodes {
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |      |      |      |DIFFI |      |  |      |NEXTDF|PREVDF|      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |BROWSE|      |DIFFIT|  |LOGCFS|PKAXE |PKAXEC|
+ *               |BROWSE|GPUSH |DIFFIT|  |LOGCFS|PKAXE |PKAXEC|
  *               `--------------------'  `--------------------'
  */
 
@@ -931,8 +932,8 @@ enum custom_keycodes {
 #define GIT_L24     VIM_DIFF_INDEX									// diff current file with index
 #define GIT_L25     _______
 
-#define GIT_L33     VIM_BROWSE
-#define GIT_L34     _______
+#define GIT_L33     VIM_GIT_BROWSE									// browse selected are online
+#define GIT_L34     VIM_GIT_PUSH										// git push
 #define GIT_L35     VIM_DIFF_IT                     // "dv" from status to show diff
 
 // Right

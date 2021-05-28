@@ -6,7 +6,7 @@
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |      |      |      |DIFFI |      |  |      |NEXTDF|PREVDF|      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |BROWSE|      |DIFFIT|  |LOGCFS|PKAXE |PKAXEC|
+ *               |BROWSE|GPUSH |DIFFIT|  |LOGCFS|PKAXE |PKAXEC|
  *               `--------------------'  `--------------------'
  */
 
@@ -26,11 +26,11 @@
 #define GIT_L21     _______
 #define GIT_L22     _______
 #define GIT_L23     _______
-#define GIT_L24     VIM_DIFF_INDEX
+#define GIT_L24     VIM_DIFF_INDEX									// diff current file with index
 #define GIT_L25     _______
 
-#define GIT_L33     VIM_BROWSE
-#define GIT_L34     _______
+#define GIT_L33     VIM_GIT_BROWSE									// browse selected are online
+#define GIT_L34     VIM_GIT_PUSH										// git push
 #define GIT_L35     VIM_DIFF_IT                     // "dv" from status to show diff
 
 // Right
