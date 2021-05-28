@@ -4,7 +4,7 @@
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |SELALL|      |      |      |      |  |PREVED|EX_BLW|EX_ABV|NEXTED|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|      |VPASTE|      |  |PREVER|SP_BLW|SP_ABV|NEXTER|      |
+ * |VHSPLT|VVSPLT|DIFFTG| DIFF |VPASTE|  |PREVER|SP_BLW|SP_ABV|NEXTER|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |VWQUIT|      | SNIP |  |Compl |ComplX|      |
  *               `--------------------'  `--------------------'
@@ -25,9 +25,9 @@
 
 #define VHOME_L21     VIM_HSPLIT                      // [*] hor split
 #define VHOME_L22     VIM_VSPLIT                      // [*] vert split
-#define VHOME_L23     _______
-#define VHOME_L24     VIM_PASTE_LAST_YANK             // [*] Paste last yank (instead of last selection)
-#define VHOME_L25     _______
+#define VHOME_L23     VIM_DIFF_TOGGLE
+#define VHOME_L24     VIM_DIFF_ON                     // for some reason toggle doesn't work until this is done once
+#define VHOME_L25     VIM_PASTE_LAST_YANK             // [*] Paste last yank (instead of last selection)
 
 #define VHOME_L33     VIM_WRITE_QUIT                  // write quit editor
 #define VHOME_L34     _______

@@ -153,11 +153,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":Git blame"SS_TAP(X_ENTER));
       }
         break;
-    case VIM_EDIT_ANY:
-      if (record->event.pressed) {
-        SEND_STRING(":Gedit ");
-      }
-        break;
     case VIM_MERGETOOL:
       if (record->event.pressed) {
         SEND_STRING(":Git mergetool"SS_TAP(X_ENTER));
@@ -174,24 +169,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":Help"SS_TAP(X_ENTER));
       }
         break;
-    case VIM_DIFF_ANY:
-      if (record->event.pressed) {
-        SEND_STRING(":Gvdiffsplit ");
-      }
-        break;
     case VIM_DIFF_INDEX:
       if (record->event.pressed) {
         SEND_STRING(":Gvdiffsplit"SS_TAP(X_ENTER));
       }
         break;
-    case VIM_DIFF_MASTER:
+    case VIM_EDIT_ANY:
       if (record->event.pressed) {
-        SEND_STRING(":Gvdiffsplit master:%"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_GIT_MASTER_FILE:
-      if (record->event.pressed) {
-        SEND_STRING(":Gedit master:%"SS_TAP(X_ENTER));
+        SEND_STRING(":Gedit master:%");
       }
         break;
     case VIM_LOG_CURRENT_FILE_SELECTION:
@@ -237,6 +222,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIM_HUNK_UNDO:
       if (record->event.pressed) {
         SEND_STRING(":GitGutterUndoHunk"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_TARGET_BRANCH_HUNK:
+      if (record->event.pressed) {
+        SEND_STRING(":diffget //2 | diffup"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_MERGE_BRANCH_HUNK:
+      if (record->event.pressed) {
+        SEND_STRING(":diffget //3 | diffup"SS_TAP(X_ENTER));
       }
         break;
     case VIM_PICK_AXE:
@@ -325,9 +320,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("[ ");
       }
         break;
+    case VIM_DIFF_ON:
+      if (record->event.pressed) {
+        SEND_STRING(":windo diffthis"SS_TAP(X_ENTER));
+      }
+        break;
     case VIM_DIFF_TOGGLE:
       if (record->event.pressed) {
-        SEND_STRING("=od");
+        SEND_STRING("yod");
+      }
+        break;
+    case VIM_DIFF_IT:
+      if (record->event.pressed) {
+        SEND_STRING("dv");
+      }
+        break;
+    case VIM_DIFF_PREV:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("e")SS_TAP(X_UP)"dv");
+      }
+        break;
+    case VIM_DIFF_NEXT:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("e")SS_TAP(X_DOWN)"dv");
       }
         break;
     case VIM_BUFFER_PREV:

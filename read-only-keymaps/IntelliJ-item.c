@@ -13,7 +13,7 @@
 // Left
 #define INAV_L01     LALT(KC_HOME)                // Show navigation bar
 #define INAV_L02     LSFT(LGUI(KC_F))             // [*] Search project
-#define INAV_L03     LCTL(KC_CIRC)                  // [*] prev file
+#define INAV_L03     LCTL(KC_CIRC)                // [*] prev file
 #define INAV_L04     LGUI(LSFT(KC_O))             // [*] Go to file
 #define INAV_L05     LGUI(KC_F3)                  // [*] Marks
 
