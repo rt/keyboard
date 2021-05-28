@@ -1,10 +1,10 @@
 /* IntelliJ-item
  * ,----------------------------------.  ,----------------------------------.
- * |NavBar|FindP |FindC |FindF |Marks |  |Scrtch| New  | Copy | Move |Delete|
+ * |NavBar|FindP |VPRVFI|FindF |Marks |  |Scrtch| New  | Copy | Move |Delete|
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |FindAc|LocalC|Recent|ProjV | FnP  |  | Back | Decl | Impl | Fwd  |SupMC |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |TMnMx |StrctV|DebugV|GotoTe|      |  |      |FileHi|      |      |      |
+ * |TMnMx |StrctV|DebugV|GotoTe|      |  |      |      |      |      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |LastTl|MaxMin| Term |  |Usages|CallHi|      |
  *               `--------------------'  `--------------------'
@@ -13,7 +13,7 @@
 // Left
 #define INAV_L01     LALT(KC_HOME)                // Show navigation bar
 #define INAV_L02     LSFT(LGUI(KC_F))             // [*] Search project
-#define INAV_L03     LGUI(KC_O)                   // Go to class (could get this key back by just using "Go to file" then tabbing)
+#define INAV_L03     LCTL(KC_CIRC)                  // [*] prev file
 #define INAV_L04     LGUI(LSFT(KC_O))             // [*] Go to file
 #define INAV_L05     LGUI(KC_F3)                  // [*] Marks
 
@@ -47,7 +47,7 @@
 #define INAV_R15     LGUI(KC_U)                   // Go to super-method/super-class
 
 #define INAV_R21     _______
-#define INAV_R22     LGUI(KC_F12)                 // [*] File structure popup
+#define INAV_R22     _______
 #define INAV_R23     _______
 #define INAV_R24     _______
 #define INAV_R25     _______

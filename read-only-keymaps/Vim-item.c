@@ -1,10 +1,10 @@
 /* Vim-item
  * ,----------------------------------.  ,----------------------------------.
- * |  ?   | FINDP|FILES |GFILES| MARKS|  |      | New  | Copy | Move | Del  |
+ * |  ?   | FINDP|VPRVFI|GFILES| MARKS|  |      | New  | Copy | Move | Del  |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |COMNDS| Gundo| REC  | PROJV| FNP  |  | B-P  | DECL | IMPL | B-N  |TAGSEL|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |STYLE | DIGC |BACKC | TEST | TEMP |  |CDROOT| TAGB |BLINES| CDCF |      |
+ * |STYLE | DIGC |BACKC | TEST | TEMP |  | A-F  | A-N  | A-P  | A-L  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               | HELP | ONLY |      |  |USAGEW|USAGEF|USAGCF|
  *               `--------------------'  `--------------------'
@@ -13,7 +13,7 @@
 // Left
 #define VHNAV_L01     VIM_GET_IMPL_CURSOR_WORD        // Find files named like cword (double check what this does ???)
 #define VHNAV_L02     VIM_FIND_INPATH                 // [*] Find <keyword> in current directory
-#define VHNAV_L03     VIM_FIND_FILE
+#define VHNAV_L03     LCTL(KC_CIRC)                   // [*] prev file
 #define VHNAV_L04     VIM_FIND_GFILE                  // [*] Find file in git 
 #define VHNAV_L05     VIM_MARKS                       // [*]
 
@@ -46,10 +46,10 @@
 #define VHNAV_R14     VIM_BUFFER_NEXT                 // [*] Next buffer
 #define VHNAV_R15     VIM_CTAGS_SEL                   // [*] Pick selection when multiple options
 
-#define VHNAV_R21     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
-#define VHNAV_R22     VIM_TAGBAR_OPEN_AUTOCLOSE       // [*] tags for file, good for large files
-#define VHNAV_R23     VIM_BLINES                      // [*] search buffer lines
-#define VHNAV_R24     VIM_DIR_CURRENT_FILE            // change dir to current file dir (this more properly would be tab right)
+#define VHNAV_R21     VIM_ARGS_FIRST
+#define VHNAV_R22     VIM_ARGS_NEXT
+#define VHNAV_R23     VIM_ARGS_PREV
+#define VHNAV_R24     VIM_ARGS_LAST
 #define VHNAV_R25     _______
 
 #define VHNAV_R31     VIM_USAGES_CWORD                // [*] Search for cword in current scope

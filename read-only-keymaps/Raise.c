@@ -1,11 +1,11 @@
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * |QkRef |KEYMPS|MYSNIP|WORK  |      |  | C-F  | C-N  | C-P  | C-L  |       |
+ * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |CDROOT| CDCF |      |      |       |
  * |------+------+------+------+-------  -------+------+------+------+-------|
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  | A-F  | A-N  | A-P  | A-L  |       |
+ * |  F1  |  F2  |  F3  |  F4  |  F5  |  |      |      |      |      |       |
  * |------+------+------+------+------|  |------+------+------+------+-------|
- * |  F6  |  F7  |  F8  |  F9  |  F10 |  | Q-F  | Q-N  | Q-P  | Q-L  |       | 
+ * |  F6  |  F7  |  F8  |  F9  |  F10 |  |      |      |      |      |       | 
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      | Tab  |GuiBk |  |      |      |      |
  *               `--------------------'  `--------------------'
@@ -35,22 +35,22 @@
 #define RAIS_L35     LGUI(KC_BSPC)
 
 // Right
-#define RAIS_R01     VIM_CHANGE_FIRST
-#define RAIS_R02     VIM_CHANGE_NEXT
-#define RAIS_R03     VIM_CHANGE_PREV
-#define RAIS_R04     VIM_CHANGE_LAST
+#define RAIS_R01     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
+#define RAIS_R02     VIM_DIR_CURRENT_FILE            // change dir to current file dir (this more properly would be tab right)
+#define RAIS_R03     _______
+#define RAIS_R04     _______
 #define RAIS_R05     _______
                                     
-#define RAIS_R11     VIM_ARGS_FIRST
-#define RAIS_R12     VIM_ARGS_NEXT
-#define RAIS_R13     VIM_ARGS_PREV
-#define RAIS_R14     VIM_ARGS_LAST
+#define RAIS_R11     _______
+#define RAIS_R12     _______
+#define RAIS_R13     _______
+#define RAIS_R14     _______
 #define RAIS_R15     KC_F11
                                     
-#define RAIS_R21     VIM_QUICK_FIRST
-#define RAIS_R22     VIM_QUICK_NEXT
-#define RAIS_R23     VIM_QUICK_PREV
-#define RAIS_R24     VIM_QUICK_LAST
+#define RAIS_R21     _______
+#define RAIS_R22     _______
+#define RAIS_R23     _______
+#define RAIS_R24     _______
 #define RAIS_R25     KC_F12
 
 #define RAIS_R31     XXXXXXX

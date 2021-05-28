@@ -82,7 +82,6 @@ enum custom_keycodes {
   VIM_DIFF_MASTER,
   VIM_GIT_COMMITS,
   VIM_GIT_MASTER_FILE,
-  VIM_EDIT_INDEX_TOGGLE,
   VIM_GIT_STATUS,
   VIM_GIT_BLAME,
   VIM_GIT_GREP,
@@ -97,7 +96,6 @@ enum custom_keycodes {
   VIM_TAGBAR_OPEN_AUTOCLOSE,
   VIM_BLINES,
   VIM_FIND_INPATH,
-  VIM_FIND_FILE,
   VIM_FIND_GFILE,
   VIM_MARKS,
   VIM_COMMANDS,
@@ -116,10 +114,6 @@ enum custom_keycodes {
 	VIM_QUICK_NEXT,
 	VIM_QUICK_PREV,
 	VIM_QUICK_LAST,
-  VIM_CHANGE_FIRST,
-  VIM_CHANGE_PREV,
-  VIM_CHANGE_NEXT,
-  VIM_CHANGE_LAST,
   VIM_DISPATCH_NPM,
   VIM_SHOW_QUICK_REF,
   VIM_SHOW_KEYMAPS,
@@ -177,7 +171,7 @@ enum custom_keycodes {
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |  AC  |  HI  |  RI  |  PS  | FnP  |  |  PI  | Decl | Impl |  NI  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * | AF1  | AF2  | AF3  | AF4  | AF5  |  |  PT  | IE1  | IE2  |  NT  |      |
+ * | AF1  | AF2  | AF3  | AF4  | AF5  |  |  PT  |      |      |  NT  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               | Help |  CL  |      |  |  U1  |  U2  |  U3  |
  *               `--------------------'  `--------------------'
@@ -220,8 +214,8 @@ enum custom_keycodes {
 // R15     _______
 //
 // R21     Nav prev
-// R22     Item Explorer 1 (Tagbar, BTags, BLines)
-// R23     Item Explorer 2
+// R22     _______
+// R23     _______
 // R24     Nav next
 // R25     _______
 //
@@ -235,11 +229,11 @@ enum custom_keycodes {
  * Layers: Vim-editor, IntelliJ-editor
  * Most edtiing is in vim or with a vim plugin so will often use Vim-editor keymaps or vim itself.
  * ,----------------------------------.  ,----------------------------------.
- * |  WA  |  WR  |  PF  | PLY  |      |  |  PB  |      |      |  NB  |      |
+ * |  WA  |  WR  |  PF  | IE1  | IE2  |  |  PB  |      |      |  NB  |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |  SA  |      |      |      |      |  |  PE  |  LD  |  LU  |  NE  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |  HS  |  VS  |      |      |      |  | PEr  |  SD  |  SU  | NEr  |      |
+ * |  HS  |  VS  |      | PLY  |      |  | PEr  |  SD  |  SU  | NEr  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |  G3  |  G2  |  G1  |  |  C1  |  C2  |  C3  |
  *               `--------------------'  `--------------------'
@@ -270,8 +264,8 @@ enum custom_keycodes {
 
 // Right
 // R01     Previous Bracket
-// R02     _______
-// R03     _______
+// R02     Item Explorer 2
+// R03     Item Explorer 1 (Tagbar, BTags, BLines)
 // R04     Next Bracket
 // R05     _______
 //
@@ -602,11 +596,11 @@ enum custom_keycodes {
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * |QkRef |KEYMPS|MYSNIP|WORK  |      |  | C-F  | C-N  | C-P  | C-L  |       |
+ * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |CDROOT| CDCF |      |      |       |
  * |------+------+------+------+-------  -------+------+------+------+-------|
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  | A-F  | A-N  | A-P  | A-L  |       |
+ * |  F1  |  F2  |  F3  |  F4  |  F5  |  |      |      |      |      |       |
  * |------+------+------+------+------|  |------+------+------+------+-------|
- * |  F6  |  F7  |  F8  |  F9  |  F10 |  | Q-F  | Q-N  | Q-P  | Q-L  |       | 
+ * |  F6  |  F7  |  F8  |  F9  |  F10 |  |      |      |      |      |       | 
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      | Tab  |GuiBk |  |      |      |      |
  *               `--------------------'  `--------------------'
@@ -636,22 +630,22 @@ enum custom_keycodes {
 #define RAIS_L35     LGUI(KC_BSPC)
 
 // Right
-#define RAIS_R01     VIM_CHANGE_FIRST
-#define RAIS_R02     VIM_CHANGE_NEXT
-#define RAIS_R03     VIM_CHANGE_PREV
-#define RAIS_R04     VIM_CHANGE_LAST
+#define RAIS_R01     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
+#define RAIS_R02     VIM_DIR_CURRENT_FILE            // change dir to current file dir (this more properly would be tab right)
+#define RAIS_R03     _______
+#define RAIS_R04     _______
 #define RAIS_R05     _______
                                     
-#define RAIS_R11     VIM_ARGS_FIRST
-#define RAIS_R12     VIM_ARGS_NEXT
-#define RAIS_R13     VIM_ARGS_PREV
-#define RAIS_R14     VIM_ARGS_LAST
+#define RAIS_R11     _______
+#define RAIS_R12     _______
+#define RAIS_R13     _______
+#define RAIS_R14     _______
 #define RAIS_R15     KC_F11
                                     
-#define RAIS_R21     VIM_QUICK_FIRST
-#define RAIS_R22     VIM_QUICK_NEXT
-#define RAIS_R23     VIM_QUICK_PREV
-#define RAIS_R24     VIM_QUICK_LAST
+#define RAIS_R21     _______
+#define RAIS_R22     _______
+#define RAIS_R23     _______
+#define RAIS_R24     _______
 #define RAIS_R25     KC_F12
 
 #define RAIS_R31     XXXXXXX
@@ -785,11 +779,11 @@ enum custom_keycodes {
 
 /* Vim-item
  * ,----------------------------------.  ,----------------------------------.
- * |  ?   | FINDP|FILES |GFILES| MARKS|  |      | New  | Copy | Move | Del  |
+ * |  ?   | FINDP|VPRVFI|GFILES| MARKS|  |      | New  | Copy | Move | Del  |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |COMNDS| Gundo| REC  | PROJV| FNP  |  | B-P  | DECL | IMPL | B-N  |TAGSEL|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |STYLE | DIGC |BACKC | TEST | TEMP |  |CDROOT| TAGB |BLINES| CDCF |      |
+ * |STYLE | DIGC |BACKC | TEST | TEMP |  | A-F  | A-N  | A-P  | A-L  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               | HELP | ONLY |      |  |USAGEW|USAGEF|USAGCF|
  *               `--------------------'  `--------------------'
@@ -798,7 +792,7 @@ enum custom_keycodes {
 // Left
 #define VHNAV_L01     VIM_GET_IMPL_CURSOR_WORD        // Find files named like cword (double check what this does ???)
 #define VHNAV_L02     VIM_FIND_INPATH                 // [*] Find <keyword> in current directory
-#define VHNAV_L03     VIM_FIND_FILE
+#define VHNAV_L03     LCTL(KC_CIRC)                   // [*] prev file
 #define VHNAV_L04     VIM_FIND_GFILE                  // [*] Find file in git 
 #define VHNAV_L05     VIM_MARKS                       // [*]
 
@@ -831,10 +825,10 @@ enum custom_keycodes {
 #define VHNAV_R14     VIM_BUFFER_NEXT                 // [*] Next buffer
 #define VHNAV_R15     VIM_CTAGS_SEL                   // [*] Pick selection when multiple options
 
-#define VHNAV_R21     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
-#define VHNAV_R22     VIM_TAGBAR_OPEN_AUTOCLOSE       // [*] tags for file, good for large files
-#define VHNAV_R23     VIM_BLINES                      // [*] search buffer lines
-#define VHNAV_R24     VIM_DIR_CURRENT_FILE            // change dir to current file dir (this more properly would be tab right)
+#define VHNAV_R21     VIM_ARGS_FIRST
+#define VHNAV_R22     VIM_ARGS_NEXT
+#define VHNAV_R23     VIM_ARGS_PREV
+#define VHNAV_R24     VIM_ARGS_LAST
 #define VHNAV_R25     _______
 
 #define VHNAV_R31     VIM_USAGES_CWORD                // [*] Search for cword in current scope
@@ -845,11 +839,11 @@ enum custom_keycodes {
 
 /* Vim-editor
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|VPRVFI|VPASTE|      |  |PREVBR|      |      |NEXTBR| VQUIT|
+ * |VWALL |VWRITE|      |BLINES| TAGB |  |PREVBR|      |      |NEXTBR| VQUIT|
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |SELALL|      |      |      |      |  |PREVED|EX_BLW|EX_ABV|NEXTED|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|      |      |DIFFTG|  |PREVER|SP_BLW|SP_ABV|NEXTER|      |
+ * |VHSPLT|VVSPLT|      |VPASTE|      |  |PREVER|SP_BLW|SP_ABV|NEXTER|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |VWQUIT|      | SNIP |  |Compl |ComplX|      |
  *               `--------------------'  `--------------------'
@@ -858,11 +852,11 @@ enum custom_keycodes {
 // Left
 #define VHOME_L01     VIM_WRITE_ALL                   // [*] write quit editor
 #define VHOME_L02     VIM_WRITE                       // [*] write
-#define VHOME_L03     LCTL(KC_CIRC)                   // [*] prev file
-#define VHOME_L04     VIM_PASTE_LAST_YANK             // [*] Paste last yank (instead of last selection)
-#define VHOME_L05     _______
+#define VHOME_L03     _______
+#define VHOME_L04     VIM_BLINES                      // [*] search buffer lines
+#define VHOME_L05     VIM_TAGBAR_OPEN_AUTOCLOSE       // [*] tags for file, good for large files
 
-#define VHOME_L11     VIM_SELECT_ALL
+#define VHOME_L11     VIM_SELECT_ALL                  // [*]
 #define VHOME_L12     _______
 #define VHOME_L13     _______
 #define VHOME_L14     _______
@@ -871,8 +865,8 @@ enum custom_keycodes {
 #define VHOME_L21     VIM_HSPLIT                      // [*] hor split
 #define VHOME_L22     VIM_VSPLIT                      // [*] vert split
 #define VHOME_L23     _______
-#define VHOME_L24     _______
-#define VHOME_L25     VIM_DIFF_TOGGLE
+#define VHOME_L24     VIM_PASTE_LAST_YANK             // [*] Paste last yank (instead of last selection)
+#define VHOME_L25     _______
 
 #define VHOME_L33     VIM_WRITE_QUIT                  // write quit editor
 #define VHOME_L34     _______
@@ -905,71 +899,71 @@ enum custom_keycodes {
 
 /* Vim-git
  * ,----------------------------------.  ,----------------------------------.
- * |LOGREL| GREP |      |CMMITS|      |  |MERGET|DIFFT |BROWSE|      |PKAXEC|
+ * |LOGREL| GREP |MERGET|CMMITS|DIFFT |  |      |      |      |      |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * | EDIT |EDITIT|STATUS|GMASTF|BLAME |  |HUNKU |HUNKN |HUNKP |      |PKAXE |
+ * | EDIT |LOGCF |STATUS|GMASTF|BLAME |  |HUNKU |HUNKN |HUNKP |      |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * | DIFF |      |DIFFI |DIFFM |      |  |LOGREL|      |LOGCFS|LOGCF |LOGCFD|
+ * | DIFF |LOGCFD|DIFFI |DIFFM |DIFFTG|  | Q-F  | Q-N  | Q-P  | Q-L  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |      |      |  |      |      |      |
+ *               |BROWSE|      |      |  |PKAXE |PKAXEC|LOGCFS|
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define GIT_L01     VIM_LOG_RELEASE               // git log for a period of time
-#define GIT_L02     VIM_GIT_GREP                  // [*] Grep in any branch
-#define GIT_L03     _______
+#define GIT_L01     VIM_LOG_RELEASE                 // git log for a period of time
+#define GIT_L02     VIM_GIT_GREP                    // [*] Grep in any branch
+#define GIT_L03     VIM_MERGETOOL                   // go through conflicts
 #define GIT_L04     VIM_GIT_COMMITS                 // [*] view recent (all) commits
-#define GIT_L05     _______
+#define GIT_L05     VIM_DIFFTOOL                    // go through all changes in commit (CR)
 
-#define GIT_L11     VIM_EDIT_ANY                  // check any blob
-#define GIT_L12     VIM_EDIT_INDEX_TOGGLE
-#define GIT_L13     VIM_GIT_STATUS                // [*] git status of commit
+#define GIT_L11     VIM_EDIT_ANY                    // check any blob
+#define GIT_L12     VIM_LOG_CURRENT_FILE            // [*] list of commits that touched current file
+#define GIT_L13     VIM_GIT_STATUS                  // [*] git status of commit
 #define GIT_L14     VIM_GIT_MASTER_FILE
 #define GIT_L15     VIM_GIT_BLAME
 
-#define GIT_L21     VIM_DIFF_ANY                  // diff file with somewhere else
-#define GIT_L22     _______
+#define GIT_L21     VIM_DIFF_ANY                    // diff file with somewhere else
+#define GIT_L22     VIM_LOG_CURRENT_FILE_DETAILS    // [*] list of history of this file
 #define GIT_L23     VIM_DIFF_INDEX
 #define GIT_L24     VIM_DIFF_MASTER
-#define GIT_L25     _______
+#define GIT_L25     VIM_DIFF_TOGGLE
 
-#define GIT_L33     _______
+#define GIT_L33     VIM_BROWSE
 #define GIT_L34     _______
 #define GIT_L35     _______
 
 // Right
-#define GIT_R01     VIM_MERGETOOL                 // go through conflicts
-#define GIT_R02     VIM_DIFFTOOL                  // go through all changes in commit (CR)
-#define GIT_R03     VIM_BROWSE
-#define GIT_R04     VIM_PICK_AXE_CURRENT_FILE
+#define GIT_R01     _______
+#define GIT_R02     _______
+#define GIT_R03     _______
+#define GIT_R04     _______
 #define GIT_R05     _______
 
 #define GIT_R11     VIM_HUNK_UNDO
 #define GIT_R12     VIM_HUNK_NEXT
 #define GIT_R13     VIM_HUNK_PREV
 #define GIT_R14     _______
-#define GIT_R15     VIM_PICK_AXE
+#define GIT_R15     _______
 
-#define GIT_R21     _______
-#define GIT_R22     _______
-#define GIT_R23     VIM_LOG_CURRENT_FILE_SELECTION
-#define GIT_R24     VIM_LOG_CURRENT_FILE
-#define GIT_R25     VIM_LOG_CURRENT_FILE_DETAILS
+#define GIT_R21     VIM_QUICK_FIRST
+#define GIT_R22     VIM_QUICK_NEXT
+#define GIT_R23     VIM_QUICK_PREV
+#define GIT_R24     VIM_QUICK_LAST
+#define GIT_R25     _______
 
-#define GIT_R31     _______
-#define GIT_R32     _______
-#define GIT_R33     _______
+#define GIT_R31     VIM_PICK_AXE                    // [*] list of commits that introduced symbol
+#define GIT_R32     VIM_PICK_AXE_CURRENT_FILE       // [*] list of commits that introduced symbol to this file
+#define GIT_R33     VIM_LOG_CURRENT_FILE_SELECTION  // [*] list of this file that touch the selected area
 
 
 
 /* IntelliJ-item
  * ,----------------------------------.  ,----------------------------------.
- * |NavBar|FindP |FindC |FindF |Marks |  |Scrtch| New  | Copy | Move |Delete|
+ * |NavBar|FindP |VPRVFI|FindF |Marks |  |Scrtch| New  | Copy | Move |Delete|
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |FindAc|LocalC|Recent|ProjV | FnP  |  | Back | Decl | Impl | Fwd  |SupMC |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |TMnMx |StrctV|DebugV|GotoTe|      |  |      |FileHi|      |      |      |
+ * |TMnMx |StrctV|DebugV|GotoTe|      |  |      |      |      |      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |LastTl|MaxMin| Term |  |Usages|CallHi|      |
  *               `--------------------'  `--------------------'
@@ -978,7 +972,7 @@ enum custom_keycodes {
 // Left
 #define INAV_L01     LALT(KC_HOME)                // Show navigation bar
 #define INAV_L02     LSFT(LGUI(KC_F))             // [*] Search project
-#define INAV_L03     LGUI(KC_O)                   // Go to class (could get this key back by just using "Go to file" then tabbing)
+#define INAV_L03     LCTL(KC_CIRC)                  // [*] prev file
 #define INAV_L04     LGUI(LSFT(KC_O))             // [*] Go to file
 #define INAV_L05     LGUI(KC_F3)                  // [*] Marks
 
@@ -1012,7 +1006,7 @@ enum custom_keycodes {
 #define INAV_R15     LGUI(KC_U)                   // Go to super-method/super-class
 
 #define INAV_R21     _______
-#define INAV_R22     LGUI(KC_F12)                 // [*] File structure popup
+#define INAV_R22     _______
 #define INAV_R23     _______
 #define INAV_R24     _______
 #define INAV_R25     _______
@@ -1027,61 +1021,61 @@ enum custom_keycodes {
  * IdeaVim is used so many vim key cuts can also be used without having them here
  * IdeaVim plugin emulation (surround, exchange, commentary) : Use vim shortcuts
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|VPRVFI|VPASTE|      |  | Sel- |      |      | Sel+ |      |
+ * |VWALL |VWRITE|      |ImplM |FileHi|  | Sel- |      |      | Sel+ |VQUIT |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |  SA  |Rename|ChSig |ExtrtM|ExtrtV|  |PrvEdt|  LD  |  LU  |NxtEdt|CmpPrj|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|OverM |ImplM |ParamI|  |PrvErr|  SD  |  SU  |NxtErr|CmpFi |
+ * |VHSPLT|VVSPLT|OverM |VPASTE|ParamI|  |PrvErr|  SD  |  SU  |NxtErr|CmpFi |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |GenCd |LiveT |  |CodeCm|StatCm|Suggst|
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define IDEA_L01     VIM_WRITE_ALL                   // [*] write quit editor
-#define IDEA_L02     VIM_WRITE                       // [*] write
-#define IDEA_L03     LCTL(KC_CIRC)                   // [*] prev file
-#define IDEA_L04     VIM_PASTE_LAST_YANK             // [*] Paste last yank (instead of last selection)
-#define IDEA_L05     _______
+#define IDEA_L01     VIM_WRITE_ALL                  // [*] write quit editor
+#define IDEA_L02     VIM_WRITE                      // [*] write
+#define IDEA_L03     _______
+#define IDEA_L04     LCTL(KC_I)                     // Implement methods
+#define IDEA_L05     LGUI(KC_F12)                   // [*] File structure popup
 
-#define IDEA_L11     LGUI(KC_A)                   // [*] select all
-#define IDEA_L12     LSFT(KC_F6)                  // Rename
-#define IDEA_L13     LGUI(KC_F6)                  // Change signature
-#define IDEA_L14     LGUI(LALT(KC_M))             // Extract method
-#define IDEA_L15     LGUI(LALT(KC_V))             // Extract variable
+#define IDEA_L11     LGUI(KC_A)                     // [*] select all
+#define IDEA_L12     LSFT(KC_F6)                    // Rename
+#define IDEA_L13     LGUI(KC_F6)                    // Change signature
+#define IDEA_L14     LGUI(LALT(KC_M))               // Extract method
+#define IDEA_L15     LGUI(LALT(KC_V))               // Extract variable
 
-#define IDEA_L21     VIM_HSPLIT                      // [*] hor split
-#define IDEA_L22     VIM_VSPLIT                      // [*] vert split
-#define IDEA_L23     LCTL(KC_O)                   // Override methods
-#define IDEA_L24     LCTL(KC_I)                   // Implement methods
-#define IDEA_L25     LGUI(KC_P)                   // Get param infor
+#define IDEA_L21     VIM_HSPLIT                     // [*] hor split
+#define IDEA_L22     VIM_VSPLIT                     // [*] vert split
+#define IDEA_L23     LCTL(KC_O)                     // Override methods
+#define IDEA_L24     VIM_PASTE_LAST_YANK            // [*] Paste last yank (instead of last selection)
+#define IDEA_L25     LGUI(KC_P)                     // Get param infor
 
 #define IDEA_L33     _______
-#define IDEA_L34     LGUI(KC_N)                   // Generate code
-#define IDEA_L35     LGUI(KC_J)                   // [*] Insert live templates
+#define IDEA_L34     LGUI(KC_N)                     // Generate code
+#define IDEA_L35     LGUI(KC_J)                     // [*] Insert live templates
 
 // Right
-#define IDEA_R01     LALT(KC_DOWN)                // Shrink selection (similar idea to editor but uses selection)
+#define IDEA_R01     LALT(KC_DOWN)                  // Shrink selection (similar idea to editor but uses selection)
 #define IDEA_R02     _______
 #define IDEA_R03     _______
-#define IDEA_R04     LALT(KC_UP)                  // Extend selection (similar idea to editor but uses selection)
-#define IDEA_R05     _______
+#define IDEA_R04     LALT(KC_UP)                    // Extend selection (similar idea to editor but uses selection)
+#define IDEA_R05     VIM_QUIT                       // [*]
 
-#define IDEA_R11     LGUI(LSFT(KC_DEL))           // [*] prev edit location
-#define IDEA_R12     LALT(LSFT(KC_DOWN))          // [*] Move line down
-#define IDEA_R13     LALT(LSFT(KC_UP))            // [*] Move line up
-#define IDEA_R14     LALT(KC_SCLN)                // [*] Next edit (custom keymap)
-#define IDEA_R15     LGUI(KC_F9)                  // Make project
+#define IDEA_R11     LGUI(LSFT(KC_DEL))             // [*] prev edit location
+#define IDEA_R12     LALT(LSFT(KC_DOWN))            // [*] Move line down
+#define IDEA_R13     LALT(LSFT(KC_UP))              // [*] Move line up
+#define IDEA_R14     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
+#define IDEA_R15     LGUI(KC_F9)                    // Make project
 
-#define IDEA_R21     LSFT(KC_F2)                  // [*] Previous highlighted error
-#define IDEA_R22     VIM_INTELLIJ_INSERT_SPACE_BELOW  // [*]
-#define IDEA_R23     VIM_INTELLIJ_INSERT_SPACE_ABOVE  // [*]
-#define IDEA_R24     KC_F2                        // [*] Next highlighted error
-#define IDEA_R25     LSFT(LGUI(KC_F9))            // Compile selected file
+#define IDEA_R21     LSFT(KC_F2)                    // [*] Previous highlighted error
+#define IDEA_R22     VIM_INTELLIJ_INSERT_SPACE_BELOW// [*]
+#define IDEA_R23     VIM_INTELLIJ_INSERT_SPACE_ABOVE// [*]
+#define IDEA_R24     KC_F2                          // [*] Next highlighted error
+#define IDEA_R25     LSFT(LGUI(KC_F9))              // Compile selected file
 
-#define IDEA_R31     LCTL(LSFT(KC_SPC))           // [*] Code complet
-#define IDEA_R32     LGUI(LSFT(KC_ENTER))         // [*] Statement complete
-#define IDEA_R33     LALT(KC_ENTER)               // [*] Show intention actions and quick-fixes
+#define IDEA_R31     LCTL(LSFT(KC_SPC))             // [*] Code complet
+#define IDEA_R32     LGUI(LSFT(KC_ENTER))           // [*] Statement complete
+#define IDEA_R33     LALT(KC_ENTER)                 // [*] Show intention actions and quick-fixes
 
 
 

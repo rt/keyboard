@@ -2,11 +2,11 @@
  * Layers: Vim-editor, IntelliJ-editor
  * Most edtiing is in vim or with a vim plugin so will often use Vim-editor keymaps or vim itself.
  * ,----------------------------------.  ,----------------------------------.
- * |  WA  |  WR  |  PF  | PLY  |      |  |  PB  |      |      |  NB  |      |
+ * |  WA  |  WR  |  PF  | IE1  | IE2  |  |  PB  |      |      |  NB  |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |  SA  |      |      |      |      |  |  PE  |  LD  |  LU  |  NE  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |  HS  |  VS  |      |      |      |  | PEr  |  SD  |  SU  | NEr  |      |
+ * |  HS  |  VS  |      | PLY  |      |  | PEr  |  SD  |  SU  | NEr  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |  G3  |  G2  |  G1  |  |  C1  |  C2  |  C3  |
  *               `--------------------'  `--------------------'
@@ -37,8 +37,8 @@
 
 // Right
 // R01     Previous Bracket
-// R02     _______
-// R03     _______
+// R02     Item Explorer 2
+// R03     Item Explorer 1 (Tagbar, BTags, BLines)
 // R04     Next Bracket
 // R05     _______
 //

@@ -1,10 +1,10 @@
 /* Vim-editor
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|VPRVFI|VPASTE|      |  |PREVBR|      |      |NEXTBR| VQUIT|
+ * |VWALL |VWRITE|      |BLINES| TAGB |  |PREVBR|      |      |NEXTBR| VQUIT|
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |SELALL|      |      |      |      |  |PREVED|EX_BLW|EX_ABV|NEXTED|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|      |      |DIFFTG|  |PREVER|SP_BLW|SP_ABV|NEXTER|      |
+ * |VHSPLT|VVSPLT|      |VPASTE|      |  |PREVER|SP_BLW|SP_ABV|NEXTER|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |VWQUIT|      | SNIP |  |Compl |ComplX|      |
  *               `--------------------'  `--------------------'
@@ -13,11 +13,11 @@
 // Left
 #define VHOME_L01     VIM_WRITE_ALL                   // [*] write quit editor
 #define VHOME_L02     VIM_WRITE                       // [*] write
-#define VHOME_L03     LCTL(KC_CIRC)                   // [*] prev file
-#define VHOME_L04     VIM_PASTE_LAST_YANK             // [*] Paste last yank (instead of last selection)
-#define VHOME_L05     _______
+#define VHOME_L03     _______
+#define VHOME_L04     VIM_BLINES                      // [*] search buffer lines
+#define VHOME_L05     VIM_TAGBAR_OPEN_AUTOCLOSE       // [*] tags for file, good for large files
 
-#define VHOME_L11     VIM_SELECT_ALL
+#define VHOME_L11     VIM_SELECT_ALL                  // [*]
 #define VHOME_L12     _______
 #define VHOME_L13     _______
 #define VHOME_L14     _______
@@ -26,8 +26,8 @@
 #define VHOME_L21     VIM_HSPLIT                      // [*] hor split
 #define VHOME_L22     VIM_VSPLIT                      // [*] vert split
 #define VHOME_L23     _______
-#define VHOME_L24     _______
-#define VHOME_L25     VIM_DIFF_TOGGLE
+#define VHOME_L24     VIM_PASTE_LAST_YANK             // [*] Paste last yank (instead of last selection)
+#define VHOME_L25     _______
 
 #define VHOME_L33     VIM_WRITE_QUIT                  // write quit editor
 #define VHOME_L34     _______

@@ -158,11 +158,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":Gedit ");
       }
         break;
-    case VIM_EDIT_INDEX_TOGGLE:
-      if (record->event.pressed) {
-        SEND_STRING(":Gedit"SS_TAP(X_ENTER));
-      }
-        break;
     case VIM_MERGETOOL:
       if (record->event.pressed) {
         SEND_STRING(":Git mergetool"SS_TAP(X_ENTER));
@@ -170,7 +165,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     case VIM_DIFFTOOL:
       if (record->event.pressed) {
-        SEND_STRING(":Git difftool"SS_TAP(X_ENTER));
+        /* SEND_STRING(":Git difftool"SS_TAP(X_ENTER)); */
+        SEND_STRING(":GitGutterQuickFix"SS_TAP(X_ENTER)":copen"SS_TAP(X_ENTER));
       }
         break;
     case VIM_HELP:
@@ -299,26 +295,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("]Q");
       }
         break;
-    case VIM_CHANGE_FIRST:
-      if (record->event.pressed) {
-        SEND_STRING("[C");
-      }
-        break;
-    case VIM_CHANGE_NEXT:
-      if (record->event.pressed) {
-        SEND_STRING("]c");
-      }
-        break;
-    case VIM_CHANGE_PREV:
-      if (record->event.pressed) {
-        SEND_STRING("[c");
-      }
-        break;
-    case VIM_CHANGE_LAST:
-      if (record->event.pressed) {
-        SEND_STRING("]C");
-      }
-        break;
     case VIM_EXCHANGE_LINE_BELOW:
       if (record->event.pressed) {
         SEND_STRING("]e");
@@ -393,11 +369,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIM_FIND_GFILE:
       if (record->event.pressed) {
         SEND_STRING(":GFiles"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_FIND_FILE:
-      if (record->event.pressed) {
-        SEND_STRING(":Files"SS_TAP(X_ENTER));
       }
         break;
     case VIM_COMMANDS:
