@@ -41,8 +41,6 @@ enum custom_keycodes {
   TMUX_WIN_NEXT,
   TMUX_SCROLL,
   TMUX_ZOOM_TOGGLE,
-  TMUX_EVEN_VERT,
-  TMUX_EVEN_HOR,
   TMUX_SIZE_UP,
   TMUX_SIZE_DOWN,
   TMUX_HSPLIT,
@@ -67,7 +65,6 @@ enum custom_keycodes {
   VIM_SELECT_ALL,
   VIM_VSPLIT,
   VIM_HSPLIT,
-  VIM_MERGETOOL,
   VIM_DIFFTOOL,
   VIM_PASTE_LAST_YANK,
   VIM_DIFF_TOGGLE,
@@ -160,7 +157,6 @@ enum custom_keycodes {
   WORK_GOTO_JIRA,
   WORK_GOTO_CONFLUENCE,
   WORK_EDIT_ELP,
-  WORK_EDIT_STARTUP_LOG,
   WORK_EDIT_JENKINSFILE,
   WORK_EDIT_BUILD,
 
@@ -374,11 +370,11 @@ enum custom_keycodes {
 // L04
 // L05
 //
-// L11     Action/Commands
-// L12     History
-// L13     Recent items
-// L14     Project Structure
-// L15     Find In Project
+// L11     Debug
+// L12     
+// L13     
+// L14     
+// L15     Eval
 //
 // L21
 // L22
@@ -397,11 +393,11 @@ enum custom_keycodes {
 // R04
 // R05
 //
-// R11     Prev item
-// R12     Declaration
-// R13     Implementation
-// R14     Next item
-// R15     _______
+// R11     Break Points
+// R12     Play/Pause
+// R13     Over
+// R14     In
+// R15     Out
 //
 // R21
 // R22
@@ -600,11 +596,11 @@ enum custom_keycodes {
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |CDROOT| CDCF |      |      |       |
+ * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |      |      |      |      |       |
  * |------+------+------+------+-------  -------+------+------+------+-------|
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  |      |      |      |      |       |
+ * |  F1  |  F2  |  F3  |  F4  |  F5  |  |      |CDROOT| CDCF |      |       |
  * |------+------+------+------+------|  |------+------+------+------+-------|
- * |  F6  |  F7  |  F8  |  F9  |  F10 |  |      |      |      |      |       | 
+ * |  F6  |  F7  |  F8  |  F9  |  F10 |  |  F11 |  F12 |      |      |       | 
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      | Tab  |GuiBk |  |      |      |      |
  *               `--------------------'  `--------------------'
@@ -634,23 +630,23 @@ enum custom_keycodes {
 #define RAIS_L35     LGUI(KC_BSPC)
 
 // Right
-#define RAIS_R01     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
-#define RAIS_R02     VIM_DIR_CURRENT_FILE            // change dir to current file dir (this more properly would be tab right)
+#define RAIS_R01     _______
+#define RAIS_R02     _______
 #define RAIS_R03     _______
 #define RAIS_R04     _______
 #define RAIS_R05     _______
                                     
 #define RAIS_R11     _______
-#define RAIS_R12     _______
-#define RAIS_R13     _______
+#define RAIS_R12     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
+#define RAIS_R13     VIM_DIR_CURRENT_FILE            // change dir to current file dir (this more properly would be tab right)
 #define RAIS_R14     _______
-#define RAIS_R15     KC_F11
+#define RAIS_R15     _______
                                     
-#define RAIS_R21     _______
-#define RAIS_R22     _______
+#define RAIS_R21     KC_F11
+#define RAIS_R22     KC_F12
 #define RAIS_R23     _______
 #define RAIS_R24     _______
-#define RAIS_R25     KC_F12
+#define RAIS_R25     _______
 
 #define RAIS_R31     XXXXXXX
 #define RAIS_R32     XXXXXXX
@@ -723,33 +719,33 @@ enum custom_keycodes {
  * Global: System, Tmux, App, etc, Navigation
  * Mixture of concepts (item, editor)
  * ,----------------------------------.  ,----------------------------------.
- * |THSPLT|TVSPLT|PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
+ * |      |      |PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |TSZDN |TSZUP |TSCRLL| PgUp | Home |  | Left | Down |  Up  |Right |TDETCH|
+ * |      |      |TSCRLL|TSZUP | Home |  | Left | Down |  Up  |Right |TDETCH|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |TEVENH|TEVENV|AppWin|PgDown| End  |  |WkspL |WordL |WordR |WkspR |      |
+ * |THSPLT|TVSPLT|AppWin|TSZDN | End  |  |WkspL |WordL |WordR |WkspR |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |FlScrn|TZMTOG|Enter |  | Bspc |AltBk | Del  |
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define NAV_L01     TMUX_HSPLIT
-#define NAV_L02     TMUX_VSPLIT
+#define NAV_L01     _______
+#define NAV_L02     _______
 #define NAV_L03     LGUI(KC_TAB)                      // editor [*] prev app (follows position of prev file in vim editor)
 #define NAV_L04     TMUX_FIND_SESSION                 // item [*] find tmux session
 #define NAV_L05     _______
 
-#define NAV_L11     TMUX_SIZE_DOWN
-#define NAV_L12     TMUX_SIZE_UP
+#define NAV_L11     _______
+#define NAV_L12     _______
 #define NAV_L13     TMUX_SCROLL
-#define NAV_L14     KC_PGUP
+#define NAV_L14     TMUX_SIZE_UP
 #define NAV_L15     KC_HOME
 
-#define NAV_L21     TMUX_EVEN_HOR
-#define NAV_L22     TMUX_EVEN_VERT
+#define NAV_L21     TMUX_HSPLIT
+#define NAV_L22     TMUX_VSPLIT
 #define NAV_L23     LGUI(KC_GRV)                      // alternate win of same app
-#define NAV_L24     KC_PGDOWN
+#define NAV_L24     TMUX_SIZE_DOWN
 #define NAV_L25     KC_END
 
 #define NAV_L33     LCTL(LGUI(KC_F))
@@ -903,7 +899,7 @@ enum custom_keycodes {
 
 /* Vim-git
  * ,----------------------------------.  ,----------------------------------.
- * |LOGREL| GREP |MERGET|CMMITS|DIFFT |  |TBHUNK|HUNKN |HUNKP |MBHUNK|HUNKU |
+ * |LOGREL| GREP |      |CMMITS|DIFFT |  |TBHUNK|HUNKN |HUNKP |MBHUNK|HUNKU |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |LOGCFD|LOGCF |STATUS|GEDIT |BLAME |  | Q-F  | Q-N  | Q-P  | Q-L  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
@@ -916,7 +912,7 @@ enum custom_keycodes {
 // Left
 #define GIT_L01     VIM_LOG_RELEASE                 // git log for a period of time
 #define GIT_L02     VIM_GIT_GREP                    // [*] Grep in any branch
-#define GIT_L03     VIM_MERGETOOL                   // go through conflicts
+#define GIT_L03     _______
 #define GIT_L04     VIM_GIT_COMMITS                 // [*] view recent (all) commits
 #define GIT_L05     VIM_DIFFTOOL                    // go through all changes in commit (CR)
 
@@ -1024,10 +1020,12 @@ enum custom_keycodes {
 /* IntelliJ-editor
  * IdeaVim is used so many vim key cuts can also be used without having them here
  * IdeaVim plugin emulation (surround, exchange, commentary) : Use vim shortcuts
+ * Purposely not doing things like extract method, extract variable ... just do it with vim tools
+ * Purposely not including override method, implement methods ... look to the source and do manually, if you need use the ui ...
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|      |ParamI|FileHi|  | Sel- |OverM |ImplM | Sel+ |VQUIT |
+ * |VWALL |VWRITE|      |ParamI|FileHi|  | Sel- |      |      | Sel+ |VQUIT |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |  SA  |Rename|ChSig |ExtrtM|ExtrtV|  |  LU  |NxtEdt|PrvEdt|  SU  |CmpPrj|
+ * |  SA  |Rename|ChSig |      |      |  |  LU  |NxtEdt|PrvEdt|  SU  |CmpPrj|
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |VHSPLT|VVSPLT|      |      |VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |CmpFi |
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -1043,10 +1041,10 @@ enum custom_keycodes {
 #define IDEA_L05     LGUI(KC_F12)                   // [*] File structure popup
 
 #define IDEA_L11     LGUI(KC_A)                     // [*] select all
-#define IDEA_L12     LSFT(KC_F6)                    // Rename
-#define IDEA_L13     LGUI(KC_F6)                    // Change signature
-#define IDEA_L14     LGUI(LALT(KC_M))               // Extract method
-#define IDEA_L15     LGUI(LALT(KC_V))               // Extract variable
+#define IDEA_L12     LSFT(KC_F6)                    // Rename, a little easier to do that select scope search replace
+#define IDEA_L13     LGUI(KC_F6)                    // Change signature, and get the ask to reflect signature change
+#define IDEA_L14     _______
+#define IDEA_L15     _______
 
 #define IDEA_L21     VIM_HSPLIT                     // [*] hor split
 #define IDEA_L22     VIM_VSPLIT                     // [*] vert split
@@ -1332,7 +1330,7 @@ enum custom_keycodes {
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |Stores|Models|Actins|      |Helprs|  |MgrShr|MgrClt|      |      | Jira |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |StrtLg|      |      | ELP  |Build |  |Jnkins|      |      |      |Cnflnc|
+ * |      |      |      | ELP  |Build |  |Jnkins|      |      |      |Cnflnc|
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |      |      |  |      |      |      |
  *               `--------------------'  `--------------------'
@@ -1351,7 +1349,7 @@ enum custom_keycodes {
 #define MISC_L14     _______
 #define MISC_L15     WORK_FE_HANDLEBAR_HELPERS
 
-#define MISC_L21     WORK_EDIT_STARTUP_LOG
+#define MISC_L21     _______
 #define MISC_L22     _______
 #define MISC_L23     _______
 #define MISC_L24     WORK_EDIT_ELP

@@ -1,6 +1,6 @@
 /* Vim-git
  * ,----------------------------------.  ,----------------------------------.
- * |LOGREL| GREP |MERGET|CMMITS|DIFFT |  |TBHUNK|HUNKN |HUNKP |MBHUNK|HUNKU |
+ * |LOGREL| GREP |      |CMMITS|DIFFT |  |TBHUNK|HUNKN |HUNKP |MBHUNK|HUNKU |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |LOGCFD|LOGCF |STATUS|GEDIT |BLAME |  | Q-F  | Q-N  | Q-P  | Q-L  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
@@ -13,7 +13,7 @@
 // Left
 #define GIT_L01     VIM_LOG_RELEASE                 // git log for a period of time
 #define GIT_L02     VIM_GIT_GREP                    // [*] Grep in any branch
-#define GIT_L03     VIM_MERGETOOL                   // go through conflicts
+#define GIT_L03     _______
 #define GIT_L04     VIM_GIT_COMMITS                 // [*] view recent (all) commits
 #define GIT_L05     VIM_DIFFTOOL                    // go through all changes in commit (CR)
 

@@ -1,10 +1,12 @@
 /* IntelliJ-editor
  * IdeaVim is used so many vim key cuts can also be used without having them here
  * IdeaVim plugin emulation (surround, exchange, commentary) : Use vim shortcuts
+ * Purposely not doing things like extract method, extract variable ... just do it with vim tools
+ * Purposely not including override method, implement methods ... look to the source and do manually, if you need use the ui ...
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|      |ParamI|FileHi|  | Sel- |OverM |ImplM | Sel+ |VQUIT |
+ * |VWALL |VWRITE|      |ParamI|FileHi|  | Sel- |      |      | Sel+ |VQUIT |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |  SA  |Rename|ChSig |ExtrtM|ExtrtV|  |  LU  |NxtEdt|PrvEdt|  SU  |CmpPrj|
+ * |  SA  |Rename|ChSig |      |      |  |  LU  |NxtEdt|PrvEdt|  SU  |CmpPrj|
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |VHSPLT|VVSPLT|      |      |VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |CmpFi |
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -20,10 +22,10 @@
 #define IDEA_L05     LGUI(KC_F12)                   // [*] File structure popup
 
 #define IDEA_L11     LGUI(KC_A)                     // [*] select all
-#define IDEA_L12     LSFT(KC_F6)                    // Rename
-#define IDEA_L13     LGUI(KC_F6)                    // Change signature
-#define IDEA_L14     LGUI(LALT(KC_M))               // Extract method
-#define IDEA_L15     LGUI(LALT(KC_V))               // Extract variable
+#define IDEA_L12     LSFT(KC_F6)                    // Rename, a little easier to do that select scope search replace
+#define IDEA_L13     LGUI(KC_F6)                    // Change signature, and get the ask to reflect signature change
+#define IDEA_L14     _______
+#define IDEA_L15     _______
 
 #define IDEA_L21     VIM_HSPLIT                     // [*] hor split
 #define IDEA_L22     VIM_VSPLIT                     // [*] vert split

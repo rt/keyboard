@@ -7,7 +7,7 @@
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |Stores|Models|Actins|      |Helprs|  |MgrShr|MgrClt|      |      | Jira |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |StrtLg|      |      | ELP  |Build |  |Jnkins|      |      |      |Cnflnc|
+ * |      |      |      | ELP  |Build |  |Jnkins|      |      |      |Cnflnc|
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |      |      |  |      |      |      |
  *               `--------------------'  `--------------------'
@@ -26,7 +26,7 @@
 #define MISC_L14     _______
 #define MISC_L15     WORK_FE_HANDLEBAR_HELPERS
 
-#define MISC_L21     WORK_EDIT_STARTUP_LOG
+#define MISC_L21     _______
 #define MISC_L22     _______
 #define MISC_L23     _______
 #define MISC_L24     WORK_EDIT_ELP

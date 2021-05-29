@@ -19,11 +19,11 @@
 // L04
 // L05
 //
-// L11     Action/Commands
-// L12     History
-// L13     Recent items
-// L14     Project Structure
-// L15     Find In Project
+// L11     Debug
+// L12     
+// L13     
+// L14     
+// L15     Eval
 //
 // L21
 // L22
@@ -42,11 +42,11 @@
 // R04
 // R05
 //
-// R11     Prev item
-// R12     Declaration
-// R13     Implementation
-// R14     Next item
-// R15     _______
+// R11     Break Points
+// R12     Play/Pause
+// R13     Over
+// R14     In
+// R15     Out
 //
 // R21
 // R22

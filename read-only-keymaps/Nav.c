@@ -2,33 +2,33 @@
  * Global: System, Tmux, App, etc, Navigation
  * Mixture of concepts (item, editor)
  * ,----------------------------------.  ,----------------------------------.
- * |THSPLT|TVSPLT|PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
+ * |      |      |PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |TSZDN |TSZUP |TSCRLL| PgUp | Home |  | Left | Down |  Up  |Right |TDETCH|
+ * |      |      |TSCRLL|TSZUP | Home |  | Left | Down |  Up  |Right |TDETCH|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |TEVENH|TEVENV|AppWin|PgDown| End  |  |WkspL |WordL |WordR |WkspR |      |
+ * |THSPLT|TVSPLT|AppWin|TSZDN | End  |  |WkspL |WordL |WordR |WkspR |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |FlScrn|TZMTOG|Enter |  | Bspc |AltBk | Del  |
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define NAV_L01     TMUX_HSPLIT
-#define NAV_L02     TMUX_VSPLIT
+#define NAV_L01     _______
+#define NAV_L02     _______
 #define NAV_L03     LGUI(KC_TAB)                      // editor [*] prev app (follows position of prev file in vim editor)
 #define NAV_L04     TMUX_FIND_SESSION                 // item [*] find tmux session
 #define NAV_L05     _______
 
-#define NAV_L11     TMUX_SIZE_DOWN
-#define NAV_L12     TMUX_SIZE_UP
+#define NAV_L11     _______
+#define NAV_L12     _______
 #define NAV_L13     TMUX_SCROLL
-#define NAV_L14     KC_PGUP
+#define NAV_L14     TMUX_SIZE_UP
 #define NAV_L15     KC_HOME
 
-#define NAV_L21     TMUX_EVEN_HOR
-#define NAV_L22     TMUX_EVEN_VERT
+#define NAV_L21     TMUX_HSPLIT
+#define NAV_L22     TMUX_VSPLIT
 #define NAV_L23     LGUI(KC_GRV)                      // alternate win of same app
-#define NAV_L24     KC_PGDOWN
+#define NAV_L24     TMUX_SIZE_DOWN
 #define NAV_L25     KC_END
 
 #define NAV_L33     LCTL(LGUI(KC_F))
