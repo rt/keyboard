@@ -49,6 +49,9 @@ enum custom_keycodes {
   TMUX_DETACH,
   TMUX_FIND_SESSION,
 
+  VIM_TMUX_REDO,
+  VIM_TMUX_PARA_EXECUTE,
+  VIM_TMUX_LINE_EXECUTE,
   VIM_SHOW_MY_SNIPPETS, 
   VIM_HUNK_UNDO,
   VIM_HUNK_NEXT,
@@ -596,13 +599,13 @@ enum custom_keycodes {
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |      |      |      |      |       |
- * |------+------+------+------+-------  -------+------+------+------+-------|
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  |      |CDROOT| CDCF |      |       |
- * |------+------+------+------+------|  |------+------+------+------+-------|
- * |  F6  |  F7  |  F8  |  F9  |  F10 |  |  F11 |  F12 |      |      |       | 
+ * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |      |      |      |      |      |
+ * |------+------+------+------+-------  -------+------+------+------+------|
+ * |      |TPREDO|TPPARA|TPLINE|      |  |      |CDROOT| CDCF |      |      |
+ * |------+------+------+------+------|  |------+------+------+------+------|
+ * |  F1  |  F2  |  F3  |  F4  |  F5  |  |  F6  |  F7  |  F8  |  F9  |  F10 | 
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      | Tab  |GuiBk |  |      |      |      |
+ *               |      | Tab  |GuiBk |  |      |  F11 |  F12 |
  *               `--------------------'  `--------------------'
  */
 
@@ -613,17 +616,17 @@ enum custom_keycodes {
 #define RAIS_L04     VIM_WORK_SHOW_NOTES
 #define RAIS_L05     XXXXXXX
 
-#define RAIS_L11     KC_F1
-#define RAIS_L12     KC_F2
-#define RAIS_L13     KC_F3
-#define RAIS_L14     KC_F4
-#define RAIS_L15     KC_F5
+#define RAIS_L11     _______
+#define RAIS_L12     VIM_TMUX_REDO
+#define RAIS_L13     VIM_TMUX_PARA_EXECUTE
+#define RAIS_L14     VIM_TMUX_LINE_EXECUTE
+#define RAIS_L15     _______
 
-#define RAIS_L21     KC_F6
-#define RAIS_L22     KC_F7
-#define RAIS_L23     KC_F8
-#define RAIS_L24     KC_F9
-#define RAIS_L25     KC_F10
+#define RAIS_L21     KC_F1
+#define RAIS_L22     KC_F2
+#define RAIS_L23     KC_F3
+#define RAIS_L24     KC_F4
+#define RAIS_L25     KC_F5
 
 #define RAIS_L33     XXXXXXX
 #define RAIS_L34     KC_TAB
@@ -642,15 +645,15 @@ enum custom_keycodes {
 #define RAIS_R14     _______
 #define RAIS_R15     _______
                                     
-#define RAIS_R21     KC_F11
-#define RAIS_R22     KC_F12
-#define RAIS_R23     _______
-#define RAIS_R24     _______
-#define RAIS_R25     _______
+#define RAIS_R21     KC_F6
+#define RAIS_R22     KC_F7
+#define RAIS_R23     KC_F8
+#define RAIS_R24     KC_F9
+#define RAIS_R25     KC_F10
 
 #define RAIS_R31     XXXXXXX
-#define RAIS_R32     XXXXXXX
-#define RAIS_R33     XXXXXXX
+#define RAIS_R32     KC_F11
+#define RAIS_R33     KC_F12
 
 
 

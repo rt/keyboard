@@ -521,6 +521,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":GetImplWord"SS_TAP(X_ENTER));
       }
         break;
+    case VIM_TMUX_LINE_EXECUTE:
+      if (record->event.pressed) {
+        SEND_STRING(",tj"SS_TAP(X_ESCAPE));
+      }
+        break;
+    case VIM_TMUX_PARA_EXECUTE:
+      if (record->event.pressed) {
+        SEND_STRING("vip,tj"SS_TAP(X_ESCAPE));
+      }
+        break;
+    case VIM_TMUX_REDO:
+      if (record->event.pressed) {
+        SEND_STRING(",tr");
+      }
+        break;
     case TMUX_PANE_PREV:
       if (record->event.pressed) {
         SEND_STRING(SS_LCTRL("bk"));
