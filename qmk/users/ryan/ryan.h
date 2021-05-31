@@ -599,11 +599,11 @@ enum custom_keycodes {
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |      |      |      |      |      |
+ * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |      |CDROOT| CDCF |      |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |TPREDO|TPPARA|TPLINE|      |  |      |CDROOT| CDCF |      |      |
+ * |      |TPREDO|TPPARA|TPLINE|      |  |  F1  |  F2  |  F3  |  F4  |  F5  |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  |  F6  |  F7  |  F8  |  F9  |  F10 | 
+ * |      |      |      |      |      |  |  F6  |  F7  |  F8  |  F9  |  F10 | 
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      | Tab  |GuiBk |  |      |  F11 |  F12 |
  *               `--------------------'  `--------------------'
@@ -622,11 +622,11 @@ enum custom_keycodes {
 #define RAIS_L14     VIM_TMUX_LINE_EXECUTE
 #define RAIS_L15     _______
 
-#define RAIS_L21     KC_F1
-#define RAIS_L22     KC_F2
-#define RAIS_L23     KC_F3
-#define RAIS_L24     KC_F4
-#define RAIS_L25     KC_F5
+#define RAIS_L21     _______
+#define RAIS_L22     _______
+#define RAIS_L23     _______
+#define RAIS_L24     _______
+#define RAIS_L25     _______
 
 #define RAIS_L33     XXXXXXX
 #define RAIS_L34     KC_TAB
@@ -634,16 +634,16 @@ enum custom_keycodes {
 
 // Right
 #define RAIS_R01     _______
-#define RAIS_R02     _______
-#define RAIS_R03     _______
+#define RAIS_R02     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
+#define RAIS_R03     VIM_DIR_CURRENT_FILE            // change dir to current file dir (this more properly would be tab right)
 #define RAIS_R04     _______
 #define RAIS_R05     _______
                                     
-#define RAIS_R11     _______
-#define RAIS_R12     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
-#define RAIS_R13     VIM_DIR_CURRENT_FILE            // change dir to current file dir (this more properly would be tab right)
-#define RAIS_R14     _______
-#define RAIS_R15     _______
+#define RAIS_R11     KC_F1
+#define RAIS_R12     KC_F2
+#define RAIS_R13     KC_F3
+#define RAIS_R14     KC_F4
+#define RAIS_R15     KC_F5
                                     
 #define RAIS_R21     KC_F6
 #define RAIS_R22     KC_F7
@@ -1026,9 +1026,9 @@ enum custom_keycodes {
  * Purposely not doing things like extract method, extract variable ... just do it with vim tools
  * Purposely not including override method, implement methods ... look to the source and do manually, if you need use the ui ...
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|      |ParamI|FileHi|  | Sel- |      |      | Sel+ |VQUIT |
+ * |VWALL |VWRITE|      |      |FileHi|  |      | Sel- | Sel+ |      |VQUIT |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |  SA  |Rename|ChSig |      |      |  |  LU  |NxtEdt|PrvEdt|  SU  |CmpPrj|
+ * |  SA  |Rename|ChSig |ParamI|      |  |  LU  |NxtEdt|PrvEdt|  SU  |CmpPrj|
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |VHSPLT|VVSPLT|      |      |VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |CmpFi |
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -1040,13 +1040,13 @@ enum custom_keycodes {
 #define IDEA_L01     VIM_WRITE_ALL                  // [*] write quit editor
 #define IDEA_L02     VIM_WRITE                      // [*] write
 #define IDEA_L03     _______
-#define IDEA_L04     LGUI(KC_P)                     // Get param infor
+#define IDEA_L04     _______
 #define IDEA_L05     LGUI(KC_F12)                   // [*] File structure popup
 
 #define IDEA_L11     LGUI(KC_A)                     // [*] select all
 #define IDEA_L12     LSFT(KC_F6)                    // Rename, a little easier to do that select scope search replace
 #define IDEA_L13     LGUI(KC_F6)                    // Change signature, and get the ask to reflect signature change
-#define IDEA_L14     _______
+#define IDEA_L14     LGUI(KC_P)                     // Get param infor
 #define IDEA_L15     _______
 
 #define IDEA_L21     VIM_HSPLIT                     // [*] hor split
@@ -1060,10 +1060,10 @@ enum custom_keycodes {
 #define IDEA_L35     LGUI(KC_J)                     // [*] Insert live templates
 
 // Right
-#define IDEA_R01     LALT(KC_DOWN)                  // Shrink selection (similar idea to editor but uses selection)
-#define IDEA_R02     LCTL(KC_O)                     // Override methods
-#define IDEA_R03     LCTL(KC_I)                     // Implement methods
-#define IDEA_R04     LALT(KC_UP)                    // Extend selection (similar idea to editor but uses selection)
+#define IDEA_R01     _______
+#define IDEA_R02     LALT(KC_DOWN)                  // Shrink selection (similar idea to editor but uses selection)
+#define IDEA_R03     LALT(KC_UP)                    // Extend selection (similar idea to editor but uses selection)
+#define IDEA_R04     _______
 #define IDEA_R05     VIM_QUIT                       // [*]
 
 #define IDEA_R11     LALT(LSFT(KC_UP))              // [*] Move line up
