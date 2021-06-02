@@ -35,6 +35,10 @@ enum custom_keycodes {
   VRSN,
   RGB_SLD,
 
+  CD_PREV,
+  CD_GIT_DIR,
+  CD_GIT_ROOT,
+
   TMUX_PANE_NEXT,
   TMUX_PANE_PREV,
   TMUX_WIN_PREV,
@@ -134,7 +138,7 @@ enum custom_keycodes {
   VIM_PREV_BRACKET,
   VIM_NEXT_BRACKET,
   VIM_DIR_ROOT,
-  VIM_DIR_CURRENT_FILE,
+  VIM_SEARCH_IN_DIR,
   VIM_WORK_SHOW_NOTES,
   VIM_WORK_GOTO_COMPONENT,
   VIM_WORK_GET_TEMPLATE,
@@ -143,7 +147,6 @@ enum custom_keycodes {
   VIM_GOTO_TEST,
   VIM_GET_USAGES_BY_CURRENT_FILE,
   VIM_GET_IMPL,
-  VIM_GET_IMPL_CURSOR_WORD,
 
   WORK_DB_MIGRATIONS_SHARED,
   WORK_DB_MIGRATIONS_CLIENT,
@@ -599,7 +602,7 @@ enum custom_keycodes {
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |      |CDROOT| CDCF |      |      |
+ * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |      |      |      |      |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |      |TPREDO|TPPARA|TPLINE|      |  |  F1  |  F2  |  F3  |  F4  |  F5  |
  * |------+------+------+------+------|  |------+------+------+------+------|
@@ -634,8 +637,8 @@ enum custom_keycodes {
 
 // Right
 #define RAIS_R01     _______
-#define RAIS_R02     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
-#define RAIS_R03     VIM_DIR_CURRENT_FILE            // change dir to current file dir (this more properly would be tab right)
+#define RAIS_R02     XXXXXXX
+#define RAIS_R03     _______
 #define RAIS_R04     _______
 #define RAIS_R05     _______
                                     
@@ -724,9 +727,9 @@ enum custom_keycodes {
  * ,----------------------------------.  ,----------------------------------.
  * |      |      |PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |      |TSCRLL|TSZUP | Home |  | Left | Down |  Up  |Right |TDETCH|
+ * |CDGTRT| CD-  |TSCRLL|TSZUP | Home |  | Left | Down |  Up  |Right |TDETCH|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |THSPLT|TVSPLT|AppWin|TSZDN | End  |  |WkspL |WordL |WordR |WkspR |      |
+ * |THSPLT|TVSPLT|GITDIR|TSZDN | End  |  |WkspL |WordL |WordR |WkspR |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |FlScrn|TZMTOG|Enter |  | Bspc |AltBk | Del  |
  *               `--------------------'  `--------------------'
@@ -739,15 +742,15 @@ enum custom_keycodes {
 #define NAV_L04     TMUX_FIND_SESSION                 // item [*] find tmux session
 #define NAV_L05     _______
 
-#define NAV_L11     _______
-#define NAV_L12     _______
+#define NAV_L11     CD_GIT_ROOT
+#define NAV_L12     CD_PREV                           // easier cd -
 #define NAV_L13     TMUX_SCROLL
 #define NAV_L14     TMUX_SIZE_UP
 #define NAV_L15     KC_HOME
 
 #define NAV_L21     TMUX_HSPLIT
 #define NAV_L22     TMUX_VSPLIT
-#define NAV_L23     LGUI(KC_GRV)                      // alternate win of same app
+#define NAV_L23     CD_GIT_DIR                             // easier esc c for directory search
 #define NAV_L24     TMUX_SIZE_DOWN
 #define NAV_L25     KC_END
 
@@ -782,18 +785,18 @@ enum custom_keycodes {
 
 /* Vim-item
  * ,----------------------------------.  ,----------------------------------.
- * |  ?   | FINDP|VPRVFI|GFILES| MARKS|  |      | New  | Copy | Move | Del  |
+ * |FINDND| FINDP|VPRVFI|GFILES| MARKS|  |      | New  | Copy | Move | Del  |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |COMNDS| Gundo| REC  | PROJV| FNP  |  | B-P  | DECL | IMPL | B-N  |TAGSEL|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |STYLE | DIGC |BACKC | TEST | TEMP |  | A-F  | A-N  | A-P  | A-L  |      |
+ * |STYLE | TEMP |BACKC | TEST | DIGC |  | A-F  | A-N  | A-P  | A-L  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               | HELP | ONLY |      |  |USAGEW|USAGEF|USAGCF|
+ *               | HELP | ONLY |CDROOT|  |USAGEW|USAGEF|USAGCF|
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define VHNAV_L01     VIM_GET_IMPL_CURSOR_WORD        // Find files named like cword (double check what this does ???)
+#define VHNAV_L01     VIM_SEARCH_IN_DIR               // change dir to current file dir and search (this more properly would be tab right)
 #define VHNAV_L02     VIM_FIND_INPATH                 // [*] Find <keyword> in current directory
 #define VHNAV_L03     LCTL(KC_CIRC)                   // [*] prev file
 #define VHNAV_L04     VIM_FIND_GFILE                  // [*] Find file in git 
@@ -806,14 +809,14 @@ enum custom_keycodes {
 #define VHNAV_L15     VIM_FILE_INPROJ                 // [*] select current file in tree
 
 #define VHNAV_L21     VIM_GET_STYLE_FILE              // [*]
-#define VHNAV_L22     VIM_WORK_GOTO_COMPONENT         // [*]
+#define VHNAV_L22     VIM_WORK_GET_TEMPLATE           // [*]
 #define VHNAV_L23     VIM_WORK_GET_BACKING_FILE       // [*]
 #define VHNAV_L24     VIM_GOTO_TEST                   // [*]
-#define VHNAV_L25     VIM_WORK_GET_TEMPLATE           // [*]
+#define VHNAV_L25     VIM_WORK_GOTO_COMPONENT         // [*]
 
 #define VHNAV_L33     VIM_HELP                        // [*]
 #define VHNAV_L34     VIM_ONLY                        // [*]
-#define VHNAV_L35     XXXXXXX
+#define VHNAV_L35     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
 
 // Right
 #define VHNAV_R01     XXXXXXX
@@ -1266,9 +1269,9 @@ enum custom_keycodes {
 
 /* Debug
  * ,----------------------------------.  ,----------------------------------.
- * |RunSnp|      |      | Eval |BrkPts|  |      |PlyRes| Over |  In  |  Out | - Chrome
+ * |RunSnp|      |      |      |BrkPts|  | Eval |PlyRes| Over |  In  |  Out | - Chrome
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |Debug |DebugL|TogBrk| Eval |BrkPts|  |      |PlyRes| Over |  In  |  Out | - IntelliJ
+ * |Debug |      |      |TogBrk|BrkPts|  | Eval |PlyRes| Over |  In  |  Out | - IntelliJ
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |DP_NPM|      |      |      |      |  |      |      |      |      |      | - Node (Vim)
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -1280,13 +1283,13 @@ enum custom_keycodes {
 #define VWNAV_L01     LGUI(LSFT(KC_ENTER))          // run snipplet (not checked, select then run???)
 #define VWNAV_L02     _______
 #define VWNAV_L03     _______
-#define VWNAV_L04     LCTL(LSFT(KC_E))              // evaluate selected text in console
+#define VWNAV_L04     _______
 #define VWNAV_L05     LGUI(KC_F8)                   // [*] breakpoints (this one is toggle)
 
-#define VWNAV_L11     LALT(LSFT(KC_D))              // Debug current target at top
-#define VWNAV_L12     LCTL(LSFT(KC_D))              // Debug context/cursor
-#define VWNAV_L13     LGUI(KC_F8)                   // Toggle breakpoint
-#define VWNAV_L14     LALT(KC_F8)                   // Evaluate expression
+#define VWNAV_L11     LCTL(LSFT(KC_D))              // Debug context/cursor
+#define VWNAV_L12     _______
+#define VWNAV_L13     _______
+#define VWNAV_L14     LGUI(KC_F8)                   // Toggle breakpoint
 #define VWNAV_L15     LGUI(LSFT(KC_F8))             // Breakpoints
 
 #define VWNAV_L21     VIM_DISPATCH_NPM
@@ -1300,17 +1303,17 @@ enum custom_keycodes {
 #define VWNAV_L35     _______
 
 // Right
-#define VWNAV_R01     _______
-#define VWNAV_R02     KC_F8                   // [*] debug play
-#define VWNAV_R03     LGUI(KC_QUOT)           // [*] debug over
-#define VWNAV_R04     LGUI(KC_SCLN)           // [*] debug in
-#define VWNAV_R05     LGUI(LSFT(KC_SCLN))     // [*] debug out
+#define VWNAV_R01     LCTL(LSFT(KC_E))              // evaluate selected text in console
+#define VWNAV_R02     KC_F8                         // [*] debug play
+#define VWNAV_R03     LGUI(KC_QUOT)                 // [*] debug over
+#define VWNAV_R04     LGUI(KC_SCLN)                 // [*] debug in
+#define VWNAV_R05     LGUI(LSFT(KC_SCLN))           // [*] debug out
                              
-#define VWNAV_R11     _______
-#define VWNAV_R12     LALT(LGUI(KC_R))             // [*] Play/Pause
-#define VWNAV_R13     KC_F8                        // [*] Step over
-#define VWNAV_R14     KC_F7                        // [*] Step into
-#define VWNAV_R15     LSFT(KC_F8)                  // [*] Step out
+#define VWNAV_R11     LALT(KC_F8)                   // Evaluate expression
+#define VWNAV_R12     LALT(LGUI(KC_R))              // [*] Play/Pause
+#define VWNAV_R13     KC_F8                         // [*] Step over
+#define VWNAV_R14     KC_F7                         // [*] Step into
+#define VWNAV_R15     LSFT(KC_F8)                   // [*] Step out
                              
 #define VWNAV_R21     _______
 #define VWNAV_R22     _______

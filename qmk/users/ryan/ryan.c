@@ -62,6 +62,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       /*}*/
       /*return false;*/
     
+    case CD_PREV:
+      if (record->event.pressed) {
+        SEND_STRING("cd -"SS_TAP(X_ENTER));
+      }
+        break;
+    case CD_GIT_ROOT:
+      if (record->event.pressed) {
+        SEND_STRING("cd.git.root"SS_TAP(X_ENTER));
+      }
+        break;
+    case CD_GIT_DIR:
+      if (record->event.pressed) {
+        SEND_STRING("fd.dir.git"SS_TAP(X_ENTER));
+      }
+        break;
     
     case VIM_QUIT:
       if (record->event.pressed) {
@@ -476,9 +491,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":CdRoot"SS_TAP(X_ENTER));
       }
         break;
-    case VIM_DIR_CURRENT_FILE:
+    case VIM_SEARCH_IN_DIR:
       if (record->event.pressed) {
-        SEND_STRING(":lcd %:p:h"SS_TAP(X_ENTER));
+        SEND_STRING(":lcd %:p:h"SS_TAP(X_ENTER)":Ag ");
+        /* SEND_STRING("cd"SS_LCTRL("i")":Ag "); */ // this will only have the tree with correct pwd
       }
         break;
     case VIM_WORK_GOTO_COMPONENT:
@@ -514,11 +530,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIM_GET_IMPL:
       if (record->event.pressed) {
         SEND_STRING(":GetImpl"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_GET_IMPL_CURSOR_WORD:
-      if (record->event.pressed) {
-        SEND_STRING(":GetImplWord"SS_TAP(X_ENTER));
       }
         break;
     case VIM_TMUX_LINE_EXECUTE:

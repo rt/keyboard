@@ -1,17 +1,17 @@
 /* Vim-item
  * ,----------------------------------.  ,----------------------------------.
- * |  ?   | FINDP|VPRVFI|GFILES| MARKS|  |      | New  | Copy | Move | Del  |
+ * |FINDND| FINDP|VPRVFI|GFILES| MARKS|  |      | New  | Copy | Move | Del  |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |COMNDS| Gundo| REC  | PROJV| FNP  |  | B-P  | DECL | IMPL | B-N  |TAGSEL|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |STYLE | DIGC |BACKC | TEST | TEMP |  | A-F  | A-N  | A-P  | A-L  |      |
+ * |STYLE | TEMP |BACKC | TEST | DIGC |  | A-F  | A-N  | A-P  | A-L  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               | HELP | ONLY |      |  |USAGEW|USAGEF|USAGCF|
+ *               | HELP | ONLY |CDROOT|  |USAGEW|USAGEF|USAGCF|
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define VHNAV_L01     VIM_GET_IMPL_CURSOR_WORD        // Find files named like cword (double check what this does ???)
+#define VHNAV_L01     VIM_SEARCH_IN_DIR               // change dir to current file dir and search (this more properly would be tab right)
 #define VHNAV_L02     VIM_FIND_INPATH                 // [*] Find <keyword> in current directory
 #define VHNAV_L03     LCTL(KC_CIRC)                   // [*] prev file
 #define VHNAV_L04     VIM_FIND_GFILE                  // [*] Find file in git 
@@ -24,14 +24,14 @@
 #define VHNAV_L15     VIM_FILE_INPROJ                 // [*] select current file in tree
 
 #define VHNAV_L21     VIM_GET_STYLE_FILE              // [*]
-#define VHNAV_L22     VIM_WORK_GOTO_COMPONENT         // [*]
+#define VHNAV_L22     VIM_WORK_GET_TEMPLATE           // [*]
 #define VHNAV_L23     VIM_WORK_GET_BACKING_FILE       // [*]
 #define VHNAV_L24     VIM_GOTO_TEST                   // [*]
-#define VHNAV_L25     VIM_WORK_GET_TEMPLATE           // [*]
+#define VHNAV_L25     VIM_WORK_GOTO_COMPONENT         // [*]
 
 #define VHNAV_L33     VIM_HELP                        // [*]
 #define VHNAV_L34     VIM_ONLY                        // [*]
-#define VHNAV_L35     XXXXXXX
+#define VHNAV_L35     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
 
 // Right
 #define VHNAV_R01     XXXXXXX

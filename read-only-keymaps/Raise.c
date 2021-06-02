@@ -3,9 +3,9 @@
  * ,----------------------------------.  ,----------------------------------.
  * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |      |      |      |      |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |TPREDO|TPPARA|TPLINE|      |  |      |CDROOT| CDCF |      |      |
+ * |      |TPREDO|TPPARA|TPLINE|      |  |  F1  |  F2  |  F3  |  F4  |  F5  |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  |  F6  |  F7  |  F8  |  F9  |  F10 | 
+ * |      |      |      |      |      |  |  F6  |  F7  |  F8  |  F9  |  F10 | 
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      | Tab  |GuiBk |  |      |  F11 |  F12 |
  *               `--------------------'  `--------------------'
@@ -24,11 +24,11 @@
 #define RAIS_L14     VIM_TMUX_LINE_EXECUTE
 #define RAIS_L15     _______
 
-#define RAIS_L21     KC_F1
-#define RAIS_L22     KC_F2
-#define RAIS_L23     KC_F3
-#define RAIS_L24     KC_F4
-#define RAIS_L25     KC_F5
+#define RAIS_L21     _______
+#define RAIS_L22     _______
+#define RAIS_L23     _______
+#define RAIS_L24     _______
+#define RAIS_L25     _______
 
 #define RAIS_L33     XXXXXXX
 #define RAIS_L34     KC_TAB
@@ -36,16 +36,16 @@
 
 // Right
 #define RAIS_R01     _______
-#define RAIS_R02     _______
+#define RAIS_R02     XXXXXXX
 #define RAIS_R03     _______
 #define RAIS_R04     _______
 #define RAIS_R05     _______
                                     
-#define RAIS_R11     _______
-#define RAIS_R12     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
-#define RAIS_R13     VIM_DIR_CURRENT_FILE            // change dir to current file dir (this more properly would be tab right)
-#define RAIS_R14     _______
-#define RAIS_R15     _______
+#define RAIS_R11     KC_F1
+#define RAIS_R12     KC_F2
+#define RAIS_R13     KC_F3
+#define RAIS_R14     KC_F4
+#define RAIS_R15     KC_F5
                                     
 #define RAIS_R21     KC_F6
 #define RAIS_R22     KC_F7

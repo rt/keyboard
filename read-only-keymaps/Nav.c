@@ -4,9 +4,9 @@
  * ,----------------------------------.  ,----------------------------------.
  * |      |      |PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |      |TSCRLL|TSZUP | Home |  | Left | Down |  Up  |Right |TDETCH|
+ * |CDGTRT| CD-  |TSCRLL|TSZUP | Home |  | Left | Down |  Up  |Right |TDETCH|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |THSPLT|TVSPLT|AppWin|TSZDN | End  |  |WkspL |WordL |WordR |WkspR |      |
+ * |THSPLT|TVSPLT|GITDIR|TSZDN | End  |  |WkspL |WordL |WordR |WkspR |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |FlScrn|TZMTOG|Enter |  | Bspc |AltBk | Del  |
  *               `--------------------'  `--------------------'
@@ -19,15 +19,15 @@
 #define NAV_L04     TMUX_FIND_SESSION                 // item [*] find tmux session
 #define NAV_L05     _______
 
-#define NAV_L11     _______
-#define NAV_L12     _______
+#define NAV_L11     CD_GIT_ROOT
+#define NAV_L12     CD_PREV                           // easier cd -
 #define NAV_L13     TMUX_SCROLL
 #define NAV_L14     TMUX_SIZE_UP
 #define NAV_L15     KC_HOME
 
 #define NAV_L21     TMUX_HSPLIT
 #define NAV_L22     TMUX_VSPLIT
-#define NAV_L23     LGUI(KC_GRV)                      // alternate win of same app
+#define NAV_L23     CD_GIT_DIR                             // easier esc c for directory search
 #define NAV_L24     TMUX_SIZE_DOWN
 #define NAV_L25     KC_END
 
