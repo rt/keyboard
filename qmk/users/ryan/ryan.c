@@ -74,7 +74,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     case CD_GIT_DIR:
       if (record->event.pressed) {
-        SEND_STRING("fd.dir.git"SS_TAP(X_ENTER));
+        /* SEND_STRING("fd.dir.git"SS_TAP(X_ENTER)); */
+        SEND_STRING(SS_TAP(X_ESCAPE)"c");
       }
         break;
     
@@ -570,6 +571,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case TMUX_SCROLL:
       if (record->event.pressed) {
         SEND_STRING(SS_LCTRL("b")"[");
+      }
+        break;
+    case TMUX_RELOAD_CONFIG:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("b")":source-file ~/.tmux.conf"SS_TAP(X_ENTER));
       }
         break;
     case TMUX_ZOOM_TOGGLE:

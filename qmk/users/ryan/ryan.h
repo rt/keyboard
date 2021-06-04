@@ -52,6 +52,7 @@ enum custom_keycodes {
   TMUX_KILL_SESSION,
   TMUX_DETACH,
   TMUX_FIND_SESSION,
+  TMUX_RELOAD_CONFIG,
 
   VIM_TMUX_REDO,
   VIM_TMUX_PARA_EXECUTE,
@@ -725,18 +726,18 @@ enum custom_keycodes {
  * Global: System, Tmux, App, etc, Navigation
  * Mixture of concepts (item, editor)
  * ,----------------------------------.  ,----------------------------------.
- * |      |      |PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
+ * |TRLDCG|      |PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |CDGTRT| CD-  |TSCRLL|TSZUP | Home |  | Left | Down |  Up  |Right |TDETCH|
+ * |CDGTRT| CD-  |GITDIR|TSZUP | Home |  | Left | Down |  Up  |Right |TDETCH|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |THSPLT|TVSPLT|GITDIR|TSZDN | End  |  |WkspL |WordL |WordR |WkspR |      |
+ * |THSPLT|TVSPLT|TSCRLL|TSZDN | End  |  |WkspL |WordL |WordR |WkspR |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |FlScrn|TZMTOG|Enter |  | Bspc |AltBk | Del  |
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define NAV_L01     _______
+#define NAV_L01     TMUX_RELOAD_CONFIG                // reexecutes the conf file so things like delete won't be reflected
 #define NAV_L02     _______
 #define NAV_L03     LGUI(KC_TAB)                      // editor [*] prev app (follows position of prev file in vim editor)
 #define NAV_L04     TMUX_FIND_SESSION                 // item [*] find tmux session
@@ -744,13 +745,13 @@ enum custom_keycodes {
 
 #define NAV_L11     CD_GIT_ROOT
 #define NAV_L12     CD_PREV                           // easier cd -
-#define NAV_L13     TMUX_SCROLL
+#define NAV_L13     CD_GIT_DIR                        // git directory search
 #define NAV_L14     TMUX_SIZE_UP
 #define NAV_L15     KC_HOME
 
 #define NAV_L21     TMUX_HSPLIT
 #define NAV_L22     TMUX_VSPLIT
-#define NAV_L23     CD_GIT_DIR                             // easier esc c for directory search
+#define NAV_L23     TMUX_SCROLL
 #define NAV_L24     TMUX_SIZE_DOWN
 #define NAV_L25     KC_END
 
@@ -1031,9 +1032,9 @@ enum custom_keycodes {
  * ,----------------------------------.  ,----------------------------------.
  * |VWALL |VWRITE|      |      |FileHi|  |      | Sel- | Sel+ |      |VQUIT |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |  SA  |Rename|ChSig |ParamI|      |  |  LU  |NxtEdt|PrvEdt|  SU  |CmpPrj|
+ * |SELALL|Rename|ChSig |ParamI|      |  |  LU  |NxtEdt|PrvEdt|  SU  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|      |      |VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |CmpFi |
+ * |VHSPLT|VVSPLT|      |      |VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |GenCd |LiveT |  |CodeCm|StatCm|Suggst|
  *               `--------------------'  `--------------------'
@@ -1073,15 +1074,15 @@ enum custom_keycodes {
 #define IDEA_R12     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
 #define IDEA_R13     LGUI(LSFT(KC_DEL))             // [*] prev edit location
 #define IDEA_R14     VIM_INTELLIJ_INSERT_SPACE_ABOVE// [*] space above
-#define IDEA_R15     LGUI(KC_F9)                    // Make project
+#define IDEA_R15     _______
 
 #define IDEA_R21     LALT(LSFT(KC_DOWN))            // [*] Move line down
 #define IDEA_R22     KC_F2                          // [*] Next highlighted error
 #define IDEA_R23     LSFT(KC_F2)                    // [*] Previous highlighted error
 #define IDEA_R24     VIM_INTELLIJ_INSERT_SPACE_BELOW// [*] space below
-#define IDEA_R25     LSFT(LGUI(KC_F9))              // Compile selected file
+#define IDEA_R25     _______
 
-#define IDEA_R31     LCTL(LSFT(KC_SPC))             // [*] Code complet
+#define IDEA_R31     LCTL(LSFT(KC_SPC))             // [*] Code complete
 #define IDEA_R32     LGUI(LSFT(KC_ENTER))           // [*] Statement complete
 #define IDEA_R33     LALT(KC_ENTER)                 // [*] Show intention actions and quick-fixes
 
