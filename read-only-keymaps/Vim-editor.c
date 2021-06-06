@@ -4,9 +4,9 @@
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |SELALL|      |      |      |      |  |EX_ABV|NEXTED|PREVED|SP_ABV|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|DIFFTG| DIFF |VPASTE|  |EX_BLW|NEXTER|PREVER|SP_BLW|      |
+ * |VHSPLT|VVSPLT|DIFFTG|DIFFON|VPASTE|  |EX_BLW|NEXTER|PREVER|SP_BLW|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |VWQUIT|      | SNIP |  |Compl |ComplX|      |
+ *               |VWQUIT| SNIP |      |  |Compl |ComplX|      |
  *               `--------------------'  `--------------------'
  */
 
@@ -30,8 +30,8 @@
 #define VHOME_L25     VIM_PASTE_LAST_YANK             // [*] Paste last yank (instead of last selection)
 
 #define VHOME_L33     VIM_WRITE_QUIT                  // write quit editor
-#define VHOME_L34     _______
-#define VHOME_L35     VIM_SNIPPETS                    // [*] snipplets
+#define VHOME_L34     VIM_SNIPPETS                    // [*] snipplets
+#define VHOME_L35     _______
 
 // Right
 #define VHOME_R01     _______

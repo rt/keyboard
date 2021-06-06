@@ -18,7 +18,7 @@
 #define INAV_L05     LGUI(KC_F3)                  // [*] Marks
 
 #define INAV_L11     LSFT(LGUI(KC_A))             // [*] Find action Note: there is a mac override need to disable https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog
-#define INAV_L12     LGUI(KC_9)                   // [*] Local changes
+#define INAV_L12     LALT(LSFT(KC_Y))             // [*] Local changes (Show Local History)
 #define INAV_L13     LGUI(KC_E)                   // [*] Recent files popup
 #define INAV_L14     LGUI(KC_1)                   // [*] Project Files View
 #define INAV_L15     LALT(KC_F1)                  // [*] Select current file (or symbol) in any view

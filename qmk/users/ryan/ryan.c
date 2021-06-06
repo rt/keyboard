@@ -185,6 +185,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":Gvdiffsplit"SS_TAP(X_ENTER));
       }
         break;
+    case VIM_DIFF_ANY:
+      if (record->event.pressed) {
+        SEND_STRING(":Gvdiffsplit master:%");
+      }
+        break;
     case VIM_EDIT_ANY:
       if (record->event.pressed) {
         SEND_STRING(":Gedit master:%");
@@ -193,16 +198,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIM_LOG_CURRENT_FILE_SELECTION:
       if (record->event.pressed) {
         SEND_STRING(":'<,'>Gclog"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_LOG_CURRENT_FILE:
-      if (record->event.pressed) {
-        SEND_STRING(":Gclog -10 -- %"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_LOG_RELEASE:
-      if (record->event.pressed) {
-        SEND_STRING(":Gclog --since=2021.4.1 -- core-webapp/src/main/webapp/resources/shopping/");
       }
         break;
     case VIM_GIT_GREP:

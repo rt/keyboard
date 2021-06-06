@@ -8,9 +8,9 @@
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |SELALL|Rename|ChSig |ParamI|      |  |  LU  |NxtEdt|PrvEdt|  SU  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|      |      |VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |      |
+ * |VHSPLT|VVSPLT|      |DiffIt|VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |GenCd |LiveT |  |CodeCm|StatCm|Suggst|
+ *               |GenCd |LiveT |      |  |CodeCm|StatCm|Suggst|
  *               `--------------------'  `--------------------'
  */
 
@@ -30,12 +30,12 @@
 #define IDEA_L21     VIM_HSPLIT                     // [*] hor split
 #define IDEA_L22     VIM_VSPLIT                     // [*] vert split
 #define IDEA_L23     _______
-#define IDEA_L24     _______
+#define IDEA_L24     LGUI(KC_D)                     // [*] Diff it
 #define IDEA_L25     VIM_PASTE_LAST_YANK            // [*] Paste last yank (instead of last selection)
 
-#define IDEA_L33     _______
-#define IDEA_L34     LGUI(KC_N)                     // Generate code
-#define IDEA_L35     LGUI(KC_J)                     // [*] Insert live templates
+#define IDEA_L33     LGUI(KC_N)                     // Generate code
+#define IDEA_L34     LGUI(KC_J)                     // [*] Insert live templates
+#define IDEA_L35     _______
 
 // Right
 #define IDEA_R01     _______

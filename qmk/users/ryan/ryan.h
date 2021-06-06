@@ -80,16 +80,15 @@ enum custom_keycodes {
   VIM_DIFF_IT,
   VIM_DIFF_NEXT,
   VIM_DIFF_PREV,
-  VIM_LOG_CURRENT_FILE,
   VIM_LOG_CURRENT_FILE_SELECTION,
   VIM_LOG_CURRENT_FILE_DETAILS,
-  VIM_LOG_RELEASE,
   VIM_PICK_AXE,
   VIM_PICK_AXE_CURRENT_FILE,
   VIM_USAGES_CWORD,
   VIM_USAGES_CFILE,
   VIM_EDIT_ANY,
   VIM_DIFF_INDEX,
+  VIM_DIFF_ANY,
   VIM_DIFF_ON,
   VIM_GIT_COMMITS,
   VIM_GIT_STATUS,
@@ -610,7 +609,7 @@ enum custom_keycodes {
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |      |      |      |      |      |  |  F6  |  F7  |  F8  |  F9  |  F10 | 
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      | Tab  |GuiBk |  |      |  F11 |  F12 |
+ *               |SftTab| Tab  |GuiBk |  |      |  F11 |  F12 |
  *               `--------------------'  `--------------------'
  */
 
@@ -633,7 +632,7 @@ enum custom_keycodes {
 #define RAIS_L24     _______
 #define RAIS_L25     _______
 
-#define RAIS_L33     XXXXXXX
+#define RAIS_L33     LSFT(KC_TAB)
 #define RAIS_L34     KC_TAB
 #define RAIS_L35     LGUI(KC_BSPC)
 
@@ -851,9 +850,9 @@ enum custom_keycodes {
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |SELALL|      |      |      |      |  |EX_ABV|NEXTED|PREVED|SP_ABV|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|DIFFTG| DIFF |VPASTE|  |EX_BLW|NEXTER|PREVER|SP_BLW|      |
+ * |VHSPLT|VVSPLT|DIFFTG|DIFFON|VPASTE|  |EX_BLW|NEXTER|PREVER|SP_BLW|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |VWQUIT|      | SNIP |  |Compl |ComplX|      |
+ *               |VWQUIT| SNIP |      |  |Compl |ComplX|      |
  *               `--------------------'  `--------------------'
  */
 
@@ -877,8 +876,8 @@ enum custom_keycodes {
 #define VHOME_L25     VIM_PASTE_LAST_YANK             // [*] Paste last yank (instead of last selection)
 
 #define VHOME_L33     VIM_WRITE_QUIT                  // write quit editor
-#define VHOME_L34     _______
-#define VHOME_L35     VIM_SNIPPETS                    // [*] snipplets
+#define VHOME_L34     VIM_SNIPPETS                    // [*] snipplets
+#define VHOME_L35     _______
 
 // Right
 #define VHOME_R01     _______
@@ -907,38 +906,38 @@ enum custom_keycodes {
 
 /* Vim-git
  * ,----------------------------------.  ,----------------------------------.
- * |LOGREL| GREP |      |CMMITS|DIFFT |  |TBHUNK|HUNKN |HUNKP |MBHUNK|HUNKU |
+ * |BROWSE| GREP |GEDIT |CMMITS|      |  |TBHUNK|HUNKN |HUNKP |MBHUNK|HUNKU |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |LOGCFD|LOGCF |STATUS|GEDIT |BLAME |  | Q-F  | Q-N  | Q-P  | Q-L  |      |
+ * |LOGCFD|LOGCFS|STATUS|      |BLAME |  |      |NEXTDF|PREVDF|      |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |BROWSE|      |      |DIFFI |      |  |      |NEXTDF|PREVDF|      |      |
+ * |      |      |DIFFI |DIFFIT|DIFFA |  | Q-F  | Q-N  | Q-P  | Q-L  |DIFFT | DiffTool and QuickFix navigation
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |GPUSH |COMMIT|DIFFIT|  |LOGCFS|PKAXE |PKAXEC|
+ *               |GPUSH |COMMIT|      |  |      |PKAXE |PKAXEC|
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define GIT_L01     VIM_LOG_RELEASE                 // git log for a period of time
+#define GIT_L01     VIM_GIT_BROWSE									// browse selected are online
 #define GIT_L02     VIM_GIT_GREP                    // [*] Grep in any branch
-#define GIT_L03     _______
+#define GIT_L03     VIM_EDIT_ANY                    // check any blob
 #define GIT_L04     VIM_GIT_COMMITS                 // [*] view recent (all) commits
-#define GIT_L05     VIM_DIFFTOOL                    // go through all changes in commit (CR)
+#define GIT_L05     _______
 
 #define GIT_L11     VIM_LOG_CURRENT_FILE_DETAILS    // [*] list of history of this file
-#define GIT_L12     VIM_LOG_CURRENT_FILE            // [*] list of commits that touched current file
+#define GIT_L12     VIM_LOG_CURRENT_FILE_SELECTION  // [*] list of this file that touch the selected area
 #define GIT_L13     VIM_GIT_STATUS                  // [*] git status of commit
-#define GIT_L14     VIM_EDIT_ANY                    // check any blob
+#define GIT_L14     _______
 #define GIT_L15     VIM_GIT_BLAME
 
-#define GIT_L21     VIM_GIT_BROWSE									// browse selected are online
+#define GIT_L21     _______
 #define GIT_L22     _______
-#define GIT_L23     _______
-#define GIT_L24     VIM_DIFF_INDEX									// diff current file with index
-#define GIT_L25     _______
+#define GIT_L23     VIM_DIFF_INDEX									// diff current file with index
+#define GIT_L24     VIM_DIFF_IT                     // "dv" from status to show diff
+#define GIT_L25     VIM_DIFF_ANY                    // diff with branch
 
 #define GIT_L33     VIM_GIT_PUSH										// [*] git push
 #define GIT_L34     VIM_GIT_COMMIT                  // [*] git commit
-#define GIT_L35     VIM_DIFF_IT                     // "dv" from status to show diff
+#define GIT_L35     _______
 
 // Right
 #define GIT_R01     VIM_TARGET_BRANCH_HUNK          // merge conflict: get target branch hunk
@@ -947,19 +946,19 @@ enum custom_keycodes {
 #define GIT_R04     VIM_MERGE_BRANCH_HUNK           // merge conflict: get merge branch hunk
 #define GIT_R05     VIM_HUNK_UNDO
 
-#define GIT_R11     VIM_QUICK_FIRST
-#define GIT_R12     VIM_QUICK_NEXT
-#define GIT_R13     VIM_QUICK_PREV
-#define GIT_R14     VIM_QUICK_LAST
+#define GIT_R11     _______
+#define GIT_R12     VIM_DIFF_NEXT                   // from a diff, go to the next one in status
+#define GIT_R13     VIM_DIFF_PREV                   // from a diff, go to the prev one in status
+#define GIT_R14     _______
 #define GIT_R15     _______
 
-#define GIT_R21     _______
-#define GIT_R22     VIM_DIFF_NEXT                   // from a diff, go to the next one in status
-#define GIT_R23     VIM_DIFF_PREV                   // from a diff, go to the prev one in status
-#define GIT_R24     _______
-#define GIT_R25     _______
+#define GIT_R21     VIM_QUICK_FIRST
+#define GIT_R22     VIM_QUICK_NEXT
+#define GIT_R23     VIM_QUICK_PREV
+#define GIT_R24     VIM_QUICK_LAST
+#define GIT_R25     VIM_DIFFTOOL                    // go through all changes in commit (CR)
 
-#define GIT_R31     VIM_LOG_CURRENT_FILE_SELECTION  // [*] list of this file that touch the selected area
+#define GIT_R31     _______
 #define GIT_R32     VIM_PICK_AXE                    // [*] list of commits that introduced symbol
 #define GIT_R33     VIM_PICK_AXE_CURRENT_FILE       // [*] list of commits that introduced symbol to this file
 
@@ -985,7 +984,7 @@ enum custom_keycodes {
 #define INAV_L05     LGUI(KC_F3)                  // [*] Marks
 
 #define INAV_L11     LSFT(LGUI(KC_A))             // [*] Find action Note: there is a mac override need to disable https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog
-#define INAV_L12     LGUI(KC_9)                   // [*] Local changes
+#define INAV_L12     LALT(LSFT(KC_Y))             // [*] Local changes (Show Local History)
 #define INAV_L13     LGUI(KC_E)                   // [*] Recent files popup
 #define INAV_L14     LGUI(KC_1)                   // [*] Project Files View
 #define INAV_L15     LALT(KC_F1)                  // [*] Select current file (or symbol) in any view
@@ -1035,9 +1034,9 @@ enum custom_keycodes {
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |SELALL|Rename|ChSig |ParamI|      |  |  LU  |NxtEdt|PrvEdt|  SU  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |VHSPLT|VVSPLT|      |      |VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |      |
+ * |VHSPLT|VVSPLT|      |DiffIt|VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |GenCd |LiveT |  |CodeCm|StatCm|Suggst|
+ *               |GenCd |LiveT |      |  |CodeCm|StatCm|Suggst|
  *               `--------------------'  `--------------------'
  */
 
@@ -1057,12 +1056,12 @@ enum custom_keycodes {
 #define IDEA_L21     VIM_HSPLIT                     // [*] hor split
 #define IDEA_L22     VIM_VSPLIT                     // [*] vert split
 #define IDEA_L23     _______
-#define IDEA_L24     _______
+#define IDEA_L24     LGUI(KC_D)                     // [*] Diff it
 #define IDEA_L25     VIM_PASTE_LAST_YANK            // [*] Paste last yank (instead of last selection)
 
-#define IDEA_L33     _______
-#define IDEA_L34     LGUI(KC_N)                     // Generate code
-#define IDEA_L35     LGUI(KC_J)                     // [*] Insert live templates
+#define IDEA_L33     LGUI(KC_N)                     // Generate code
+#define IDEA_L34     LGUI(KC_J)                     // [*] Insert live templates
+#define IDEA_L35     _______
 
 // Right
 #define IDEA_R01     _______
@@ -1091,13 +1090,13 @@ enum custom_keycodes {
 
 /* Intellij-git
  * ,----------------------------------.  ,----------------------------------.
- * |      |      |      |CMMITS|      |  |      |      |      |      |HUNKU |
+ * |      |      |      |CMMITS|      |  |AccLft|      |      |AccRgt|HUNKU |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |LOGCFD|      |      |      | Blame|  |      |      |      |      |      |
+ * |LOGCFD|LOGCFS|Status|      | Blame|  |      |NEXTDF|PREVDF|      |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      | Diff |      |  |      |      |      |      |      |
+ * |      |      | DiffR|DiffIt| DiffB|  |      |      |      |      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |GPUSH |COMMIT| Diff |  |LOGCFS|      |      |
+ *               |GPUSH |COMMIT|      |  |      |      |      |
  *               `--------------------'  `--------------------'
  */
 
@@ -1109,31 +1108,31 @@ enum custom_keycodes {
 #define QWER_L05     _______
 
 #define QWER_L11     LALT(LSFT(KC_H))             // [*] Show History for file
-#define QWER_L12     _______
-#define QWER_L13     _______
+#define QWER_L12     LALT(LSFT(KC_COMM))          // [*] Show History for file for selection
+#define QWER_L13     LGUI(KC_9)                   // [*] Git status
 #define QWER_L14     _______
 #define QWER_L15     LALT(KC_Q)                   // [*] Blame (custom keymap)
 
 #define QWER_L21     _______
 #define QWER_L22     _______
-#define QWER_L23     _______
-#define QWER_L24     LGUI(KC_D)                   // [*] Diff with Index
-#define QWER_L25     _______
+#define QWER_L23     LALT(LGUI(KC_S))             // [*] Compare With Revision
+#define QWER_L24     LGUI(KC_D)                   // [*] Diff it
+#define QWER_L25     LALT(LSFT(KC_S))             // [*] Compare With Branch
 
 #define QWER_L33     LSFT(LGUI(KC_K))             // [*] Push
 #define QWER_L34     LGUI(KC_K)                   // [*] Commit
-#define QWER_L35     LGUI(KC_D)                   // [*] Diff it
+#define QWER_L35     _______
 
 // Right
-#define QWER_R01     _______
-#define QWER_R02     _______
+#define QWER_R01     LALT(LSFT(KC_L))             // [*] Accept Left Side
+#define QWER_R02     LALT(LSFT(KC_U))             // [*] Accept Right Side
 #define QWER_R03     _______
 #define QWER_R04     _______
 #define QWER_R05     LALT(LGUI(KC_Z))             // [*] hunk undo
 
 #define QWER_R11     _______
-#define QWER_R12     _______
-#define QWER_R13     _______
+#define QWER_R12     KC_DOWN                      // [*]
+#define QWER_R13     KC_UP                        // [*]
 #define QWER_R14     _______
 #define QWER_R15     _______
 
@@ -1143,7 +1142,7 @@ enum custom_keycodes {
 #define QWER_R24     _______
 #define QWER_R25     _______
 
-#define QWER_R31     LALT(LSFT(KC_COMM))          // [*] Show History for file for selection
+#define QWER_R31     _______
 #define QWER_R32     _______
 #define QWER_R33     _______
 
