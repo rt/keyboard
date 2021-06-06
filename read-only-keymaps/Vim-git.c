@@ -4,9 +4,9 @@
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |LOGCFD|LOGCF |STATUS|GEDIT |BLAME |  | Q-F  | Q-N  | Q-P  | Q-L  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      |DIFFI |      |  |      |NEXTDF|PREVDF|      |      |
+ * |BROWSE|      |      |DIFFI |      |  |      |NEXTDF|PREVDF|      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |BROWSE|GPUSH |DIFFIT|  |LOGCFS|PKAXE |PKAXEC|
+ *               |GPUSH |COMMIT|DIFFIT|  |LOGCFS|PKAXE |PKAXEC|
  *               `--------------------'  `--------------------'
  */
 
@@ -23,14 +23,14 @@
 #define GIT_L14     VIM_EDIT_ANY                    // check any blob
 #define GIT_L15     VIM_GIT_BLAME
 
-#define GIT_L21     _______
+#define GIT_L21     VIM_GIT_BROWSE									// browse selected are online
 #define GIT_L22     _______
 #define GIT_L23     _______
 #define GIT_L24     VIM_DIFF_INDEX									// diff current file with index
 #define GIT_L25     _______
 
-#define GIT_L33     VIM_GIT_BROWSE									// browse selected are online
-#define GIT_L34     VIM_GIT_PUSH										// git push
+#define GIT_L33     VIM_GIT_PUSH										// [*] git push
+#define GIT_L34     VIM_GIT_COMMIT                  // [*] git commit
 #define GIT_L35     VIM_DIFF_IT                     // "dv" from status to show diff
 
 // Right

@@ -46,7 +46,7 @@
 
 #define IDEA_R11     LALT(LSFT(KC_UP))              // [*] Move line up
 #define IDEA_R12     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
-#define IDEA_R13     LGUI(LSFT(KC_DEL))             // [*] prev edit location
+#define IDEA_R13     LSFT(LGUI(KC_BSPC))             // [*] prev edit location
 #define IDEA_R14     VIM_INTELLIJ_INSERT_SPACE_ABOVE// [*] space above
 #define IDEA_R15     _______
 

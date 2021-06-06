@@ -2,7 +2,7 @@
  * Global: System, Tmux, App, etc, Navigation
  * Mixture of concepts (item, editor)
  * ,----------------------------------.  ,----------------------------------.
- * |      |      |PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
+ * |TRLDCG|      |PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |CDGTRT| CD-  |GITDIR|TSZUP | Home |  | Left | Down |  Up  |Right |TDETCH|
  * |------+------+------+------+------|  |------+------+------+------+------|

@@ -65,6 +65,7 @@ enum custom_keycodes {
   VIM_MERGE_BRANCH_HUNK,
   VIM_GIT_BROWSE,
 	VIM_GIT_PUSH,
+  VIM_GIT_COMMIT,
   VIM_HELP,
   VIM_QUIT,
   VIM_WRITE,
@@ -298,13 +299,13 @@ enum custom_keycodes {
  * Layers: Vim-git, IntelliJ-git
  * Things beyond base will have to use app specific cuts/leaders
  * ,----------------------------------.  ,----------------------------------.
- * |      |      |      |      |      |  |      |      |      |      |      |
+ * |      |      |      |      |      |  |      |      |      |      |  HU  |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |      |      |      |  B   |  |      |      |      |      |      |
+ * |  SH  |      |      |      |  B   |  |      |      |      |      |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |      |      |      |      |      |  |      |      |      |      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |      |      |  |      |      |      |
+ *               | PUSH |COMMIT| DIFF |  | LCFS |      |      |
  *               `--------------------'  `--------------------'
  */
 
@@ -315,7 +316,7 @@ enum custom_keycodes {
 // L04     _______
 // L05     _______
 //
-// L11     _______
+// L11     Show History of this file
 // L12     _______
 // L13     _______
 // L14     _______
@@ -327,16 +328,16 @@ enum custom_keycodes {
 // L24     _______
 // L25     _______
 //
-// L33     _______
-// L34     _______
-// L35     _______
+// L33     Push
+// L34     Commit
+// L35     Diff it
 
 // Right
 // R01     _______
 // R02     _______
 // R03     _______
 // R04     _______
-// R05     _______
+// R05     Hunk Undo
 //
 // R11     _______
 // R12     _______
@@ -350,7 +351,7 @@ enum custom_keycodes {
 // R24     _______
 // R25     _______
 //
-// R31     _______
+// R31     Git log current file selection
 // R32     _______
 // R33     _______
 
@@ -910,9 +911,9 @@ enum custom_keycodes {
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |LOGCFD|LOGCF |STATUS|GEDIT |BLAME |  | Q-F  | Q-N  | Q-P  | Q-L  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      |DIFFI |      |  |      |NEXTDF|PREVDF|      |      |
+ * |BROWSE|      |      |DIFFI |      |  |      |NEXTDF|PREVDF|      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |BROWSE|GPUSH |DIFFIT|  |LOGCFS|PKAXE |PKAXEC|
+ *               |GPUSH |COMMIT|DIFFIT|  |LOGCFS|PKAXE |PKAXEC|
  *               `--------------------'  `--------------------'
  */
 
@@ -929,14 +930,14 @@ enum custom_keycodes {
 #define GIT_L14     VIM_EDIT_ANY                    // check any blob
 #define GIT_L15     VIM_GIT_BLAME
 
-#define GIT_L21     _______
+#define GIT_L21     VIM_GIT_BROWSE									// browse selected are online
 #define GIT_L22     _______
 #define GIT_L23     _______
 #define GIT_L24     VIM_DIFF_INDEX									// diff current file with index
 #define GIT_L25     _______
 
-#define GIT_L33     VIM_GIT_BROWSE									// browse selected are online
-#define GIT_L34     VIM_GIT_PUSH										// git push
+#define GIT_L33     VIM_GIT_PUSH										// [*] git push
+#define GIT_L34     VIM_GIT_COMMIT                  // [*] git commit
 #define GIT_L35     VIM_DIFF_IT                     // "dv" from status to show diff
 
 // Right
@@ -968,11 +969,11 @@ enum custom_keycodes {
  * ,----------------------------------.  ,----------------------------------.
  * |NavBar|FindP |VPRVFI|FindF |Marks |  |Scrtch| New  | Copy | Move |Delete|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |FindAc|LocalC|Recent|ProjV | FnP  |  | Back | Decl | Impl | Fwd  |SupMC |
+ * |FindAc|LocalC|Recent|ProjV | FnP  |  | Back | Decl | Impl | Fwd  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |TMnMx |StrctV|DebugV|GotoTe|      |  |      |      |      |      |      |
+ * |      |      |      |GotoTe|SupMC |  |PREVTB|DebugV|LastTl|NEXTTB|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |LastTl|MaxMin| Term |  |Usages|CallHi|      |
+ *               |TMnMx |MaxMin| Term |  |Usages|CallHi|      |
  *               `--------------------'  `--------------------'
  */
 
@@ -989,13 +990,13 @@ enum custom_keycodes {
 #define INAV_L14     LGUI(KC_1)                   // [*] Project Files View
 #define INAV_L15     LALT(KC_F1)                  // [*] Select current file (or symbol) in any view
 
-#define INAV_L21     LSFT(LGUI(KC_QUOT))          // Toggle tool min/max
-#define INAV_L22     LGUI(KC_7)                   // Project Structure View
-#define INAV_L23     LGUI(KC_5)                   // Debug View
+#define INAV_L21     _______
+#define INAV_L22     _______
+#define INAV_L23     _______
 #define INAV_L24     LSFT(LGUI(KC_T))             // [*] Go to test
-#define INAV_L25     _______
+#define INAV_L25     LGUI(KC_U)                   // Go to super-method/super-class
 
-#define INAV_L33     KC_F12                       // Last Tool
+#define INAV_L33     LSFT(LGUI(KC_QUOT))          // Toggle tool min/max
 #define INAV_L34     LGUI(LSFT(KC_F12))           // [*] Toggle maximizing editor
 #define INAV_L35     LALT(KC_F12)                 // Terminal View
 
@@ -1010,12 +1011,12 @@ enum custom_keycodes {
 #define INAV_R12     LGUI(KC_B)                   // [*] Go to declaration
 #define INAV_R13     LALT(LGUI(KC_B))             // [*] Go to implementation
 #define INAV_R14     LGUI(LALT(KC_RIGHT))         // [*] Navigate forward
-#define INAV_R15     LGUI(KC_U)                   // Go to super-method/super-class
+#define INAV_R15     _______
 
-#define INAV_R21     _______
-#define INAV_R22     _______
-#define INAV_R23     _______
-#define INAV_R24     _______
+#define INAV_R21     LALT(LSFT(KC_M))             // Prev Tab
+#define INAV_R22     LGUI(KC_5)                   // Debug View
+#define INAV_R23     KC_F12                       // Last Tool
+#define INAV_R24     LALT(LGUI(KC_I))             // Next Tab
 #define INAV_R25     _______
 
 #define INAV_R31     LALT(KC_F7)                  // [*] Find Usages
@@ -1072,7 +1073,7 @@ enum custom_keycodes {
 
 #define IDEA_R11     LALT(LSFT(KC_UP))              // [*] Move line up
 #define IDEA_R12     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
-#define IDEA_R13     LGUI(LSFT(KC_DEL))             // [*] prev edit location
+#define IDEA_R13     LSFT(LGUI(KC_BSPC))             // [*] prev edit location
 #define IDEA_R14     VIM_INTELLIJ_INSERT_SPACE_ABOVE// [*] space above
 #define IDEA_R15     _______
 
@@ -1090,13 +1091,13 @@ enum custom_keycodes {
 
 /* Intellij-git
  * ,----------------------------------.  ,----------------------------------.
- * |      |      |      |CMMITS|      |  |      |      |      |      |      |
+ * |      |      |      |CMMITS|      |  |      |      |      |      |HUNKU |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |      |      |      | Blame|  |      |      |      |      |      |
+ * |LOGCFD|      |      |      | Blame|  |      |      |      |      |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      |      |      |  |      |      |      |      |      |
+ * |      |      |      | Diff |      |  |      |      |      |      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               | _ADJ |      |      |  |      |      |      |
+ *               |GPUSH |COMMIT| Diff |  |LOGCFS|      |      |
  *               `--------------------'  `--------------------'
  */
 
@@ -1104,10 +1105,10 @@ enum custom_keycodes {
 #define QWER_L01     _______
 #define QWER_L02     _______
 #define QWER_L03     _______
-#define QWER_L04     LALT(KC_W)                   // [*] Commits (custom keymap) but doesn't work!
+#define QWER_L04     LGUI(KC_9)                   // [*] Local changes (need to move with tabs)
 #define QWER_L05     _______
 
-#define QWER_L11     _______
+#define QWER_L11     LALT(LSFT(KC_H))             // [*] Show History for file
 #define QWER_L12     _______
 #define QWER_L13     _______
 #define QWER_L14     _______
@@ -1116,19 +1117,19 @@ enum custom_keycodes {
 #define QWER_L21     _______
 #define QWER_L22     _______
 #define QWER_L23     _______
-#define QWER_L24     _______
+#define QWER_L24     LGUI(KC_D)                   // [*] Diff with Index
 #define QWER_L25     _______
 
-#define QWER_L33     OSL(_ADJUST)                 // you'll might need this until all your keyboards are updated (this was QWERTY)
-#define QWER_L34     _______
-#define QWER_L35     _______
+#define QWER_L33     LSFT(LGUI(KC_K))             // [*] Push
+#define QWER_L34     LGUI(KC_K)                   // [*] Commit
+#define QWER_L35     LGUI(KC_D)                   // [*] Diff it
 
 // Right
 #define QWER_R01     _______
 #define QWER_R02     _______
 #define QWER_R03     _______
 #define QWER_R04     _______
-#define QWER_R05     _______
+#define QWER_R05     LALT(LGUI(KC_Z))             // [*] hunk undo
 
 #define QWER_R11     _______
 #define QWER_R12     _______
@@ -1142,7 +1143,7 @@ enum custom_keycodes {
 #define QWER_R24     _______
 #define QWER_R25     _______
 
-#define QWER_R31     _______
+#define QWER_R31     LALT(LSFT(KC_COMM))          // [*] Show History for file for selection
 #define QWER_R32     _______
 #define QWER_R33     _______
 

@@ -220,6 +220,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":'<,'>GBrowse"SS_TAP(X_ENTER));
       }
         break;
+    case VIM_GIT_COMMIT:
+      if (record->event.pressed) {
+        SEND_STRING("cc");
+      }
+        break;
     case VIM_GIT_PUSH:
       if (record->event.pressed) {
         SEND_STRING(":Git push"SS_TAP(X_ENTER));
