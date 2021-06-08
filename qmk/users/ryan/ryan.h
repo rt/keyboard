@@ -66,6 +66,7 @@ enum custom_keycodes {
   VIM_GIT_BROWSE,
 	VIM_GIT_PUSH,
   VIM_GIT_COMMIT,
+  VIM_GIT_FETCH,
   VIM_HELP,
   VIM_QUIT,
   VIM_WRITE,
@@ -912,7 +913,7 @@ enum custom_keycodes {
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |      |      |DIFFI |DIFFIT|DIFFA |  | Q-F  | Q-N  | Q-P  | Q-L  |DIFFT | DiffTool and QuickFix navigation
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |GPUSH |COMMIT|      |  |      |PKAXE |PKAXEC|
+ *               |GPUSH |COMMIT|GFETCH|  |      |PKAXE |PKAXEC|
  *               `--------------------'  `--------------------'
  */
 
@@ -937,7 +938,7 @@ enum custom_keycodes {
 
 #define GIT_L33     VIM_GIT_PUSH										// [*] git push
 #define GIT_L34     VIM_GIT_COMMIT                  // [*] git commit
-#define GIT_L35     _______
+#define GIT_L35     VIM_GIT_FETCH                   // [*] git fetch
 
 // Right
 #define GIT_R01     VIM_TARGET_BRANCH_HUNK          // merge conflict: get target branch hunk
@@ -1096,7 +1097,7 @@ enum custom_keycodes {
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |      |      | DiffR|DiffIt| DiffB|  |      |      |      |      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |GPUSH |COMMIT|      |  |      |      |      |
+ *               |GPUSH |COMMIT|FETCH |  |      |      |      |
  *               `--------------------'  `--------------------'
  */
 
@@ -1121,7 +1122,7 @@ enum custom_keycodes {
 
 #define QWER_L33     LSFT(LGUI(KC_K))             // [*] Push
 #define QWER_L34     LGUI(KC_K)                   // [*] Commit
-#define QWER_L35     _______
+#define QWER_L35     LALT(LSFT(KC_J))             // [*] Fetch
 
 // Right
 #define QWER_R01     LALT(LSFT(KC_L))             // [*] Accept Left Side

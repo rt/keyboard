@@ -6,7 +6,7 @@
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |      |      |DIFFI |DIFFIT|DIFFA |  | Q-F  | Q-N  | Q-P  | Q-L  |DIFFT | DiffTool and QuickFix navigation
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |GPUSH |COMMIT|      |  |      |PKAXE |PKAXEC|
+ *               |GPUSH |COMMIT|GFETCH|  |      |PKAXE |PKAXEC|
  *               `--------------------'  `--------------------'
  */
 
@@ -31,7 +31,7 @@
 
 #define GIT_L33     VIM_GIT_PUSH										// [*] git push
 #define GIT_L34     VIM_GIT_COMMIT                  // [*] git commit
-#define GIT_L35     _______
+#define GIT_L35     VIM_GIT_FETCH                   // [*] git fetch
 
 // Right
 #define GIT_R01     VIM_TARGET_BRANCH_HUNK          // merge conflict: get target branch hunk

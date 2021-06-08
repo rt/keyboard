@@ -215,6 +215,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":'<,'>GBrowse"SS_TAP(X_ENTER));
       }
         break;
+    case VIM_GIT_FETCH:
+      if (record->event.pressed) {
+        SEND_STRING(":Git fetch"SS_TAP(X_ENTER));
+      }
+        break;
     case VIM_GIT_COMMIT:
       if (record->event.pressed) {
         SEND_STRING("cc");
@@ -598,12 +603,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(SS_LCTRL("b")":kill-session"SS_TAP(X_ENTER));
       }
         break;
-    case TMUX_HSPLIT:
+    case TMUX_VSPLIT:
       if (record->event.pressed) {
         SEND_STRING(SS_LCTRL("b")"|"SS_TAP(X_ENTER));
       }
         break;
-    case TMUX_VSPLIT:
+    case TMUX_HSPLIT:
       if (record->event.pressed) {
         SEND_STRING(SS_LCTRL("b")"-"SS_TAP(X_ENTER));
       }

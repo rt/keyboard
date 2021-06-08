@@ -6,7 +6,7 @@
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |      |      | DiffR|DiffIt| DiffB|  |      |      |      |      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |GPUSH |COMMIT|      |  |      |      |      |
+ *               |GPUSH |COMMIT|FETCH |  |      |      |      |
  *               `--------------------'  `--------------------'
  */
 
@@ -31,7 +31,7 @@
 
 #define QWER_L33     LSFT(LGUI(KC_K))             // [*] Push
 #define QWER_L34     LGUI(KC_K)                   // [*] Commit
-#define QWER_L35     _______
+#define QWER_L35     LALT(LSFT(KC_J))             // [*] Fetch
 
 // Right
 #define QWER_R01     LALT(LSFT(KC_L))             // [*] Accept Left Side
