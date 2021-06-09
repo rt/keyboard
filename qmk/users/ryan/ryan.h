@@ -105,6 +105,7 @@ enum custom_keycodes {
   VIM_CTAGS_SEL,
   VIM_TAGBAR_OPEN_AUTOCLOSE,
   VIM_BLINES,
+  VIM_REPLACE_IN_FILES,
   VIM_FIND_INPATH,
   VIM_FIND_GFILE,
   VIM_MARKS,
@@ -130,6 +131,7 @@ enum custom_keycodes {
   VIM_ONLY,
   VIM_GUNDO,
   VIM_SNIPPETS,
+  VIM_DISTRACTION_FREE_MODE,
   VIM_NERD_NEW,
   VIM_NERD_COPY,
   VIM_NERD_MOVE,
@@ -798,7 +800,7 @@ enum custom_keycodes {
  */
 
 // Left
-#define VHNAV_L01     VIM_SEARCH_IN_DIR               // change dir to current file dir and search (this more properly would be tab right)
+#define VHNAV_L01     VIM_SEARCH_IN_DIR               // change dir to current file dir and search
 #define VHNAV_L02     VIM_FIND_INPATH                 // [*] Find <keyword> in current directory
 #define VHNAV_L03     LCTL(KC_CIRC)                   // [*] prev file
 #define VHNAV_L04     VIM_FIND_GFILE                  // [*] Find file in git 
@@ -818,7 +820,7 @@ enum custom_keycodes {
 
 #define VHNAV_L33     VIM_HELP                        // [*]
 #define VHNAV_L34     VIM_ONLY                        // [*]
-#define VHNAV_L35     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
+#define VHNAV_L35     VIM_DIR_ROOT                    // change dir to project top
 
 // Right
 #define VHNAV_R01     XXXXXXX
@@ -847,20 +849,20 @@ enum custom_keycodes {
 
 /* Vim-editor
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|      |BLINES| TAGB |  |      |NEXTBR|PREVBR|      | VQUIT|
+ * |VWALL |VWRITE|REPNFI|BLINES| TAGB |  |      |NEXTBR|PREVBR|      | VQUIT|
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |SELALL|      |      |      |      |  |EX_ABV|NEXTED|PREVED|SP_ABV|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |VHSPLT|VVSPLT|DIFFTG|DIFFON|VPASTE|  |EX_BLW|NEXTER|PREVER|SP_BLW|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |VWQUIT| SNIP |      |  |Compl |ComplX|      |
+ *               |VWQUIT| SNIP | DF   |  |Compl |ComplX|      |
  *               `--------------------'  `--------------------'
  */
 
 // Left
 #define VHOME_L01     VIM_WRITE_ALL                   // [*] write quit editor
 #define VHOME_L02     VIM_WRITE                       // [*] write
-#define VHOME_L03     _______
+#define VHOME_L03     VIM_REPLACE_IN_FILES            // follow up with :vimgrep /patt/g ##, :cdo %s/patt/repl/ge, :cdo update
 #define VHOME_L04     VIM_BLINES                      // [*] search buffer lines
 #define VHOME_L05     VIM_TAGBAR_OPEN_AUTOCLOSE       // [*] tags for file, good for large files
 
@@ -878,7 +880,7 @@ enum custom_keycodes {
 
 #define VHOME_L33     VIM_WRITE_QUIT                  // write quit editor
 #define VHOME_L34     VIM_SNIPPETS                    // [*] snipplets
-#define VHOME_L35     _______
+#define VHOME_L35     VIM_DISTRACTION_FREE_MODE        // [*] Distaction Free Mode Toggle
 
 // Right
 #define VHOME_R01     _______
@@ -1031,20 +1033,20 @@ enum custom_keycodes {
  * Purposely not doing things like extract method, extract variable ... just do it with vim tools
  * Purposely not including override method, implement methods ... look to the source and do manually, if you need use the ui ...
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|      |      |FileHi|  |      | Sel- | Sel+ |      |VQUIT |
+ * |VWALL |VWRITE|REPNFI|      |FileHi|  |      | Sel- | Sel+ |      |VQUIT |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |SELALL|Rename|ChSig |ParamI|      |  |  LU  |NxtEdt|PrvEdt|  SU  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |VHSPLT|VVSPLT|      |DiffIt|VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |GenCd |LiveT |      |  |CodeCm|StatCm|Suggst|
+ *               |GenCd |LiveT | DF   |  |CodeCm|StatCm|Suggst|
  *               `--------------------'  `--------------------'
  */
 
 // Left
 #define IDEA_L01     VIM_WRITE_ALL                  // [*] write quit editor
 #define IDEA_L02     VIM_WRITE                      // [*] write
-#define IDEA_L03     _______
+#define IDEA_L03     LGUI(LSFT(KC_R))               // Replace in files
 #define IDEA_L04     _______
 #define IDEA_L05     LGUI(KC_F12)                   // [*] File structure popup
 
@@ -1062,7 +1064,7 @@ enum custom_keycodes {
 
 #define IDEA_L33     LGUI(KC_N)                     // Generate code
 #define IDEA_L34     LGUI(KC_J)                     // [*] Insert live templates
-#define IDEA_L35     _______
+#define IDEA_L35     LALT(LSFT(KC_E))               // [*] Distraction Free Mode Toggle
 
 // Right
 #define IDEA_R01     _______

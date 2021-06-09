@@ -1,19 +1,19 @@
 /* Vim-editor
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|      |BLINES| TAGB |  |      |NEXTBR|PREVBR|      | VQUIT|
+ * |VWALL |VWRITE|REPNFI|BLINES| TAGB |  |      |NEXTBR|PREVBR|      | VQUIT|
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |SELALL|      |      |      |      |  |EX_ABV|NEXTED|PREVED|SP_ABV|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |VHSPLT|VVSPLT|DIFFTG|DIFFON|VPASTE|  |EX_BLW|NEXTER|PREVER|SP_BLW|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |VWQUIT| SNIP |      |  |Compl |ComplX|      |
+ *               |VWQUIT| SNIP | DF   |  |Compl |ComplX|      |
  *               `--------------------'  `--------------------'
  */
 
 // Left
 #define VHOME_L01     VIM_WRITE_ALL                   // [*] write quit editor
 #define VHOME_L02     VIM_WRITE                       // [*] write
-#define VHOME_L03     _______
+#define VHOME_L03     VIM_REPLACE_IN_FILES            // follow up with :vimgrep /patt/g ##, :cdo %s/patt/repl/ge, :cdo update
 #define VHOME_L04     VIM_BLINES                      // [*] search buffer lines
 #define VHOME_L05     VIM_TAGBAR_OPEN_AUTOCLOSE       // [*] tags for file, good for large files
 
@@ -31,7 +31,7 @@
 
 #define VHOME_L33     VIM_WRITE_QUIT                  // write quit editor
 #define VHOME_L34     VIM_SNIPPETS                    // [*] snipplets
-#define VHOME_L35     _______
+#define VHOME_L35     VIM_DISTRACTION_FREE_MODE        // [*] Distaction Free Mode Toggle
 
 // Right
 #define VHOME_R01     _______

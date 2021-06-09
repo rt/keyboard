@@ -391,6 +391,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":BLines"SS_TAP(X_ENTER));
       }
         break;
+    case VIM_REPLACE_IN_FILES:
+      if (record->event.pressed) {
+        SEND_STRING(":args `grep keyword -rl dir`");
+      }
+        break;
     case VIM_TAGBAR_OPEN_AUTOCLOSE:
       if (record->event.pressed) {
         SEND_STRING(":TagbarOpenAutoClose"SS_TAP(X_ENTER));
@@ -485,6 +490,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIM_SNIPPETS:
       if (record->event.pressed) {
         SEND_STRING(":Snippets"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_DISTRACTION_FREE_MODE:
+      if (record->event.pressed) {
+        SEND_STRING(":Goyo"SS_TAP(X_ENTER));
       }
         break;
     case VIM_WORK_SHOW_NOTES:

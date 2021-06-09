@@ -4,20 +4,20 @@
  * Purposely not doing things like extract method, extract variable ... just do it with vim tools
  * Purposely not including override method, implement methods ... look to the source and do manually, if you need use the ui ...
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|      |      |FileHi|  |      | Sel- | Sel+ |      |VQUIT |
+ * |VWALL |VWRITE|REPNFI|      |FileHi|  |      | Sel- | Sel+ |      |VQUIT |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |SELALL|Rename|ChSig |ParamI|      |  |  LU  |NxtEdt|PrvEdt|  SU  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |VHSPLT|VVSPLT|      |DiffIt|VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |GenCd |LiveT |      |  |CodeCm|StatCm|Suggst|
+ *               |GenCd |LiveT | DF   |  |CodeCm|StatCm|Suggst|
  *               `--------------------'  `--------------------'
  */
 
 // Left
 #define IDEA_L01     VIM_WRITE_ALL                  // [*] write quit editor
 #define IDEA_L02     VIM_WRITE                      // [*] write
-#define IDEA_L03     _______
+#define IDEA_L03     LGUI(LSFT(KC_R))               // Replace in files
 #define IDEA_L04     _______
 #define IDEA_L05     LGUI(KC_F12)                   // [*] File structure popup
 
@@ -35,7 +35,7 @@
 
 #define IDEA_L33     LGUI(KC_N)                     // Generate code
 #define IDEA_L34     LGUI(KC_J)                     // [*] Insert live templates
-#define IDEA_L35     _______
+#define IDEA_L35     LALT(LSFT(KC_E))               // [*] Distraction Free Mode Toggle
 
 // Right
 #define IDEA_R01     _______

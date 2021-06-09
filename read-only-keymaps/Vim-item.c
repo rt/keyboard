@@ -11,7 +11,7 @@
  */
 
 // Left
-#define VHNAV_L01     VIM_SEARCH_IN_DIR               // change dir to current file dir and search (this more properly would be tab right)
+#define VHNAV_L01     VIM_SEARCH_IN_DIR               // change dir to current file dir and search
 #define VHNAV_L02     VIM_FIND_INPATH                 // [*] Find <keyword> in current directory
 #define VHNAV_L03     LCTL(KC_CIRC)                   // [*] prev file
 #define VHNAV_L04     VIM_FIND_GFILE                  // [*] Find file in git 
@@ -31,7 +31,7 @@
 
 #define VHNAV_L33     VIM_HELP                        // [*]
 #define VHNAV_L34     VIM_ONLY                        // [*]
-#define VHNAV_L35     VIM_DIR_ROOT                    // change dir to project top (this more properly would be tab left)
+#define VHNAV_L35     VIM_DIR_ROOT                    // change dir to project top
 
 // Right
 #define VHNAV_R01     XXXXXXX
