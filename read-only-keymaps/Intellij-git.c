@@ -1,6 +1,6 @@
 /* Intellij-git
  * ,----------------------------------.  ,----------------------------------.
- * |      |      |      |CMMITS|      |  |AccLft|      |      |AccRgt|HUNKU |
+ * |      |      |      |CMMITS|      |  |AccLft|HUNKN |HUNKP |AccRgt|HUNKU |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |LOGCFD|LOGCFS|Status|      | Blame|  |      |NEXTDF|PREVDF|      |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
@@ -35,9 +35,9 @@
 
 // Right
 #define QWER_R01     LALT(LSFT(KC_L))             // [*] Accept Left Side
-#define QWER_R02     LALT(LSFT(KC_U))             // [*] Accept Right Side
-#define QWER_R03     _______
-#define QWER_R04     _______
+#define QWER_R02     KC_F7                        // [*] Next Hunk
+#define QWER_R03     LSFT(KC_F7)                  // [*] Prev Hunk
+#define QWER_R04     LALT(LSFT(KC_U))             // [*] Accept Right Side
 #define QWER_R05     LALT(LGUI(KC_Z))             // [*] hunk undo
 
 #define QWER_R11     _______

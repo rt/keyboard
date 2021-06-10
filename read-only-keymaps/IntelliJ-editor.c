@@ -38,10 +38,10 @@
 #define IDEA_L35     LALT(LSFT(KC_E))               // [*] Distraction Free Mode Toggle
 
 // Right
-#define IDEA_R01     _______
-#define IDEA_R02     LALT(KC_DOWN)                  // Shrink selection (similar idea to editor but uses selection)
-#define IDEA_R03     LALT(KC_UP)                    // Extend selection (similar idea to editor but uses selection)
-#define IDEA_R04     _______
+#define IDEA_R01     LALT(KC_DOWN)                  // Shrink selection (similar idea to editor but uses selection)
+#define IDEA_R02     VIM_NEXT_BRACKET               // [*]
+#define IDEA_R03     VIM_PREV_BRACKET               // [*]
+#define IDEA_R04     LALT(KC_UP)                    // Extend selection (similar idea to editor but uses selection)
 #define IDEA_R05     VIM_QUIT                       // [*]
 
 #define IDEA_R11     LALT(LSFT(KC_UP))              // [*] Move line up

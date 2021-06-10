@@ -35,8 +35,8 @@
 
 // Right
 #define VHOME_R01     _______
-#define VHOME_R02     VIM_NEXT_BRACKET
-#define VHOME_R03     VIM_PREV_BRACKET
+#define VHOME_R02     VIM_NEXT_BRACKET                // [*]
+#define VHOME_R03     VIM_PREV_BRACKET                // [*]
 #define VHOME_R04     _______
 #define VHOME_R05     VIM_QUIT                        // [*] quit editor
 

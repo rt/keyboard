@@ -884,8 +884,8 @@ enum custom_keycodes {
 
 // Right
 #define VHOME_R01     _______
-#define VHOME_R02     VIM_NEXT_BRACKET
-#define VHOME_R03     VIM_PREV_BRACKET
+#define VHOME_R02     VIM_NEXT_BRACKET                // [*]
+#define VHOME_R03     VIM_PREV_BRACKET                // [*]
 #define VHOME_R04     _______
 #define VHOME_R05     VIM_QUIT                        // [*] quit editor
 
@@ -1067,10 +1067,10 @@ enum custom_keycodes {
 #define IDEA_L35     LALT(LSFT(KC_E))               // [*] Distraction Free Mode Toggle
 
 // Right
-#define IDEA_R01     _______
-#define IDEA_R02     LALT(KC_DOWN)                  // Shrink selection (similar idea to editor but uses selection)
-#define IDEA_R03     LALT(KC_UP)                    // Extend selection (similar idea to editor but uses selection)
-#define IDEA_R04     _______
+#define IDEA_R01     LALT(KC_DOWN)                  // Shrink selection (similar idea to editor but uses selection)
+#define IDEA_R02     VIM_NEXT_BRACKET               // [*]
+#define IDEA_R03     VIM_PREV_BRACKET               // [*]
+#define IDEA_R04     LALT(KC_UP)                    // Extend selection (similar idea to editor but uses selection)
 #define IDEA_R05     VIM_QUIT                       // [*]
 
 #define IDEA_R11     LALT(LSFT(KC_UP))              // [*] Move line up
@@ -1093,7 +1093,7 @@ enum custom_keycodes {
 
 /* Intellij-git
  * ,----------------------------------.  ,----------------------------------.
- * |      |      |      |CMMITS|      |  |AccLft|      |      |AccRgt|HUNKU |
+ * |      |      |      |CMMITS|      |  |AccLft|HUNKN |HUNKP |AccRgt|HUNKU |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |LOGCFD|LOGCFS|Status|      | Blame|  |      |NEXTDF|PREVDF|      |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
@@ -1128,9 +1128,9 @@ enum custom_keycodes {
 
 // Right
 #define QWER_R01     LALT(LSFT(KC_L))             // [*] Accept Left Side
-#define QWER_R02     LALT(LSFT(KC_U))             // [*] Accept Right Side
-#define QWER_R03     _______
-#define QWER_R04     _______
+#define QWER_R02     KC_F7                        // [*] Next Hunk
+#define QWER_R03     LSFT(KC_F7)                  // [*] Prev Hunk
+#define QWER_R04     LALT(LSFT(KC_U))             // [*] Accept Right Side
 #define QWER_R05     LALT(LGUI(KC_Z))             // [*] hunk undo
 
 #define QWER_R11     _______
