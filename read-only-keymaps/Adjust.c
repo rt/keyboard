@@ -3,11 +3,11 @@
  * ,----------------------------------.  ,----------------------------------.
  * |Zoom+ | Play | Prev | Next |      |  |  *   |  7   |  8   |  9   |  /   |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |Zoom- | Reset|Colemk|Qwerty|ScrnSh|  |  +   |  4   |  5   |  6   |  0   |
+ * |Zoom- | Reset|Colemk|ScrnOp|ScrnSh|  |  +   |  4   |  5   |  6   |  0   |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |Zoom0 | Mute | Vol- | Vol+ |SetSnd|  |  -   |  1   |  2   |  3   |  .   |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |      |      |  | Bspc |  0   | Del  |
+ *               |      |Desktp|  MC  |  | Bspc |  0   | Del  |
 * `              `--------------------'  `--------------------'
  */
 
@@ -16,13 +16,13 @@
 #define ADJ_L02     KC_MPLY
 #define ADJ_L03     KC_MRWD
 #define ADJ_L04     KC_MFFD
-#define ADJ_L05     XXXXXXX
+#define ADJ_L05     _______
 
 #define ADJ_L11     LGUI(KC_MINS)
 #define ADJ_L12     RESET
 #define ADJ_L13     COLEMAKDH                       //""
-#define ADJ_L14     QWERTY                          //custom keycode, so song can be played
-#define ADJ_L15     LSFT(LGUI(KC_4))
+#define ADJ_L14     LSFT(LGUI(KC_5))                // screenshop and recording options
+#define ADJ_L15     LSFT(LGUI(KC_4))                // screen shot selected area
 
 #define ADJ_L21     LGUI(KC_0)
 #define ADJ_L22     KC_MUTE
@@ -31,8 +31,8 @@
 #define ADJ_L25     LALT(KC_VOLD)
 
 #define ADJ_L33     _______
-#define ADJ_L34     XXXXXXX
-#define ADJ_L35     XXXXXXX
+#define ADJ_L34     KC_F11                          // show desktop
+#define ADJ_L35     LCTL(KC_UP)                     // mission control
 
 // Right
 #define ADJ_R01     KC_ASTR

@@ -34,10 +34,10 @@
 #define GIT_L35     VIM_GIT_FETCH                   // [*] git fetch
 
 // Right
-#define GIT_R01     VIM_TARGET_BRANCH_HUNK          // merge conflict: get target branch hunk
-#define GIT_R02     VIM_HUNK_NEXT
-#define GIT_R03     VIM_HUNK_PREV
-#define GIT_R04     VIM_MERGE_BRANCH_HUNK           // merge conflict: get merge branch hunk
+#define GIT_R01     VIM_TARGET_BRANCH_HUNK          // [*] merge conflict: get target branch hunk
+#define GIT_R02     VIM_HUNK_NEXT                   // [*]
+#define GIT_R03     VIM_HUNK_PREV                   // [*]
+#define GIT_R04     VIM_MERGE_BRANCH_HUNK           // [*] merge conflict: get merge branch hunk
 #define GIT_R05     VIM_HUNK_UNDO
 
 #define GIT_R11     _______
