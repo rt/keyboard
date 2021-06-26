@@ -35,7 +35,7 @@
 
 // Right
 #define INAV_R01     LSFT(LGUI(KC_N))             // New scratch
-#define INAV_R02     LALT(KC_INS)                 // [*] New
+#define INAV_R02     LALT(LGUI(KC_COMM))          // [*] New
 #define INAV_R03     KC_F5                        // [*] Copy
 #define INAV_R04     KC_F6                        // [*] Move
 #define INAV_R05     KC_DEL                       // [*] Delete

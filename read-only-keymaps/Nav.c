@@ -4,9 +4,9 @@
  * ,----------------------------------.  ,----------------------------------.
  * |TRLDCG|      |PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |CDGTRT| CD-  |GITDIR|TSZUP | Home |  | Left | Down |  Up  |Right |TDETCH|
+ * |CDGTRT| CD-  |GITDIR|      | Home |  | Left | Down |  Up  |Right |TDETCH|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |THSPLT|TVSPLT|TSCRLL|TSZDN | End  |  |WkspL |WordL |WordR |WkspR |      |
+ * |THSPLT|TVSPLT|TSCRLL|      | End  |  |WkspL |WordL |WordR |WkspR |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |FlScrn|TZMTOG|Enter |  | Bspc |AltBk | Del  |
  *               `--------------------'  `--------------------'
@@ -22,13 +22,13 @@
 #define NAV_L11     CD_GIT_ROOT
 #define NAV_L12     CD_PREV                           // easier cd -
 #define NAV_L13     CD_GIT_DIR                        // git directory search
-#define NAV_L14     TMUX_SIZE_UP
+#define NAV_L14     _______
 #define NAV_L15     KC_HOME
 
 #define NAV_L21     TMUX_HSPLIT
 #define NAV_L22     TMUX_VSPLIT
 #define NAV_L23     TMUX_SCROLL
-#define NAV_L24     TMUX_SIZE_DOWN
+#define NAV_L24     _______
 #define NAV_L25     KC_END
 
 #define NAV_L33     LCTL(LGUI(KC_F))

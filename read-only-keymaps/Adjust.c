@@ -3,9 +3,9 @@
  * ,----------------------------------.  ,----------------------------------.
  * |Zoom+ | Play | Prev | Next |      |  |  *   |  7   |  8   |  9   |  /   |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |Zoom- | Reset|Colemk|ScrnOp|ScrnSh|  |  +   |  4   |  5   |  6   |  0   |
+ * |Zoom- | Reset|Colemk|ScrnOp|ScrnSh|  |  +   |  4   |  5   |  6   |  .   |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |Zoom0 | Mute | Vol- | Vol+ |SetSnd|  |  -   |  1   |  2   |  3   |  .   |
+ * |Zoom0 | Mute | Vol- | Vol+ |SetSnd|  |  -   |  1   |  2   |  3   |  ,   |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |Desktp|  MC  |  | Bspc |  0   | Del  |
 * `              `--------------------'  `--------------------'
@@ -45,13 +45,13 @@
 #define ADJ_R12     KC_4
 #define ADJ_R13     KC_5
 #define ADJ_R14     KC_6
-#define ADJ_R15     KC_0
+#define ADJ_R15     KC_DOT
 
 #define ADJ_R21     KC_MINS
 #define ADJ_R22     KC_1
 #define ADJ_R23     KC_2
 #define ADJ_R24     KC_3
-#define ADJ_R25     KC_DOT
+#define ADJ_R25     KC_COMM
 
 #define ADJ_R31     KC_BSPC
 #define ADJ_R32     KC_0

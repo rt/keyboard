@@ -4,9 +4,9 @@
  * Purposely not doing things like extract method, extract variable ... just do it with vim tools
  * Purposely not including override method, implement methods ... look to the source and do manually, if you need use the ui ...
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|REPNFI|      |FileHi|  |      | Sel- | Sel+ |      |VQUIT |
+ * |VWALL |VWRITE|REPNFI|      |FileHi|  | Sel- |NEXTBR|PREVBR| Sel+ |VQUIT |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |SELALL|Rename|ChSig |ParamI|      |  |  LU  |NxtEdt|PrvEdt|  SU  |      |
+ * |SELALL|Rename|ChSig |ParamI|      |  |  LU  |PrvEdt|NxtEdt|  SU  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |VHSPLT|VVSPLT|      |DiffIt|VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -45,8 +45,8 @@
 #define IDEA_R05     VIM_QUIT                       // [*]
 
 #define IDEA_R11     LALT(LSFT(KC_UP))              // [*] Move line up
-#define IDEA_R12     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
-#define IDEA_R13     LSFT(LGUI(KC_BSPC))             // [*] prev edit location
+#define IDEA_R12     LSFT(LGUI(KC_BSPC))             // [*] prev edit location
+#define IDEA_R13     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
 #define IDEA_R14     VIM_INTELLIJ_INSERT_SPACE_ABOVE// [*] space above
 #define IDEA_R15     _______
 

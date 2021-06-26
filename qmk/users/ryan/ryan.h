@@ -47,6 +47,8 @@ enum custom_keycodes {
   TMUX_ZOOM_TOGGLE,
   TMUX_SIZE_UP,
   TMUX_SIZE_DOWN,
+  TMUX_SIZE_LEFT,
+  TMUX_SIZE_RIGHT,
   TMUX_HSPLIT,
   TMUX_VSPLIT,
   TMUX_KILL_SESSION,
@@ -144,6 +146,7 @@ enum custom_keycodes {
   VIM_DIR_ROOT,
   VIM_SEARCH_IN_DIR,
   VIM_WORK_SHOW_NOTES,
+  VIM_WORK_SHOW_PROVISIONERS,
   VIM_WORK_GOTO_COMPONENT,
   VIM_WORK_GET_TEMPLATE,
   VIM_WORK_GET_BACKING_FILE,
@@ -606,7 +609,7 @@ enum custom_keycodes {
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |      |      |      |      |      |
+ * |QkRef |KEYMPS|MYSNIP|WORK  |PROVNS|  |      |      |      |      |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |      |TPREDO|TPPARA|TPLINE|      |  |  F1  |  F2  |  F3  |  F4  |  F5  |
  * |------+------+------+------+------|  |------+------+------+------+------|
@@ -621,7 +624,7 @@ enum custom_keycodes {
 #define RAIS_L02     VIM_SHOW_KEYMAPS
 #define RAIS_L03     VIM_SHOW_MY_SNIPPETS
 #define RAIS_L04     VIM_WORK_SHOW_NOTES
-#define RAIS_L05     XXXXXXX
+#define RAIS_L05     VIM_WORK_SHOW_PROVISIONERS
 
 #define RAIS_L11     _______
 #define RAIS_L12     VIM_TMUX_REDO
@@ -640,10 +643,10 @@ enum custom_keycodes {
 #define RAIS_L35     LGUI(KC_BSPC)
 
 // Right
-#define RAIS_R01     _______
-#define RAIS_R02     XXXXXXX
-#define RAIS_R03     _______
-#define RAIS_R04     _______
+#define RAIS_R01     TMUX_SIZE_LEFT
+#define RAIS_R02     TMUX_SIZE_DOWN
+#define RAIS_R03     TMUX_SIZE_UP
+#define RAIS_R04     TMUX_SIZE_RIGHT
 #define RAIS_R05     _______
                                     
 #define RAIS_R11     KC_F1
@@ -669,9 +672,9 @@ enum custom_keycodes {
  * ,----------------------------------.  ,----------------------------------.
  * |Zoom+ | Play | Prev | Next |      |  |  *   |  7   |  8   |  9   |  /   |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |Zoom- | Reset|Colemk|ScrnOp|ScrnSh|  |  +   |  4   |  5   |  6   |  0   |
+ * |Zoom- | Reset|Colemk|ScrnOp|ScrnSh|  |  +   |  4   |  5   |  6   |  .   |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |Zoom0 | Mute | Vol- | Vol+ |SetSnd|  |  -   |  1   |  2   |  3   |  .   |
+ * |Zoom0 | Mute | Vol- | Vol+ |SetSnd|  |  -   |  1   |  2   |  3   |  ,   |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |Desktp|  MC  |  | Bspc |  0   | Del  |
 * `              `--------------------'  `--------------------'
@@ -711,13 +714,13 @@ enum custom_keycodes {
 #define ADJ_R12     KC_4
 #define ADJ_R13     KC_5
 #define ADJ_R14     KC_6
-#define ADJ_R15     KC_0
+#define ADJ_R15     KC_DOT
 
 #define ADJ_R21     KC_MINS
 #define ADJ_R22     KC_1
 #define ADJ_R23     KC_2
 #define ADJ_R24     KC_3
-#define ADJ_R25     KC_DOT
+#define ADJ_R25     KC_COMM
 
 #define ADJ_R31     KC_BSPC
 #define ADJ_R32     KC_0
@@ -731,9 +734,9 @@ enum custom_keycodes {
  * ,----------------------------------.  ,----------------------------------.
  * |TRLDCG|      |PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |CDGTRT| CD-  |GITDIR|TSZUP | Home |  | Left | Down |  Up  |Right |TDETCH|
+ * |CDGTRT| CD-  |GITDIR|      | Home |  | Left | Down |  Up  |Right |TDETCH|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |THSPLT|TVSPLT|TSCRLL|TSZDN | End  |  |WkspL |WordL |WordR |WkspR |      |
+ * |THSPLT|TVSPLT|TSCRLL|      | End  |  |WkspL |WordL |WordR |WkspR |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |FlScrn|TZMTOG|Enter |  | Bspc |AltBk | Del  |
  *               `--------------------'  `--------------------'
@@ -749,13 +752,13 @@ enum custom_keycodes {
 #define NAV_L11     CD_GIT_ROOT
 #define NAV_L12     CD_PREV                           // easier cd -
 #define NAV_L13     CD_GIT_DIR                        // git directory search
-#define NAV_L14     TMUX_SIZE_UP
+#define NAV_L14     _______
 #define NAV_L15     KC_HOME
 
 #define NAV_L21     TMUX_HSPLIT
 #define NAV_L22     TMUX_VSPLIT
 #define NAV_L23     TMUX_SCROLL
-#define NAV_L24     TMUX_SIZE_DOWN
+#define NAV_L24     _______
 #define NAV_L25     KC_END
 
 #define NAV_L33     LCTL(LGUI(KC_F))
@@ -851,7 +854,7 @@ enum custom_keycodes {
  * ,----------------------------------.  ,----------------------------------.
  * |VWALL |VWRITE|REPNFI|BLINES| TAGB |  |      |NEXTBR|PREVBR|      | VQUIT|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |SELALL|      |      |      |      |  |EX_ABV|NEXTED|PREVED|SP_ABV|      |
+ * |SELALL|      |      |      |      |  |EX_ABV|PREVED|NEXTED|SP_ABV|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |VHSPLT|VVSPLT|DIFFTG|DIFFON|VPASTE|  |EX_BLW|NEXTER|PREVER|SP_BLW|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -890,8 +893,8 @@ enum custom_keycodes {
 #define VHOME_R05     VIM_QUIT                        // [*] quit editor
 
 #define VHOME_R11     VIM_EXCHANGE_LINE_ABOVE         // [*]
-#define VHOME_R12     VIM_NEXT_EDIT                   // [*] next edit
-#define VHOME_R13     VIM_PREV_EDIT                   // [*] prev edit
+#define VHOME_R12     VIM_PREV_EDIT                   // [*] prev edit
+#define VHOME_R13     VIM_NEXT_EDIT                   // [*] next edit
 #define VHOME_R14     VIM_INSERT_SPACE_ABOVE          // [*]
 #define VHOME_R15     _______
 
@@ -1004,7 +1007,7 @@ enum custom_keycodes {
 
 // Right
 #define INAV_R01     LSFT(LGUI(KC_N))             // New scratch
-#define INAV_R02     LALT(KC_INS)                 // [*] New
+#define INAV_R02     LALT(LGUI(KC_COMM))          // [*] New
 #define INAV_R03     KC_F5                        // [*] Copy
 #define INAV_R04     KC_F6                        // [*] Move
 #define INAV_R05     KC_DEL                       // [*] Delete
@@ -1033,9 +1036,9 @@ enum custom_keycodes {
  * Purposely not doing things like extract method, extract variable ... just do it with vim tools
  * Purposely not including override method, implement methods ... look to the source and do manually, if you need use the ui ...
  * ,----------------------------------.  ,----------------------------------.
- * |VWALL |VWRITE|REPNFI|      |FileHi|  |      | Sel- | Sel+ |      |VQUIT |
+ * |VWALL |VWRITE|REPNFI|      |FileHi|  | Sel- |NEXTBR|PREVBR| Sel+ |VQUIT |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |SELALL|Rename|ChSig |ParamI|      |  |  LU  |NxtEdt|PrvEdt|  SU  |      |
+ * |SELALL|Rename|ChSig |ParamI|      |  |  LU  |PrvEdt|NxtEdt|  SU  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |VHSPLT|VVSPLT|      |DiffIt|VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -1074,8 +1077,8 @@ enum custom_keycodes {
 #define IDEA_R05     VIM_QUIT                       // [*]
 
 #define IDEA_R11     LALT(LSFT(KC_UP))              // [*] Move line up
-#define IDEA_R12     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
-#define IDEA_R13     LSFT(LGUI(KC_BSPC))             // [*] prev edit location
+#define IDEA_R12     LSFT(LGUI(KC_BSPC))             // [*] prev edit location
+#define IDEA_R13     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
 #define IDEA_R14     VIM_INTELLIJ_INSERT_SPACE_ABOVE// [*] space above
 #define IDEA_R15     _______
 

@@ -2,7 +2,7 @@
  * ,----------------------------------.  ,----------------------------------.
  * |VWALL |VWRITE|REPNFI|BLINES| TAGB |  |      |NEXTBR|PREVBR|      | VQUIT|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |SELALL|      |      |      |      |  |EX_ABV|NEXTED|PREVED|SP_ABV|      |
+ * |SELALL|      |      |      |      |  |EX_ABV|PREVED|NEXTED|SP_ABV|      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |VHSPLT|VVSPLT|DIFFTG|DIFFON|VPASTE|  |EX_BLW|NEXTER|PREVER|SP_BLW|      |
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -41,8 +41,8 @@
 #define VHOME_R05     VIM_QUIT                        // [*] quit editor
 
 #define VHOME_R11     VIM_EXCHANGE_LINE_ABOVE         // [*]
-#define VHOME_R12     VIM_NEXT_EDIT                   // [*] next edit
-#define VHOME_R13     VIM_PREV_EDIT                   // [*] prev edit
+#define VHOME_R12     VIM_PREV_EDIT                   // [*] prev edit
+#define VHOME_R13     VIM_NEXT_EDIT                   // [*] next edit
 #define VHOME_R14     VIM_INSERT_SPACE_ABOVE          // [*]
 #define VHOME_R15     _______
 

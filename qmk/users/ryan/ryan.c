@@ -502,6 +502,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":WorkShowNotes"SS_TAP(X_ENTER));
       }
         break;
+    case VIM_WORK_SHOW_PROVISIONERS:
+      if (record->event.pressed) {
+        SEND_STRING(":WorkShowProvisioners"SS_TAP(X_ENTER));
+      }
+        break;
     case VIM_DIR_ROOT:
       if (record->event.pressed) {
         SEND_STRING(":CdRoot"SS_TAP(X_ENTER));
@@ -631,6 +636,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case TMUX_SIZE_DOWN:
       if (record->event.pressed) {
         SEND_STRING(SS_LCTRL("b")"J");
+      }
+        break;
+    case TMUX_SIZE_LEFT:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("b")"H");
+      }
+        break;
+    case TMUX_SIZE_RIGHT:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("b")"L");
       }
         break;
     case WORK_DB_MIGRATIONS_SHARED:

@@ -1,7 +1,7 @@
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * |QkRef |KEYMPS|MYSNIP|WORK  |      |  |      |      |      |      |      |
+ * |QkRef |KEYMPS|MYSNIP|WORK  |PROVNS|  |      |      |      |      |      |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |      |TPREDO|TPPARA|TPLINE|      |  |  F1  |  F2  |  F3  |  F4  |  F5  |
  * |------+------+------+------+------|  |------+------+------+------+------|
@@ -16,7 +16,7 @@
 #define RAIS_L02     VIM_SHOW_KEYMAPS
 #define RAIS_L03     VIM_SHOW_MY_SNIPPETS
 #define RAIS_L04     VIM_WORK_SHOW_NOTES
-#define RAIS_L05     XXXXXXX
+#define RAIS_L05     VIM_WORK_SHOW_PROVISIONERS
 
 #define RAIS_L11     _______
 #define RAIS_L12     VIM_TMUX_REDO
@@ -35,10 +35,10 @@
 #define RAIS_L35     LGUI(KC_BSPC)
 
 // Right
-#define RAIS_R01     _______
-#define RAIS_R02     XXXXXXX
-#define RAIS_R03     _______
-#define RAIS_R04     _______
+#define RAIS_R01     TMUX_SIZE_LEFT
+#define RAIS_R02     TMUX_SIZE_DOWN
+#define RAIS_R03     TMUX_SIZE_UP
+#define RAIS_R04     TMUX_SIZE_RIGHT
 #define RAIS_R05     _______
                                     
 #define RAIS_R11     KC_F1
