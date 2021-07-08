@@ -35,6 +35,8 @@ enum custom_keycodes {
   VRSN,
   RGB_SLD,
 
+  CHROME_BOOKMARKS,
+
   CD_PREV,
   CD_GIT_DIR,
   CD_GIT_ROOT,
@@ -609,7 +611,7 @@ enum custom_keycodes {
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * |QkRef |KEYMPS|MYSNIP|WORK  |PROVNS|  |      |      |      |      |      |
+ * |QkRef |KEYMPS|MYSNIP|WORK  |PROVNS|  |TSIZEL|TSIZED|TSIZEU|TSIZER|      |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |      |TPREDO|TPPARA|TPLINE|      |  |  F1  |  F2  |  F3  |  F4  |  F5  |
  * |------+------+------+------+------|  |------+------+------+------+------|
@@ -732,7 +734,7 @@ enum custom_keycodes {
  * Global: System, Tmux, App, etc, Navigation
  * Mixture of concepts (item, editor)
  * ,----------------------------------.  ,----------------------------------.
- * |TRLDCG|      |PrevAp|FINDSE|      |  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
+ * |TRLDCG|      |PrevAp|FINDSE|CHBKMK|  |TWINP |TPANEN|TPANEP|TWINN |TKILLS|
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |CDGTRT| CD-  |GITDIR|      | Home |  | Left | Down |  Up  |Right |TDETCH|
  * |------+------+------+------+------|  |------+------+------+------+------|
@@ -747,7 +749,7 @@ enum custom_keycodes {
 #define NAV_L02     _______
 #define NAV_L03     LGUI(KC_TAB)                      // editor [*] prev app (follows position of prev file in vim editor)
 #define NAV_L04     TMUX_FIND_SESSION                 // item [*] find tmux session
-#define NAV_L05     _______
+#define NAV_L05     CHROME_BOOKMARKS
 
 #define NAV_L11     CD_GIT_ROOT
 #define NAV_L12     CD_PREV                           // easier cd -

@@ -62,6 +62,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       /*}*/
       /*return false;*/
     
+    case CHROME_BOOKMARKS:
+      if (record->event.pressed) {
+        SEND_STRING("chrome.bookmarks"SS_TAP(X_ENTER));
+      }
+        break;
+
     case CD_PREV:
       if (record->event.pressed) {
         SEND_STRING("cd -"SS_TAP(X_ENTER));
@@ -555,7 +561,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     case VIM_TMUX_LINE_EXECUTE:
       if (record->event.pressed) {
-        SEND_STRING(",tj"SS_TAP(X_ESCAPE));
+        SEND_STRING(",tj");
       }
         break;
     case VIM_TMUX_PARA_EXECUTE:

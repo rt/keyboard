@@ -1,7 +1,7 @@
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * |QkRef |KEYMPS|MYSNIP|WORK  |PROVNS|  |      |      |      |      |      |
+ * |QkRef |KEYMPS|MYSNIP|WORK  |PROVNS|  |TSIZEL|TSIZED|TSIZEU|TSIZER|      |
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |      |TPREDO|TPPARA|TPLINE|      |  |  F1  |  F2  |  F3  |  F4  |  F5  |
  * |------+------+------+------+------|  |------+------+------+------+------|
