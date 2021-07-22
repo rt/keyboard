@@ -2,7 +2,7 @@
  * ,----------------------------------.  ,----------------------------------.
  * |      |Search|      |FindTb|Bkmrks|  |Incog |NewTab|      |      |DelTab|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      | Hist |Recent|      |      |  | Back |PgDown| PgUp | Fwd  |      |
+ * |      | Hist |Recent|      |Bkmrk |  | Back |PgDown| PgUp | Fwd  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |      |      |      |      |      |  | TabP |Vimium|      | TabN |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -20,8 +20,8 @@
 #define CHROME_L11     XXXXXXX
 #define CHROME_L12     LGUI(KC_Y)               // [*] search history
 #define CHROME_L13     LGUI(LSFT(KC_T))         // [*] recents (actually last closed tab in this case)
-#define CHROME_L14     XXXXXXX
-#define CHROME_L15     XXXXXXX
+#define CHROME_L14     _______
+#define CHROME_L15     LGUI(KC_D)               // Bookmark this tab
 
 #define CHROME_L21     XXXXXXX
 #define CHROME_L22     XXXXXXX

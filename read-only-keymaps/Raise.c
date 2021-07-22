@@ -3,9 +3,9 @@
  * ,----------------------------------.  ,----------------------------------.
  * |QkRef |KEYMPS|MYSNIP|WORK  |PROVNS|  |TSIZEL|TSIZED|TSIZEU|TSIZER|      |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |TPREDO|TPPARA|TPLINE|      |  |  F1  |  F2  |  F3  |  F4  |  F5  |
+ * |TPCTLD|TPREDO|TPPARA|TPLINE|TPSEL |  |  F1  |  F2  |  F3  |  F4  |  F5  |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      |      |      |  |  F6  |  F7  |  F8  |  F9  |  F10 | 
+ * |      |      |      |TPCTLL|      |  |  F6  |  F7  |  F8  |  F9  |  F10 | 
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |SftTab| Tab  |GuiBk |  |      |  F11 |  F12 |
  *               `--------------------'  `--------------------'
@@ -18,16 +18,16 @@
 #define RAIS_L04     VIM_WORK_SHOW_NOTES
 #define RAIS_L05     VIM_WORK_SHOW_PROVISIONERS
 
-#define RAIS_L11     _______
+#define RAIS_L11     VIM_TMUX_CTLD
 #define RAIS_L12     VIM_TMUX_REDO
 #define RAIS_L13     VIM_TMUX_PARA_EXECUTE
 #define RAIS_L14     VIM_TMUX_LINE_EXECUTE
-#define RAIS_L15     _______
+#define RAIS_L15     VIM_TMUX_SELECTED_EXECUTE
 
 #define RAIS_L21     _______
 #define RAIS_L22     _______
 #define RAIS_L23     _______
-#define RAIS_L24     _______
+#define RAIS_L24     VIM_TMUX_CTLL
 #define RAIS_L25     _______
 
 #define RAIS_L33     LSFT(KC_TAB)

@@ -59,7 +59,10 @@ enum custom_keycodes {
   TMUX_RELOAD_CONFIG,
 
   VIM_TMUX_REDO,
+  VIM_TMUX_CTLD,
+  VIM_TMUX_CTLL,
   VIM_TMUX_PARA_EXECUTE,
+  VIM_TMUX_SELECTED_EXECUTE,
   VIM_TMUX_LINE_EXECUTE,
   VIM_SHOW_MY_SNIPPETS, 
   VIM_HUNK_UNDO,
@@ -613,9 +616,9 @@ enum custom_keycodes {
  * ,----------------------------------.  ,----------------------------------.
  * |QkRef |KEYMPS|MYSNIP|WORK  |PROVNS|  |TSIZEL|TSIZED|TSIZEU|TSIZER|      |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      |TPREDO|TPPARA|TPLINE|      |  |  F1  |  F2  |  F3  |  F4  |  F5  |
+ * |TPCTLD|TPREDO|TPPARA|TPLINE|TPSEL |  |  F1  |  F2  |  F3  |  F4  |  F5  |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      |      |      |  |  F6  |  F7  |  F8  |  F9  |  F10 | 
+ * |      |      |      |TPCTLL|      |  |  F6  |  F7  |  F8  |  F9  |  F10 | 
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |SftTab| Tab  |GuiBk |  |      |  F11 |  F12 |
  *               `--------------------'  `--------------------'
@@ -628,16 +631,16 @@ enum custom_keycodes {
 #define RAIS_L04     VIM_WORK_SHOW_NOTES
 #define RAIS_L05     VIM_WORK_SHOW_PROVISIONERS
 
-#define RAIS_L11     _______
+#define RAIS_L11     VIM_TMUX_CTLD
 #define RAIS_L12     VIM_TMUX_REDO
 #define RAIS_L13     VIM_TMUX_PARA_EXECUTE
 #define RAIS_L14     VIM_TMUX_LINE_EXECUTE
-#define RAIS_L15     _______
+#define RAIS_L15     VIM_TMUX_SELECTED_EXECUTE
 
 #define RAIS_L21     _______
 #define RAIS_L22     _______
 #define RAIS_L23     _______
-#define RAIS_L24     _______
+#define RAIS_L24     VIM_TMUX_CTLL
 #define RAIS_L25     _______
 
 #define RAIS_L33     LSFT(KC_TAB)
@@ -1160,7 +1163,7 @@ enum custom_keycodes {
  * ,----------------------------------.  ,----------------------------------.
  * |      |Search|      |FindTb|Bkmrks|  |Incog |NewTab|      |      |DelTab|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      | Hist |Recent|      |      |  | Back |PgDown| PgUp | Fwd  |      |
+ * |      | Hist |Recent|      |Bkmrk |  | Back |PgDown| PgUp | Fwd  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |      |      |      |      |      |  | TabP |Vimium|      | TabN |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
@@ -1178,8 +1181,8 @@ enum custom_keycodes {
 #define CHROME_L11     XXXXXXX
 #define CHROME_L12     LGUI(KC_Y)               // [*] search history
 #define CHROME_L13     LGUI(LSFT(KC_T))         // [*] recents (actually last closed tab in this case)
-#define CHROME_L14     XXXXXXX
-#define CHROME_L15     XXXXXXX
+#define CHROME_L14     _______
+#define CHROME_L15     LGUI(KC_D)               // Bookmark this tab
 
 #define CHROME_L21     XXXXXXX
 #define CHROME_L22     XXXXXXX

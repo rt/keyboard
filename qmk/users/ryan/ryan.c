@@ -564,6 +564,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(",tj");
       }
         break;
+    case VIM_TMUX_SELECTED_EXECUTE:
+      if (record->event.pressed) {
+        SEND_STRING(",tj"SS_TAP(X_ESCAPE));
+      }
+        break;
     case VIM_TMUX_PARA_EXECUTE:
       if (record->event.pressed) {
         SEND_STRING("vip,tj"SS_TAP(X_ESCAPE));
@@ -572,6 +577,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIM_TMUX_REDO:
       if (record->event.pressed) {
         SEND_STRING(",tr");
+      }
+        break;
+    case VIM_TMUX_CTLD:
+      if (record->event.pressed) {
+        SEND_STRING(",td");
+      }
+        break;
+    case VIM_TMUX_CTLL:
+      if (record->event.pressed) {
+        SEND_STRING(",tll");
       }
         break;
     case TMUX_PANE_PREV:
