@@ -1,5 +1,9 @@
 # keyboard
 
+<img src="./current-desktop.jpg"
+     alt="for funsy ..."
+     style="width=400px;height=400px;align=center;" />
+
 My keyboard maps ...
 
 I was having a hard time maintaining a fork of qmk_firmware without having conflicts (?)
