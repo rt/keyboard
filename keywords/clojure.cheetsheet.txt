@@ -1,7 +1,6 @@
 Documentation
 clojure.repl/	doc find-doc apropos dir source pst javadoc (foo.bar/ is namespace for later syms)
 
-
 Primitives
 Numbers
 Literals	Long: 7, hex 0xff, oct 017, base 2 2r1011, base 36 36rCRAZY BigInt: 7N Ratio: -22/7 Double: 2.78 -1.2e-5 BigDecimal: 4.2M
@@ -27,7 +26,6 @@ Symbols	symbol symbol? gensym literals: my-sym my.ns/foo
 Misc	literals: true false nil
 
 
-Collections
 Collections
 Generic ops	count empty not-empty into conj (clojure.walk/) walk prewalk prewalk-demo prewalk-replace postwalk postwalk-demo postwalk-replace (1.9) bounded-count
 Content tests	distinct? empty? every? not-every? some not-any?
