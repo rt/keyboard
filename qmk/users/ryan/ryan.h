@@ -37,6 +37,27 @@ enum custom_keycodes {
 
   CHROME_BOOKMARKS,
 
+  CLOJURE_FORM_INSERT_BEG,
+  CLOJURE_FORM_INSERT_END,
+  CLOJURE_SLUPAGE_LEFT,
+  CLOJURE_SLUPAGE_RIGHT,
+  CLOJURE_BARFAGE_LEFT,
+  CLOJURE_BARFAGE_RIGHT,
+  CLOJURE_SPLICE,
+  CLOJURE_FORM_WRAP_BEG,
+  CLOJURE_FORM_WRAP_END,
+  CLOJURE_ELEMENT_WRAP_BEG,
+  CLOJURE_ELEMENT_WRAP_END,
+  CLOJURE_FORM_RAISE,
+  CLOJURE_ELEMENT_RAISE,
+  CLOJURE_FORM_SWAP_LEFT,
+  CLOJURE_FORM_SWAP_RIGHT,
+  CLOJURE_ELEMENT_SWAP_LEFT,
+  CLOJURE_ELEMENT_SWAP_RIGHT,
+  CLOJURE_TOP_FORM_BEG,
+  CLOJURE_TOP_FORM_END,
+  CLOJURE_ELEMENT_LEFT_END,
+
   CD_PREV,
   CD_GIT_DIR,
   CD_GIT_ROOT,
@@ -1161,24 +1182,25 @@ enum custom_keycodes {
 
 /* Chrome-item
  * ,----------------------------------.  ,----------------------------------.
- * |      |Search|      |FindTb|Bkmrks|  |Incog |NewTab|      |      |DelTab|
+ * |DTSear|Search|DTSrc |FindTb|Bkmrks|  |Incog |NewTab|      |      |DelTab|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |      | Hist |Recent|      |Bkmrk |  | Back |PgDown| PgUp | Fwd  |      |
+ * |DTCmmd| Hist |Recent|      |Bkmrk |  | Back |PgDown| PgUp | Fwd  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      |      |      |  | TabP |Vimium|      | TabN |      |
+ * |      |      |      |      |      |  | TabP |DTTabN|DTTabP| TabN |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |DevTls|HrdRld|  |      |      |      |
+ *               |TogDev|DevTls|HrdRld|  |      |      |      |
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define CHROME_L01     XXXXXXX
+//#define CHROME_L01     LGUI(LALT(KC_F))          // [*] DevTools search in all panel
+#define CHROME_L01     LGUI(KC_F)               // [*] DEVTOOLS search in panel
 #define CHROME_L02     LGUI(LALT(KC_F))         // [*] google search
-#define CHROME_L03     XXXXXXX
+#define CHROME_L03     LGUI(KC_O)               // [*] DEVTOOLS file search (add @ for methods or ! for snippets)
 #define CHROME_L04     LSFT(LGUI(KC_A))         // [*] search tabs
 #define CHROME_L05     LALT(LGUI(KC_B))         // [*] bookmarks
 
-#define CHROME_L11     XXXXXXX
+#define CHROME_L11     LGUI(LSFT(KC_P))         // [*] DEVTOOLS run command
 #define CHROME_L12     LGUI(KC_Y)               // [*] search history
 #define CHROME_L13     LGUI(LSFT(KC_T))         // [*] recents (actually last closed tab in this case)
 #define CHROME_L14     _______
@@ -1189,8 +1211,12 @@ enum custom_keycodes {
 #define CHROME_L23     XXXXXXX
 #define CHROME_L24     XXXXXXX
 #define CHROME_L25     XXXXXXX
+// #define OTHER_R01     KC_A                      // profiling
+// #define OTHER_R02     KC_S
+// #define OTHER_R03     KC_W
+// #define OTHER_R04     KC_D
 
-#define CHROME_L33     XXXXXXX
+#define CHROME_L33     LGUI(LSFT(KC_M))         // [o] toggle device
 #define CHROME_L34     LALT(LGUI(KC_I))         // [*] not only but rather open devtools ...
 #define CHROME_L35     LGUI(LSFT(KC_R))         // [x] hard reload
 
@@ -1208,8 +1234,8 @@ enum custom_keycodes {
 #define CHROME_R15     XXXXXXX
 
 #define CHROME_R21     LCTL(LSFT(KC_TAB))       // [*] prev tab
-#define CHROME_R22     KC_F                     // [*] vimium
-#define CHROME_R23     XXXXXXX
+#define CHROME_R22     LGUI(KC_RBRACKET)        // [*] DEVTOOLS next pane
+#define CHROME_R23     LGUI(KC_LBRACKET)        // [*] DEVTOOLS prev pane
 #define CHROME_R24     LCTL(KC_TAB)             // [*] next tab
 #define CHROME_R25     XXXXXXX
 
@@ -1219,58 +1245,58 @@ enum custom_keycodes {
 
 
 
-/* Chrome-devtools
+/* Clojure
  * ,----------------------------------.  ,----------------------------------.
- * |      |SeaAll|SeaPan|FindFi|      |  |      |      |      |      |      |
+ * |      |      |  <I  |  >I  |      |  |  <(  |  >(  |  <)  |  >)  |  \@  |
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |RunCmd|      |      |      |      |  |      |      |      |      |      |
+ * |RaiseF|SwapF |WrapF(|WrapF)|SwapF |  |  (   |  B   |  W   |   )  |      |
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      |      |      |  |PrvPan|      |      |NxtPan|      |
+ * |RaiseE|SwapE |WrapE(|WrapE)|SwapE |  |  [[  |  gE  |  E   |  ]]  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |TogDev|      |  |      |      |      |
+ *               |  CS{ |  CS[ |  CS( |  |      |      |      |
  *               `--------------------'  `--------------------'
  */
 
 // Left
 #define OTHER_L01     _______
-#define OTHER_L02     LGUI(LALT(KC_F))          // [*] search in all panel
-#define OTHER_L03     LGUI(KC_F)                // [*] search in panel
-#define OTHER_L04     LGUI(KC_O)                // [*] file search (add @ for methods or ! for snippets)
+#define OTHER_L02     _______
+#define OTHER_L03     CLOJURE_FORM_INSERT_BEG
+#define OTHER_L04     CLOJURE_FORM_INSERT_END
 #define OTHER_L05     _______
 
-#define OTHER_L11     LGUI(LSFT(KC_P))          // [*] run command
-#define OTHER_L12     _______
-#define OTHER_L13     _______
-#define OTHER_L14     _______
-#define OTHER_L15     XXXXXXX
+#define OTHER_L11     CLOJURE_FORM_RAISE
+#define OTHER_L12     CLOJURE_FORM_SWAP_LEFT
+#define OTHER_L13     CLOJURE_FORM_WRAP_BEG
+#define OTHER_L14     CLOJURE_FORM_WRAP_END
+#define OTHER_L15     CLOJURE_FORM_SWAP_RIGHT
 
-#define OTHER_L21     _______
-#define OTHER_L22     _______
-#define OTHER_L23     _______
-#define OTHER_L24     _______
-#define OTHER_L25     _______
+#define OTHER_L21     CLOJURE_ELEMENT_RAISE
+#define OTHER_L22     CLOJURE_ELEMENT_SWAP_LEFT
+#define OTHER_L23     CLOJURE_ELEMENT_WRAP_BEG
+#define OTHER_L24     CLOJURE_ELEMENT_WRAP_END
+#define OTHER_L25     CLOJURE_ELEMENT_SWAP_RIGHT
 
 #define OTHER_L33     _______
 #define OTHER_L34     LGUI(LSFT(KC_M))          // [o] toggle device
 #define OTHER_L35     _______
 
 // Right
-#define OTHER_R01     KC_A                      // profiling
-#define OTHER_R02     KC_S
-#define OTHER_R03     KC_W
-#define OTHER_R04     KC_D
-#define OTHER_R05     _______
+#define OTHER_R01     CLOJURE_SLUPAGE_LEFT
+#define OTHER_R02     CLOJURE_BARFAGE_LEFT
+#define OTHER_R03     CLOJURE_BARFAGE_RIGHT
+#define OTHER_R04     CLOJURE_SLUPAGE_RIGHT
+#define OTHER_R05     CLOJURE_SPLICE
 
-#define OTHER_R11     _______
-#define OTHER_R12     _______
-#define OTHER_R13     _______
-#define OTHER_R14     _______
+#define OTHER_R11     KC_LPRN
+#define OTHER_R12     LSFT(KC_B)
+#define OTHER_R13     LSFT(KC_W)
+#define OTHER_R14     KC_RPRN
 #define OTHER_R15     _______
 
-#define OTHER_R21     LGUI(KC_LBRACKET)         // [*] devtools prev pane
-#define OTHER_R22     _______
-#define OTHER_R23     _______
-#define OTHER_R24     LGUI(KC_RBRACKET)         // [*] devtools next pane
+#define OTHER_R21     CLOJURE_TOP_FORM_BEG
+#define OTHER_R22     CLOJURE_ELEMENT_LEFT_END
+#define OTHER_R23     LSFT(KC_E)
+#define OTHER_R24     CLOJURE_TOP_FORM_END
 #define OTHER_R25     _______
 
 #define OTHER_R31     _______

@@ -68,6 +68,107 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
         break;
 
+    case CLOJURE_SLUPAGE_LEFT:
+      if (record->event.pressed) {
+        SEND_STRING("<(");
+      }
+        break;
+    case CLOJURE_SLUPAGE_RIGHT:
+      if (record->event.pressed) {
+        SEND_STRING(">)");
+      }
+        break;
+    case CLOJURE_BARFAGE_LEFT:
+      if (record->event.pressed) {
+        SEND_STRING(">(");
+      }
+        break;
+    case CLOJURE_BARFAGE_RIGHT:
+      if (record->event.pressed) {
+        SEND_STRING("<)");
+      }
+        break;
+    case CLOJURE_SPLICE:
+      if (record->event.pressed) {
+        SEND_STRING("\\@");
+      }
+        break;
+    case CLOJURE_FORM_INSERT_BEG:
+      if (record->event.pressed) {
+        SEND_STRING("<I");
+      }
+        break;
+    case CLOJURE_FORM_INSERT_END:
+      if (record->event.pressed) {
+        SEND_STRING(">I");
+      }
+        break;
+    case CLOJURE_FORM_WRAP_BEG:
+      if (record->event.pressed) {
+        SEND_STRING("\\i");
+      }
+        break;
+    case CLOJURE_FORM_WRAP_END:
+      if (record->event.pressed) {
+        SEND_STRING("\\I");
+      }
+        break;
+    case CLOJURE_ELEMENT_WRAP_BEG:
+      if (record->event.pressed) {
+        SEND_STRING("\\w");
+      }
+        break;
+    case CLOJURE_ELEMENT_WRAP_END:
+      if (record->event.pressed) {
+        SEND_STRING("\\W");
+      }
+        break;
+    case CLOJURE_FORM_RAISE:
+      if (record->event.pressed) {
+        SEND_STRING("\\o");
+      }
+        break;
+    case CLOJURE_ELEMENT_RAISE:
+      if (record->event.pressed) {
+        SEND_STRING("\\O");
+      }
+        break;
+    case CLOJURE_FORM_SWAP_LEFT:
+      if (record->event.pressed) {
+        SEND_STRING("<f");
+      }
+        break;
+    case CLOJURE_FORM_SWAP_RIGHT:
+      if (record->event.pressed) {
+        SEND_STRING(">f");
+      }
+        break;
+    case CLOJURE_ELEMENT_SWAP_LEFT:
+      if (record->event.pressed) {
+        SEND_STRING("<e");
+      }
+        break;
+    case CLOJURE_ELEMENT_SWAP_RIGHT:
+      if (record->event.pressed) {
+        SEND_STRING(">e");
+      }
+        break;
+    case CLOJURE_TOP_FORM_BEG:
+      if (record->event.pressed) {
+        SEND_STRING("[[");
+      }
+        break;
+    case CLOJURE_TOP_FORM_END:
+      if (record->event.pressed) {
+        SEND_STRING("]]");
+      }
+        break;
+    case CLOJURE_ELEMENT_LEFT_END:
+      if (record->event.pressed) {
+        SEND_STRING("gE");
+      }
+        break;
+
     case CD_PREV:
       if (record->event.pressed) {
         SEND_STRING("cd -"SS_TAP(X_ENTER));
