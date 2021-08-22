@@ -549,9 +549,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":Dispatch npm run ");
       }
         break;
-    case VIM_SHOW_QUICK_REF:
+    case VIM_SHOW_PLAYGROUND_JAVASCRIPT:
       if (record->event.pressed) {
-        SEND_STRING(":ShowQuickReference"SS_TAP(X_ENTER));
+        SEND_STRING(":ShowPlaygroundJavascript"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_SHOW_PLAYGROUND_JAVA:
+      if (record->event.pressed) {
+        SEND_STRING(":ShowPlaygroundJava"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_SHOW_PLAYGROUND_CLOJURE:
+      if (record->event.pressed) {
+        SEND_STRING(":ShowPlaygroundClojure"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_SHOW_PLAYGROUND_BASH:
+      if (record->event.pressed) {
+        SEND_STRING(":ShowPlaygroundBash"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_SHOW_PLAYGROUND_MISC:
+      if (record->event.pressed) {
+        SEND_STRING(":ShowPlaygroundMisc"SS_TAP(X_ENTER));
       }
         break;
     case VIM_SHOW_KEYMAPS:
@@ -562,6 +582,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIM_SHOW_MY_SNIPPETS:
       if (record->event.pressed) {
         SEND_STRING(":ShowMySnippets"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_WORK_SHOW_NOTES:
+      if (record->event.pressed) {
+        SEND_STRING(":WorkShowNotes"SS_TAP(X_ENTER));
       }
         break;
     case VIM_ONLY:
@@ -602,16 +627,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIM_DISTRACTION_FREE_MODE:
       if (record->event.pressed) {
         SEND_STRING(":Goyo"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_WORK_SHOW_NOTES:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkShowNotes"SS_TAP(X_ENTER));
-      }
-        break;
-    case VIM_WORK_SHOW_PROVISIONERS:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkShowProvisioners"SS_TAP(X_ENTER));
       }
         break;
     case VIM_DIR_ROOT:

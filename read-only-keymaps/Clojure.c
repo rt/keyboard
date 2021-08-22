@@ -6,7 +6,7 @@
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |RaiseE|SwapE |WrapE(|WrapE)|SwapE |  |  [[  |  gE  |  E   |  ]]  |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |  CS{ |  CS[ |  CS( |  |      |      |      |
+ *               |      |      |      |  |      |      |      |
  *               `--------------------'  `--------------------'
  */
 
@@ -30,7 +30,7 @@
 #define OTHER_L25     CLOJURE_ELEMENT_SWAP_RIGHT
 
 #define OTHER_L33     _______
-#define OTHER_L34     LGUI(LSFT(KC_M))          // [o] toggle device
+#define OTHER_L34     _______
 #define OTHER_L35     _______
 
 // Right
