@@ -800,77 +800,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":WorkListRoutes"SS_TAP(X_ENTER));
       }
         break;
-    case WORK_FE_CONTROLLERS:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkListControllers"SS_TAP(X_ENTER));
-      }
-        break;
-    case WORK_FE_COMPONENTS:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkListComponents"SS_TAP(X_ENTER));
-      }
-        break;
-    case WORK_FE_TEMPLATES:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkListTemplates"SS_TAP(X_ENTER));
-      }
-        break;
-    case WORK_FE_STYLES:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkListStyles"SS_TAP(X_ENTER));
-      }
-        break;
-    case WORK_FE_HANDLEBAR_HELPERS:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkListHandlebarHelpers"SS_TAP(X_ENTER));
-      }
-        break;
-    case WORK_FE_STORES:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkListStores"SS_TAP(X_ENTER));
-      }
-        break;
-    case WORK_FE_MODELS:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkListModels"SS_TAP(X_ENTER));
-      }
-        break;
-    case WORK_FE_ACTIONS:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkListActions"SS_TAP(X_ENTER));
-      }
-        break;
-    case WORK_GOTO_TP:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkGotoTp"SS_TAP(X_ENTER));
-      }
-        break;
     case WORK_GOTO_JIRA:
       if (record->event.pressed) {
         SEND_STRING(":WorkGotoJira"SS_TAP(X_ENTER));
       }
         break;
-    case WORK_GOTO_CONFLUENCE:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkGotoConfluence"SS_TAP(X_ENTER));
-      }
-        break;
-    case WORK_EDIT_ELP:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkPlaceELP"SS_TAP(X_ENTER));
-      }
-        break;
-    case WORK_EDIT_JENKINSFILE:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkPlaceJenkinsfile"SS_TAP(X_ENTER));
-      }
-        break;
-    case WORK_EDIT_BUILD:
-      if (record->event.pressed) {
-        SEND_STRING(":WorkPlaceBuild"SS_TAP(X_ENTER));
-      }
-        break;
-        
   }
   return true;
 }
