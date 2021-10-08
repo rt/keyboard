@@ -483,6 +483,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":BufSurfForward"SS_TAP(X_ENTER));
       }
         break;
+    case VIM_CTAGS:
+      if (record->event.pressed) {
+        SEND_STRING(":!ctags -R -f .tags src/");
+      }
+        break;
     case VIM_CTAGS_SEL:
       if (record->event.pressed) {
         SEND_STRING(":ts"SS_TAP(X_ENTER));

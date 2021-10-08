@@ -129,6 +129,7 @@ enum custom_keycodes {
 	VIM_ARGS_LAST,
   VIM_BUFFER_PREV,
   VIM_BUFFER_NEXT,
+  VIM_CTAGS,
   VIM_CTAGS_DECL,
   VIM_CTAGS_SEL,
   VIM_TAGBAR_OPEN_AUTOCLOSE,
@@ -189,254 +190,6 @@ enum custom_keycodes {
   WORK_FE_ROUTES,
   WORK_GOTO_JIRA,
 };
-
-
-/* Concept-item
- * Layers: Vim-item, IntelliJ-item, Chrome-item, Devtools-item
- * Things beyond base will have to use app specific cuts/leaders
- * ,----------------------------------.  ,----------------------------------.
- * |  AN  |  SS  |  AS  |  FI  |  BM  |  |  NS  |  NI  |  CI  |  MI  |  DI  |
- * |------+------+------+------+-------  -------+------+------+------+------|
- * |  AC  |  HI  |  RI  |  PS  | FnP  |  |  PI  | Decl | Impl |  NI  |      |
- * |------+------+------+------+------|  |------+------+------+------+------|
- * | AF1  | AF2  | AF3  | AF4  | AF5  |  |  PT  |      |      |  NT  |      |
- * `------+------+------+------+------+  +------+------+------+------+------'
- *               | Help |  CL  |      |  |  U1  |  U2  |  U3  |
- *               `--------------------'  `--------------------'
- */
-
-// Left
-// L01     Alternate Navigation (ie Navigation Bar)
-// L02     Search for sub-item from all
-// L03     Altenate search for sub-item from current item/panel, etc
-// L04     Find item
-// L05     Bookmarks
-//
-// L11     Action/Commands
-// L12     History
-// L13     Recent items
-// L14     Project Structure
-// L15     Find In Project
-//
-// L21     Goto Alternate File 1
-// L22     Goto Alternate File 2
-// L23     Goto Alternate File 3
-// L24     Goto Alternate File 4 (Test)
-// L25     Goto Alternate File 5
-//
-// L33     Help
-// L34     Clear
-// L35     _______
-
-// Right
-// R01     New scratch
-// R02     New item
-// R03     Copy item
-// R04     Move item
-// R05     Delete item
-//
-// R11     Prev item
-// R12     Declaration
-// R13     Implementation
-// R14     Next item
-// R15     _______
-//
-// R21     Nav prev
-// R22     _______
-// R23     _______
-// R24     Nav next
-// R25     _______
-//
-// R31     Usages 1
-// R32     Usages 2
-// R33     Usages 3
-
-
-
-/* Concept-editor
- * Layers: Vim-editor, IntelliJ-editor
- * Most edtiing is in vim or with a vim plugin so will often use Vim-editor keymaps or vim itself.
- * ,----------------------------------.  ,----------------------------------.
- * |  WA  |  WR  |  PF  | IE1  | IE2  |  |  PB  |      |      |  NB  |      |
- * |------+------+------+------+-------  -------+------+------+------+------|
- * |  SA  |      |      |      |      |  |  PE  |  LD  |  LU  |  NE  |      |
- * |------+------+------+------+------|  |------+------+------+------+------|
- * |  HS  |  VS  |      | PLY  |      |  | PEr  |  SD  |  SU  | NEr  |      |
- * `------+------+------+------+------+  +------+------+------+------+------'
- *               |  G3  |  G2  |  G1  |  |  C1  |  C2  |  C3  |
- *               `--------------------'  `--------------------'
- */
-
-// Left
-// L01     Write all
-// L02     Write
-// L03     Previous File
-// L04     Paste Last Yank
-// L05     _______
-//
-// L11     Select all
-// L12     _______
-// L13     _______
-// L14     _______
-// L15     _______
-//
-// L21     _______
-// L22     _______
-// L23     _______
-// L24     _______
-// L25     _______
-//
-// L33     Generation Code 3
-// L34     Generation Code 2
-// L35     Generation Code 1
-
-// Right
-// R01     Previous Bracket
-// R02     Item Explorer 2
-// R03     Item Explorer 1 (Tagbar, BTags, BLines)
-// R04     Next Bracket
-// R05     _______
-//
-// R11     Prev edit
-// R12     Move line down
-// R13     Move line up
-// R14     Next edit
-// R15     _______
-//
-// R21     Prev error
-// R22     Open line space down
-// R23     Open line space up
-// R24     Next error
-// R25     _______
-//
-// R31     Completion 1
-// R32     Completion 2
-// R33     Completion 3
-
-
-
-/* Concept-git
- * Layers: Vim-git, IntelliJ-git
- * Things beyond base will have to use app specific cuts/leaders
- * ,----------------------------------.  ,----------------------------------.
- * |      |      |      |      |      |  |      |      |      |      |  HU  |
- * |------+------+------+------+-------  -------+------+------+------+------|
- * |  SH  |      |      |      |  B   |  |      |      |      |      |      |
- * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      |      |      |  |      |      |      |      |      |
- * `------+------+------+------+------+  +------+------+------+------+------'
- *               | PUSH |COMMIT| DIFF |  | LCFS |      |      |
- *               `--------------------'  `--------------------'
- */
-
-// Left
-// L01     _______
-// L02     _______
-// L03     _______
-// L04     _______
-// L05     _______
-//
-// L11     Show History of this file
-// L12     _______
-// L13     _______
-// L14     _______
-// L15     Blame
-//
-// L21     _______
-// L22     _______
-// L23     _______
-// L24     _______
-// L25     _______
-//
-// L33     Push
-// L34     Commit
-// L35     Diff it
-
-// Right
-// R01     _______
-// R02     _______
-// R03     _______
-// R04     _______
-// R05     Hunk Undo
-//
-// R11     _______
-// R12     _______
-// R13     _______
-// R14     _______
-// R15     _______
-//
-// R21     _______
-// R22     _______
-// R23     _______
-// R24     _______
-// R25     _______
-//
-// R31     Git log current file selection
-// R32     _______
-// R33     _______
-
-
-
-/* Concept-debug
- * Layers: IntelliJ, Devtools
- * Debug is a special mode with a limited set of function. This could be done on one line for each env.
- * ,----------------------------------.  ,----------------------------------.
- * |      |      |      |      |      |  |      |      |      |      |      | // Browser
- * |------+------+------+------+-------  -------+------+------+------+------|
- * |Debug |      |      | Eval | TgBP |  |  BP  | Play | Over |  In  | Out  | // IntelliJ
- * |------+------+------+------+------|  |------+------+------+------+------|
- * |      |      |      |      |      |  |      |      |      |      |      | // Vim
- * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |      |      |  |      |      |      |
- *               `--------------------'  `--------------------'
- */
-
-// Left
-// L01
-// L02
-// L03
-// L04
-// L05
-//
-// L11     Debug
-// L12     
-// L13     
-// L14     
-// L15     Eval
-//
-// L21
-// L22
-// L23
-// L24
-// L25
-//
-// L33
-// L34
-// L35
-
-// Right
-// R01
-// R02
-// R03
-// R04
-// R05
-//
-// R11     Break Points
-// R12     Play/Pause
-// R13     Over
-// R14     In
-// R15     Out
-//
-// R21
-// R22
-// R23
-// R24
-// R25
-//
-// R31
-// R32
-// R33
-
 
 
 /* Colemak-dhm
@@ -811,7 +564,7 @@ enum custom_keycodes {
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |COMNDS| Gundo| REC  | PROJV| FNP  |  | B-P  | DECL | IMPL | B-N  |TAGSEL|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |STYLE | TEMP |BACKC | TEST | DIGC |  | A-F  | A-N  | A-P  | A-L  |      |
+ * |STYLE | TEMP |BACKC | TEST | DIGC |  | A-F  | A-N  | A-P  | A-L  |CTAGS |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               | HELP | ONLY |CDROOT|  |USAGEW|USAGEF|USAGCF|
  *               `--------------------'  `--------------------'
@@ -857,7 +610,7 @@ enum custom_keycodes {
 #define VHNAV_R22     VIM_ARGS_NEXT
 #define VHNAV_R23     VIM_ARGS_PREV
 #define VHNAV_R24     VIM_ARGS_LAST
-#define VHNAV_R25     _______
+#define VHNAV_R25     VIM_CTAGS
 
 #define VHNAV_R31     VIM_USAGES_CWORD                // [*] Search for cword in current scope
 #define VHNAV_R32     VIM_USAGES_CFILE                // [*] Search for cfile in current scope
@@ -985,7 +738,191 @@ enum custom_keycodes {
 
 
 
-/* IntelliJ-item
+// /* IntelliJ-item
+//  * ,----------------------------------.  ,----------------------------------.
+//  * |NavBar|FindP |VPRVFI|FindF |Marks |  |Scrtch| New  | Copy | Move |Delete|
+//  * |------+------+------+------+-------  -------+------+------+------+------|
+//  * |FindAc|LocalC|Recent|ProjV | FnP  |  | Back | Decl | Impl | Fwd  |      |
+//  * |------+------+------+------+------|  |------+------+------+------+------|
+//  * |      |      |      |GotoTe|SupMC |  |PREVTB|DebugV|LastTl|NEXTTB|      |
+//  * `------+------+------+------+------+  +------+------+------+------+------'
+//  *               |TMnMx |MaxMin| Term |  |Usages|CallHi|      |
+//  *               `--------------------'  `--------------------'
+//  */
+//
+// // Left
+// #define INAV_L01     LALT(KC_HOME)                // Show navigation bar
+// #define INAV_L02     LSFT(LGUI(KC_F))             // [*] Search project
+// #define INAV_L03     LCTL(KC_CIRC)                // [*] prev file
+// #define INAV_L04     LGUI(LSFT(KC_O))             // [*] Go to file
+// #define INAV_L05     LGUI(KC_F3)                  // [*] Marks
+//
+// #define INAV_L11     LSFT(LGUI(KC_A))             // [*] Find action Note: there is a mac override need to disable https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog
+// #define INAV_L12     LALT(LSFT(KC_Y))             // [*] Local changes (Show Local History)
+// #define INAV_L13     LGUI(KC_E)                   // [*] Recent files popup
+// #define INAV_L14     LGUI(KC_1)                   // [*] Project Files View
+// #define INAV_L15     LALT(KC_F1)                  // [*] Select current file (or symbol) in any view
+//
+// #define INAV_L21     _______
+// #define INAV_L22     _______
+// #define INAV_L23     _______
+// #define INAV_L24     LSFT(LGUI(KC_T))             // [*] Go to test
+// #define INAV_L25     LGUI(KC_U)                   // Go to super-method/super-class
+//
+// #define INAV_L33     LSFT(LGUI(KC_QUOT))          // Toggle tool min/max
+// #define INAV_L34     LGUI(LSFT(KC_F12))           // [*] Toggle maximizing editor
+// #define INAV_L35     LALT(KC_F12)                 // Terminal View
+//
+// // Right
+// #define INAV_R01     LSFT(LGUI(KC_N))             // New scratch
+// #define INAV_R02     LALT(LGUI(KC_COMM))          // [*] New
+// #define INAV_R03     KC_F5                        // [*] Copy
+// #define INAV_R04     KC_F6                        // [*] Move
+// #define INAV_R05     KC_DEL                       // [*] Delete
+//
+// #define INAV_R11     LGUI(LALT(KC_LEFT))          // [*] Navigate back
+// #define INAV_R12     LGUI(KC_B)                   // [*] Go to declaration
+// #define INAV_R13     LALT(LGUI(KC_B))             // [*] Go to implementation
+// #define INAV_R14     LGUI(LALT(KC_RIGHT))         // [*] Navigate forward
+// #define INAV_R15     _______
+//
+// #define INAV_R21     LALT(LSFT(KC_M))             // Prev Tab
+// #define INAV_R22     LGUI(KC_5)                   // Debug View
+// #define INAV_R23     KC_F12                       // Last Tool
+// #define INAV_R24     LALT(LGUI(KC_I))             // Next Tab
+// #define INAV_R25     _______
+//
+// #define INAV_R31     LALT(KC_F7)                  // [*] Find Usages
+// #define INAV_R32     LCTL(LALT(KC_H))             // [*] Call hierarchy (usage analysis)
+// #define INAV_R33     _______
+//
+//
+//
+// /* IntelliJ-editor
+//  * IdeaVim is used so many vim key cuts can also be used without having them here
+//  * IdeaVim plugin emulation (surround, exchange, commentary) : Use vim shortcuts
+//  * Purposely not doing things like extract method, extract variable ... just do it with vim tools
+//  * Purposely not including override method, implement methods ... look to the source and do manually, if you need use the ui ...
+//  * ,----------------------------------.  ,----------------------------------.
+//  * |VWALL |VWRITE|REPNFI|      |FileHi|  | Sel- |NEXTBR|PREVBR| Sel+ |VQUIT |
+//  * |------+------+------+------+-------  -------+------+------+------+------|
+//  * |SELALL|Rename|ChSig |ParamI|      |  |  LU  |PrvEdt|NxtEdt|  SU  |      |
+//  * |------+------+------+------+------|  |------+------+------+------+------|
+//  * |VHSPLT|VVSPLT|      |DiffIt|VPASTE|  |  LD  |NxtErr|PrvErr|  SD  |      |
+//  * `------+------+------+------+------+  +------+------+------+------+------'
+//  *               |GenCd |LiveT | DF   |  |CodeCm|StatCm|Suggst|
+//  *               `--------------------'  `--------------------'
+//  */
+//
+// // Left
+// #define IDEA_L01     VIM_WRITE_ALL                  // [*] write quit editor
+// #define IDEA_L02     VIM_WRITE                      // [*] write
+// #define IDEA_L03     LGUI(LSFT(KC_R))               // Replace in files
+// #define IDEA_L04     _______
+// #define IDEA_L05     LGUI(KC_F12)                   // [*] File structure popup
+//
+// #define IDEA_L11     LGUI(KC_A)                     // [*] select all
+// #define IDEA_L12     LSFT(KC_F6)                    // Rename, a little easier to do that select scope search replace
+// #define IDEA_L13     LGUI(KC_F6)                    // Change signature, and get the ask to reflect signature change
+// #define IDEA_L14     LGUI(KC_P)                     // Get param infor
+// #define IDEA_L15     _______
+//
+// #define IDEA_L21     VIM_HSPLIT                     // [*] hor split
+// #define IDEA_L22     VIM_VSPLIT                     // [*] vert split
+// #define IDEA_L23     _______
+// #define IDEA_L24     LGUI(KC_D)                     // [*] Diff it
+// #define IDEA_L25     VIM_PASTE_LAST_YANK            // [*] Paste last yank (instead of last selection)
+//
+// #define IDEA_L33     LGUI(KC_N)                     // Generate code
+// #define IDEA_L34     LGUI(KC_J)                     // [*] Insert live templates
+// #define IDEA_L35     LALT(LSFT(KC_E))               // [*] Distraction Free Mode Toggle
+//
+// // Right
+// #define IDEA_R01     LALT(KC_DOWN)                  // Shrink selection (similar idea to editor but uses selection)
+// #define IDEA_R02     VIM_NEXT_BRACKET               // [*]
+// #define IDEA_R03     VIM_PREV_BRACKET               // [*]
+// #define IDEA_R04     LALT(KC_UP)                    // Extend selection (similar idea to editor but uses selection)
+// #define IDEA_R05     VIM_QUIT                       // [*]
+//
+// #define IDEA_R11     LALT(LSFT(KC_UP))              // [*] Move line up
+// #define IDEA_R12     LSFT(LGUI(KC_BSPC))             // [*] prev edit location
+// #define IDEA_R13     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
+// #define IDEA_R14     VIM_INTELLIJ_INSERT_SPACE_ABOVE// [*] space above
+// #define IDEA_R15     _______
+//
+// #define IDEA_R21     LALT(LSFT(KC_DOWN))            // [*] Move line down
+// #define IDEA_R22     KC_F2                          // [*] Next highlighted error
+// #define IDEA_R23     LSFT(KC_F2)                    // [*] Previous highlighted error
+// #define IDEA_R24     VIM_INTELLIJ_INSERT_SPACE_BELOW// [*] space below
+// #define IDEA_R25     _______
+//
+// #define IDEA_R31     LCTL(LSFT(KC_SPC))             // [*] Code complete
+// #define IDEA_R32     LGUI(LSFT(KC_ENTER))           // [*] Statement complete
+// #define IDEA_R33     LALT(KC_ENTER)                 // [*] Show intention actions and quick-fixes
+//
+//
+//
+// /* Intellij-git
+//  * ,----------------------------------.  ,----------------------------------.
+//  * |      |      |      |CMMITS|      |  |AccLft|HUNKN |HUNKP |AccRgt|HUNKU |
+//  * |------+------+------+------+-------  -------+------+------+------+------|
+//  * |LOGCFD|LOGCFS|Status|      | Blame|  |      |NEXTDF|PREVDF|      |      |
+//  * |------+------+------+------+------|  |------+------+------+------+------|
+//  * |      |      | DiffR|DiffIt| DiffB|  |      |      |      |      |      |
+//  * `------+------+------+------+------+  +------+------+------+------+------'
+//  *               |GPUSH |COMMIT|FETCH |  |      |      |      |
+//  *               `--------------------'  `--------------------'
+//  */
+//
+// // Left
+// #define QWER_L01     _______
+// #define QWER_L02     _______
+// #define QWER_L03     _______
+// #define QWER_L04     LGUI(KC_9)                   // [*] Local changes (need to move with tabs)
+// #define QWER_L05     _______
+//
+// #define QWER_L11     LALT(LSFT(KC_H))             // [*] Show History for file
+// #define QWER_L12     LALT(LSFT(KC_COMM))          // [*] Show History for file for selection
+// #define QWER_L13     LGUI(KC_9)                   // [*] Git status
+// #define QWER_L14     _______
+// #define QWER_L15     LALT(KC_Q)                   // [*] Blame (custom keymap)
+//
+// #define QWER_L21     _______
+// #define QWER_L22     _______
+// #define QWER_L23     LALT(LGUI(KC_S))             // [*] Compare With Revision
+// #define QWER_L24     LGUI(KC_D)                   // [*] Diff it
+// #define QWER_L25     LALT(LSFT(KC_S))             // [*] Compare With Branch
+//
+// #define QWER_L33     LSFT(LGUI(KC_K))             // [*] Push
+// #define QWER_L34     LGUI(KC_K)                   // [*] Commit
+// #define QWER_L35     LALT(LSFT(KC_J))             // [*] Fetch
+//
+// // Right
+// #define QWER_R01     LALT(LSFT(KC_L))             // [*] Accept Left Side
+// #define QWER_R02     KC_F7                        // [*] Next Hunk
+// #define QWER_R03     LSFT(KC_F7)                  // [*] Prev Hunk
+// #define QWER_R04     LALT(LSFT(KC_U))             // [*] Accept Right Side
+// #define QWER_R05     LALT(LGUI(KC_Z))             // [*] hunk undo
+//
+// #define QWER_R11     _______
+// #define QWER_R12     KC_DOWN                      // [*]
+// #define QWER_R13     KC_UP                        // [*]
+// #define QWER_R14     _______
+// #define QWER_R15     _______
+//
+// #define QWER_R21     _______
+// #define QWER_R22     _______
+// #define QWER_R23     _______
+// #define QWER_R24     _______
+// #define QWER_R25     _______
+//
+// #define QWER_R31     _______
+// #define QWER_R32     _______
+// #define QWER_R33     _______
+
+
+
+/* VisualStudio-item
  * ,----------------------------------.  ,----------------------------------.
  * |NavBar|FindP |VPRVFI|FindF |Marks |  |Scrtch| New  | Copy | Move |Delete|
  * |------+------+------+------+-------  -------+------+------+------+------|
@@ -998,54 +935,54 @@ enum custom_keycodes {
  */
 
 // Left
-#define INAV_L01     LALT(KC_HOME)                // Show navigation bar
-#define INAV_L02     LSFT(LGUI(KC_F))             // [*] Search project
-#define INAV_L03     LCTL(KC_CIRC)                // [*] prev file
-#define INAV_L04     LGUI(LSFT(KC_O))             // [*] Go to file
-#define INAV_L05     LGUI(KC_F3)                  // [*] Marks
+#define INAV_L01     LGUI(LSFT(KC_SCLN))          // Focus breadcrumbs
+#define INAV_L02     LGUI(LSFT(KC_F))             // [*] Search project
+#define INAV_L03     LCTL((LGUI(KC_E)))           // [*] prev file
+#define INAV_L04     LGUI(KC_P)                   // [*] Go to file
+#define INAV_L05     _______                      // [*] Marks
 
-#define INAV_L11     LSFT(LGUI(KC_A))             // [*] Find action Note: there is a mac override need to disable https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog
-#define INAV_L12     LALT(LSFT(KC_Y))             // [*] Local changes (Show Local History)
-#define INAV_L13     LGUI(KC_E)                   // [*] Recent files popup
-#define INAV_L14     LGUI(KC_1)                   // [*] Project Files View
-#define INAV_L15     LALT(KC_F1)                  // [*] Select current file (or symbol) in any view
+#define INAV_L11     LSFT(LGUI(KC_P))             // [*] Find action Note: there is a mac override need to disable https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog
+#define INAV_L12     LCTL(LGUI(KC_J))             // [*] Local changes (Show Local History)
+#define INAV_L13     LCTL(KC_TAB)             // [*] Recent files popup
+#define INAV_L14     LSFT(LGUI(KC_E))             // [*] Project Files View
+#define INAV_L15     LCTL((LGUI(KC_O)))           // [*] Select current file (or symbol) in any view
 
 #define INAV_L21     _______
 #define INAV_L22     _______
 #define INAV_L23     _______
-#define INAV_L24     LSFT(LGUI(KC_T))             // [*] Go to test
-#define INAV_L25     LGUI(KC_U)                   // Go to super-method/super-class
+#define INAV_L24     _______                      // [*] Go to test
+#define INAV_L25     _______                      // Go to super-method/super-class
 
-#define INAV_L33     LSFT(LGUI(KC_QUOT))          // Toggle tool min/max
-#define INAV_L34     LGUI(LSFT(KC_F12))           // [*] Toggle maximizing editor
-#define INAV_L35     LALT(KC_F12)                 // Terminal View
+#define INAV_L33     _______                      // Toggle tool min/max
+#define INAV_L34     VIM_ONLY                     // [*] Toggle maximizing editor
+#define INAV_L35     LCTL(KC_GRV)                 // Terminal View
 
 // Right
-#define INAV_R01     LSFT(LGUI(KC_N))             // New scratch
-#define INAV_R02     LALT(LGUI(KC_COMM))          // [*] New
-#define INAV_R03     KC_F5                        // [*] Copy
-#define INAV_R04     KC_F6                        // [*] Move
-#define INAV_R05     KC_DEL                       // [*] Delete
+#define INAV_R01     _______                      // New scratch
+#define INAV_R02     LGUI(KC_N)                   // [*] New
+#define INAV_R03     LGUI(KC_C)                   // [*] Copy
+#define INAV_R04     KC_ENTER                     // [*] Move
+#define INAV_R05     LGUI(KC_DEL)                 // [*] Delete
 
-#define INAV_R11     LGUI(LALT(KC_LEFT))          // [*] Navigate back
-#define INAV_R12     LGUI(KC_B)                   // [*] Go to declaration
-#define INAV_R13     LALT(LGUI(KC_B))             // [*] Go to implementation
-#define INAV_R14     LGUI(LALT(KC_RIGHT))         // [*] Navigate forward
+#define INAV_R11     LCTL(KC_MINS)                // [*] Navigate back
+#define INAV_R12     KC_F12                       // [*] Go to declaration
+#define INAV_R13     LGUI(KC_F12)                 // [*] Go to implementation
+#define INAV_R14     LCTL(LSFT(KC_MINS))          // [*] Navigate forward
 #define INAV_R15     _______
 
-#define INAV_R21     LALT(LSFT(KC_M))             // Prev Tab
-#define INAV_R22     LGUI(KC_5)                   // Debug View
-#define INAV_R23     KC_F12                       // Last Tool
-#define INAV_R24     LALT(LGUI(KC_I))             // Next Tab
+#define INAV_R21     LALT(LGUI(KC_LEFT))          // Prev Tab
+#define INAV_R22     LSFT(LGUI(KC_Y))             // Debug View
+#define INAV_R23     _______                      // Last Tool
+#define INAV_R24     LALT(LGUI(KC_RIGHT))         // Next Tab
 #define INAV_R25     _______
 
-#define INAV_R31     LALT(KC_F7)                  // [*] Find Usages
-#define INAV_R32     LCTL(LALT(KC_H))             // [*] Call hierarchy (usage analysis)
+#define INAV_R31     LSFT(KC_F12)                  // [*] Find Usages
+#define INAV_R32     LALT(LSFT(KC_H))              // [*] Call hierarchy (usage analysis)
 #define INAV_R33     _______
 
 
 
-/* IntelliJ-editor
+/* VisualStudio-editor
  * IdeaVim is used so many vim key cuts can also be used without having them here
  * IdeaVim plugin emulation (surround, exchange, commentary) : Use vim shortcuts
  * Purposely not doing things like extract method, extract variable ... just do it with vim tools
@@ -1064,52 +1001,52 @@ enum custom_keycodes {
 // Left
 #define IDEA_L01     VIM_WRITE_ALL                  // [*] write quit editor
 #define IDEA_L02     VIM_WRITE                      // [*] write
-#define IDEA_L03     LGUI(LSFT(KC_R))               // Replace in files
+#define IDEA_L03     LSFT(LGUI(KC_H))               // Replace in files
 #define IDEA_L04     _______
-#define IDEA_L05     LGUI(KC_F12)                   // [*] File structure popup
+#define IDEA_L05     LSFT(LGUI(KC_O))               // [*] File structure popup
 
 #define IDEA_L11     LGUI(KC_A)                     // [*] select all
-#define IDEA_L12     LSFT(KC_F6)                    // Rename, a little easier to do that select scope search replace
-#define IDEA_L13     LGUI(KC_F6)                    // Change signature, and get the ask to reflect signature change
-#define IDEA_L14     LGUI(KC_P)                     // Get param infor
+#define IDEA_L12     KC_F2                          // Rename, a little easier to do that select scope search replace
+#define IDEA_L13     _______                    // Change signature, and get the ask to reflect signature change
+#define IDEA_L14     _______                     // Get param infor
 #define IDEA_L15     _______
 
 #define IDEA_L21     VIM_HSPLIT                     // [*] hor split
 #define IDEA_L22     VIM_VSPLIT                     // [*] vert split
 #define IDEA_L23     _______
-#define IDEA_L24     LGUI(KC_D)                     // [*] Diff it
+#define IDEA_L24     _______                     // [*] Diff it
 #define IDEA_L25     VIM_PASTE_LAST_YANK            // [*] Paste last yank (instead of last selection)
 
-#define IDEA_L33     LGUI(KC_N)                     // Generate code
-#define IDEA_L34     LGUI(KC_J)                     // [*] Insert live templates
-#define IDEA_L35     LALT(LSFT(KC_E))               // [*] Distraction Free Mode Toggle
+#define IDEA_L33     _______                     // Generate code
+#define IDEA_L34     _______                     // [*] Insert live templates
+#define IDEA_L35     LCTL(LGUI(KC_K))               // [*] Distraction Free Mode Toggle
 
 // Right
-#define IDEA_R01     LALT(KC_DOWN)                  // Shrink selection (similar idea to editor but uses selection)
+#define IDEA_R01     LCTL(LSFT(LGUI(KC_LEFT)))                  // Shrink selection (similar idea to editor but uses selection)
 #define IDEA_R02     VIM_NEXT_BRACKET               // [*]
 #define IDEA_R03     VIM_PREV_BRACKET               // [*]
-#define IDEA_R04     LALT(KC_UP)                    // Extend selection (similar idea to editor but uses selection)
-#define IDEA_R05     VIM_QUIT                       // [*]
+#define IDEA_R04     LCTL(LSFT(LGUI(KC_RIGHT)))                    // Extend selection (similar idea to editor but uses selection)
+#define IDEA_R05     LGUI(KC_W)                       // [*]
 
-#define IDEA_R11     LALT(LSFT(KC_UP))              // [*] Move line up
-#define IDEA_R12     LSFT(LGUI(KC_BSPC))             // [*] prev edit location
-#define IDEA_R13     LALT(KC_SCLN)                  // [*] Next edit (custom keymap)
-#define IDEA_R14     VIM_INTELLIJ_INSERT_SPACE_ABOVE// [*] space above
+#define IDEA_R11     LALT(KC_UP)                      // [*] Move line up
+#define IDEA_R12     LALT(LSFT(KC_F3))             // [*] prev edit location
+#define IDEA_R13     LALT(KC_F3)                  // [*] Next edit (custom keymap)
+#define IDEA_R14     LSFT(LGUI(KC_ENTER))             // [*] space above
 #define IDEA_R15     _______
 
-#define IDEA_R21     LALT(LSFT(KC_DOWN))            // [*] Move line down
-#define IDEA_R22     KC_F2                          // [*] Next highlighted error
-#define IDEA_R23     LSFT(KC_F2)                    // [*] Previous highlighted error
-#define IDEA_R24     VIM_INTELLIJ_INSERT_SPACE_BELOW// [*] space below
+#define IDEA_R21     LALT(KC_DOWN)                   // [*] Move line down
+#define IDEA_R22     KC_F8                          // [*] Next highlighted error
+#define IDEA_R23     LSFT(KC_F8)                    // [*] Previous highlighted error
+#define IDEA_R24     LGUI(KC_ENTER)                 // [*] space below
 #define IDEA_R25     _______
 
-#define IDEA_R31     LCTL(LSFT(KC_SPC))             // [*] Code complete
-#define IDEA_R32     LGUI(LSFT(KC_ENTER))           // [*] Statement complete
-#define IDEA_R33     LALT(KC_ENTER)                 // [*] Show intention actions and quick-fixes
+#define IDEA_R31     _______             // [*] Code complete
+#define IDEA_R32     _______           // [*] Statement complete
+#define IDEA_R33     _______                 // [*] Show intention actions and quick-fixes
 
 
 
-/* Intellij-git
+/* VisualStudio-git
  * ,----------------------------------.  ,----------------------------------.
  * |      |      |      |CMMITS|      |  |AccLft|HUNKN |HUNKP |AccRgt|HUNKU |
  * |------+------+------+------+-------  -------+------+------+------+------|
@@ -1125,35 +1062,35 @@ enum custom_keycodes {
 #define QWER_L01     _______
 #define QWER_L02     _______
 #define QWER_L03     _______
-#define QWER_L04     LGUI(KC_9)                   // [*] Local changes (need to move with tabs)
+#define QWER_L04     LCTL(LGUI(KC_Y))                   // [*] Local changes (need to move with tabs)
 #define QWER_L05     _______
 
-#define QWER_L11     LALT(LSFT(KC_H))             // [*] Show History for file
-#define QWER_L12     LALT(LSFT(KC_COMM))          // [*] Show History for file for selection
-#define QWER_L13     LGUI(KC_9)                   // [*] Git status
+#define QWER_L11     LCTL(LGUI(KC_H))             // [*] Show History for file
+#define QWER_L12     _______          // [*] Show History for file for selection
+#define QWER_L13     LCTL(LSFT(KC_G))             // [*] Git status
 #define QWER_L14     _______
-#define QWER_L15     LALT(KC_Q)                   // [*] Blame (custom keymap)
+#define QWER_L15     LCTL(LGUI(KC_B))                   // [*] Blame (custom keymap)
 
 #define QWER_L21     _______
 #define QWER_L22     _______
-#define QWER_L23     LALT(LGUI(KC_S))             // [*] Compare With Revision
-#define QWER_L24     LGUI(KC_D)                   // [*] Diff it
-#define QWER_L25     LALT(LSFT(KC_S))             // [*] Compare With Branch
+#define QWER_L23     _______             // [*] Compare With Revision
+#define QWER_L24     LCTL(LGUI(KC_M))             // [*] Diff it
+#define QWER_L25     _______             // [*] Compare With Branch
 
-#define QWER_L33     LSFT(LGUI(KC_K))             // [*] Push
-#define QWER_L34     LGUI(KC_K)                   // [*] Commit
-#define QWER_L35     LALT(LSFT(KC_J))             // [*] Fetch
+#define QWER_L33     _______             // [*] Push
+#define QWER_L34     _______                   // [*] Commit
+#define QWER_L35     _______             // [*] Fetch
 
 // Right
-#define QWER_R01     LALT(LSFT(KC_L))             // [*] Accept Left Side
-#define QWER_R02     KC_F7                        // [*] Next Hunk
-#define QWER_R03     LSFT(KC_F7)                  // [*] Prev Hunk
-#define QWER_R04     LALT(LSFT(KC_U))             // [*] Accept Right Side
-#define QWER_R05     LALT(LGUI(KC_Z))             // [*] hunk undo
+#define QWER_R01     _______             // [*] Accept Left Side
+#define QWER_R02     LALT(KC_5)                        // [*] Next Diff
+#define QWER_R03     LSFT(LALT(KC_5))                  // [*] Prev Diff
+#define QWER_R04     _______             // [*] Accept Right Side
+#define QWER_R05     LCTL(LGUI(KC_U))                  // [*] Revert selection
 
 #define QWER_R11     _______
-#define QWER_R12     KC_DOWN                      // [*]
-#define QWER_R13     KC_UP                        // [*]
+#define QWER_R12     _______                      // [*]
+#define QWER_R13     _______                        // [*]
 #define QWER_R14     _______
 #define QWER_R15     _______
 
@@ -1223,8 +1160,8 @@ enum custom_keycodes {
 #define CHROME_R15     XXXXXXX
 
 #define CHROME_R21     LCTL(LSFT(KC_TAB))       // [*] prev tab
-#define CHROME_R22     LGUI(KC_RBRACKET)        // [*] DEVTOOLS next pane
-#define CHROME_R23     LGUI(KC_LBRACKET)        // [*] DEVTOOLS prev pane
+#define CHROME_R22     LGUI(KC_LBRACKET)        // [*] DEVTOOLS next pane
+#define CHROME_R23     LGUI(KC_RBRACKET)        // [*] DEVTOOLS prev pane
 #define CHROME_R24     LCTL(KC_TAB)             // [*] next tab
 #define CHROME_R25     XXXXXXX
 
@@ -1247,50 +1184,50 @@ enum custom_keycodes {
  */
 
 // Left
-#define OTHER_L01     _______
-#define OTHER_L02     _______
-#define OTHER_L03     CLOJURE_FORM_INSERT_BEG
-#define OTHER_L04     CLOJURE_FORM_INSERT_END
-#define OTHER_L05     _______
+#define OTHER_L01     _______ //_______
+#define OTHER_L02     _______ //_______
+#define OTHER_L03     _______ //CLOJURE_FORM_INSERT_BEG
+#define OTHER_L04     _______ //CLOJURE_FORM_INSERT_END
+#define OTHER_L05     _______ //_______
 
-#define OTHER_L11     CLOJURE_FORM_RAISE
-#define OTHER_L12     CLOJURE_FORM_SWAP_LEFT
-#define OTHER_L13     CLOJURE_FORM_WRAP_BEG
-#define OTHER_L14     CLOJURE_FORM_WRAP_END
-#define OTHER_L15     CLOJURE_FORM_SWAP_RIGHT
+#define OTHER_L11     _______ //CLOJURE_FORM_RAISE
+#define OTHER_L12     _______ //CLOJURE_FORM_SWAP_LEFT
+#define OTHER_L13     _______ //CLOJURE_FORM_WRAP_BEG
+#define OTHER_L14     _______ //CLOJURE_FORM_WRAP_END
+#define OTHER_L15     _______ //CLOJURE_FORM_SWAP_RIGHT
 
-#define OTHER_L21     CLOJURE_ELEMENT_RAISE
-#define OTHER_L22     CLOJURE_ELEMENT_SWAP_LEFT
-#define OTHER_L23     CLOJURE_ELEMENT_WRAP_BEG
-#define OTHER_L24     CLOJURE_ELEMENT_WRAP_END
-#define OTHER_L25     CLOJURE_ELEMENT_SWAP_RIGHT
+#define OTHER_L21     _______ //CLOJURE_ELEMENT_RAISE
+#define OTHER_L22     _______ //CLOJURE_ELEMENT_SWAP_LEFT
+#define OTHER_L23     _______ //CLOJURE_ELEMENT_WRAP_BEG
+#define OTHER_L24     _______ //CLOJURE_ELEMENT_WRAP_END
+#define OTHER_L25     _______ //CLOJURE_ELEMENT_SWAP_RIGHT
 
-#define OTHER_L33     _______
-#define OTHER_L34     _______
-#define OTHER_L35     _______
+#define OTHER_L33     _______ //_______
+#define OTHER_L34     _______ //_______
+#define OTHER_L35     _______ //_______
 
 // Right
-#define OTHER_R01     CLOJURE_SLUPAGE_LEFT
-#define OTHER_R02     CLOJURE_BARFAGE_LEFT
-#define OTHER_R03     CLOJURE_BARFAGE_RIGHT
-#define OTHER_R04     CLOJURE_SLUPAGE_RIGHT
-#define OTHER_R05     CLOJURE_SPLICE
+#define OTHER_R01     _______ //CLOJURE_SLUPAGE_LEFT
+#define OTHER_R02     _______ //CLOJURE_BARFAGE_LEFT
+#define OTHER_R03     _______ //CLOJURE_BARFAGE_RIGHT
+#define OTHER_R04     _______ //CLOJURE_SLUPAGE_RIGHT
+#define OTHER_R05     _______ //CLOJURE_SPLICE
 
-#define OTHER_R11     KC_LPRN
-#define OTHER_R12     LSFT(KC_B)
-#define OTHER_R13     LSFT(KC_W)
-#define OTHER_R14     KC_RPRN
-#define OTHER_R15     _______
+#define OTHER_R11     _______ //KC_LPRN
+#define OTHER_R12     _______ //LSFT(KC_B)
+#define OTHER_R13     _______ //LSFT(KC_W)
+#define OTHER_R14     _______ //KC_RPRN
+#define OTHER_R15     _______ //_______
 
-#define OTHER_R21     CLOJURE_TOP_FORM_BEG
-#define OTHER_R22     CLOJURE_ELEMENT_LEFT_END
-#define OTHER_R23     LSFT(KC_E)
-#define OTHER_R24     CLOJURE_TOP_FORM_END
-#define OTHER_R25     _______
+#define OTHER_R21     _______ //CLOJURE_TOP_FORM_BEG
+#define OTHER_R22     _______ //CLOJURE_ELEMENT_LEFT_END
+#define OTHER_R23     _______ //LSFT(KC_E)
+#define OTHER_R24     _______ //CLOJURE_TOP_FORM_END
+#define OTHER_R25     _______ //_______
 
-#define OTHER_R31     _______
-#define OTHER_R32     _______
-#define OTHER_R33     _______
+#define OTHER_R31     _______ //_______
+#define OTHER_R32     _______ //_______
+#define OTHER_R33     _______ //_______
 
 
 

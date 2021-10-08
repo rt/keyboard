@@ -52,8 +52,8 @@
 #define CHROME_R15     XXXXXXX
 
 #define CHROME_R21     LCTL(LSFT(KC_TAB))       // [*] prev tab
-#define CHROME_R22     LGUI(KC_RBRACKET)        // [*] DEVTOOLS next pane
-#define CHROME_R23     LGUI(KC_LBRACKET)        // [*] DEVTOOLS prev pane
+#define CHROME_R22     LGUI(KC_LBRACKET)        // [*] DEVTOOLS next pane
+#define CHROME_R23     LGUI(KC_RBRACKET)        // [*] DEVTOOLS prev pane
 #define CHROME_R24     LCTL(KC_TAB)             // [*] next tab
 #define CHROME_R25     XXXXXXX
 

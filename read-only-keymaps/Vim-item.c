@@ -4,7 +4,7 @@
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |COMNDS| Gundo| REC  | PROJV| FNP  |  | B-P  | DECL | IMPL | B-N  |TAGSEL|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |STYLE | TEMP |BACKC | TEST | DIGC |  | A-F  | A-N  | A-P  | A-L  |      |
+ * |STYLE | TEMP |BACKC | TEST | DIGC |  | A-F  | A-N  | A-P  | A-L  |CTAGS |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               | HELP | ONLY |CDROOT|  |USAGEW|USAGEF|USAGCF|
  *               `--------------------'  `--------------------'
@@ -50,7 +50,7 @@
 #define VHNAV_R22     VIM_ARGS_NEXT
 #define VHNAV_R23     VIM_ARGS_PREV
 #define VHNAV_R24     VIM_ARGS_LAST
-#define VHNAV_R25     _______
+#define VHNAV_R25     VIM_CTAGS
 
 #define VHNAV_R31     VIM_USAGES_CWORD                // [*] Search for cword in current scope
 #define VHNAV_R32     VIM_USAGES_CFILE                // [*] Search for cfile in current scope
