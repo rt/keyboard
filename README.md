@@ -1,5 +1,7 @@
 # keyboard
 
+Personal opinionated keyboard and layout.
+
 <img src="./current-desktop.jpg"
      alt="for funsy ..."
      style="width=400px;height=400px;align=center;" />
