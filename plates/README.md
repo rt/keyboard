@@ -1,5 +1,8 @@
 # plates
 
+https: //p3dstore.com/:       pom, polycarbonate, etc
+https: //www.laserboost.com/: brass, copper, aluminum, etc
+
 tactile/clicky switches reportedly feel better in a plate with give like poly
 or carbon or aluminium, for linears steel or brass. for sound, clicky switches
 sound slightly bassier on brass, higher pitched on aluminium, slightly muted on

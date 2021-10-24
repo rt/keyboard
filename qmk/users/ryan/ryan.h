@@ -10,6 +10,9 @@
 // #include "layers/intellij_editor.h"
 // #include "layers/intellij_git.h"
 // #include "layers/intellij_item.h"
+#include "layers/visual_studio_editor.h"
+#include "layers/visual_studio_git.h"
+#include "layers/visual_studio_item.h"
 #include "layers/lower.h"
 #include "layers/nav.h"
 #include "layers/raise.h"
@@ -17,9 +20,6 @@
 #include "layers/vim_editor.h"
 #include "layers/vim_git.h"
 #include "layers/vim_item.h"
-#include "layers/visual_studio_editor.h"
-#include "layers/visual_studio_git.h"
-#include "layers/visual_studio_item.h"
 #include "layers/work.h"
 
 // Fillers to make layering more clear

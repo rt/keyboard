@@ -25,20 +25,20 @@
 
 #define INAV_L21     _______
 #define INAV_L22     _______
-#define INAV_L23     _______
+#define INAV_L23     LGUI(KC_1)                   // Focus on editor
 #define INAV_L24     _______                      // [*] Go to test
 #define INAV_L25     _______                      // Go to super-method/super-class
 
-#define INAV_L33     _______                      // Toggle tool min/max
+#define INAV_L33     LCTL(LGUI(KC_C))             // Toggle Panel min/max
 #define INAV_L34     VIM_ONLY                     // [*] Toggle maximizing editor
 #define INAV_L35     LCTL(KC_GRV)                 // Terminal View
 
 // Right
-#define INAV_R01     _______                      // New scratch
-#define INAV_R02     LGUI(KC_N)                   // [*] New
+#define INAV_R01     LGUI(KC_N)                   // New scratch
+#define INAV_R02     LCTL(LGUI(KC_I))             // [*] New
 #define INAV_R03     LGUI(KC_C)                   // [*] Copy
 #define INAV_R04     KC_ENTER                     // [*] Move
-#define INAV_R05     LGUI(KC_DEL)                 // [*] Delete
+#define INAV_R05     LGUI(KC_BSPC)                 // [*] Delete
 
 #define INAV_R11     LCTL(KC_MINS)                // [*] Navigate back
 #define INAV_R12     KC_F12                       // [*] Go to declaration
@@ -48,7 +48,7 @@
 
 #define INAV_R21     LALT(LGUI(KC_LEFT))          // Prev Tab
 #define INAV_R22     LSFT(LGUI(KC_Y))             // Debug View
-#define INAV_R23     _______                      // Last Tool
+#define INAV_R23     LGUI(KC_0)                   // Last Tool (Focus Side Bar)
 #define INAV_R24     LALT(LGUI(KC_RIGHT))         // Next Tab
 #define INAV_R25     _______
 

@@ -4,9 +4,9 @@
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |Debug |      |      |TogBrk|BrkPts|  | Eval |PlyRes| Over |  In  |  Out | - IntelliJ
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |DP_NPM|      |      |      |      |  |      |      |      |      |      | - Node (Vim)
+ * |Debug |      |      |      |      |  |      |      |      |      |      | - Visual Studio
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |      |      |  | Tab  |      |      |
+ *               |      |      |      |  | Tab  |DP_NPM|      |
  *               `--------------------'  `--------------------'
  */
 
@@ -23,7 +23,7 @@
 #define VWNAV_L14     LGUI(KC_F8)                   // Toggle breakpoint
 #define VWNAV_L15     LGUI(LSFT(KC_F8))             // Breakpoints
 
-#define VWNAV_L21     VIM_DISPATCH_NPM
+#define VWNAV_L21     LSFT(LGUI(KC_D))              // Run/Debug
 #define VWNAV_L22     _______
 #define VWNAV_L23     _______
 #define VWNAV_L24     _______
@@ -53,7 +53,7 @@
 #define VWNAV_R25     _______
 
 #define VWNAV_R31     KC_TAB                        // this makes for easy app switching LGUI(tap tab)
-#define VWNAV_R32     _______
+#define VWNAV_R32     VIM_DISPATCH_NPM
 #define VWNAV_R33     _______
 
 
