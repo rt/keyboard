@@ -559,6 +559,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":ShowPlaygroundJavascript"SS_TAP(X_ENTER));
       }
         break;
+    case VIM_SHOW_PLAYGROUND_DATA:
+      if (record->event.pressed) {
+        SEND_STRING(":ShowPlaygroundData"SS_TAP(X_ENTER));
+      }
+        break;
+    case VIM_SHOW_PLAYGROUND_CLOUD:
+      if (record->event.pressed) {
+        SEND_STRING(":ShowPlaygroundCloud"SS_TAP(X_ENTER));
+      }
+        break;
     case VIM_SHOW_PLAYGROUND_JAVA:
       if (record->event.pressed) {
         SEND_STRING(":ShowPlaygroundJava"SS_TAP(X_ENTER));

@@ -1,10 +1,10 @@
-/* Debug
+/* VisualStudio-debug
  * ,----------------------------------.  ,----------------------------------.
  * |RunSnp|      |      |      |BrkPts|  | Eval |PlyRes| Over |  In  |  Out | - Chrome
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |Debug |      |      |TogBrk|BrkPts|  | Eval |PlyRes| Over |  In  |  Out | - IntelliJ
+ * |Debug |      |CondBp|TogBrk|BrkPts|  | Eval |PlyRes| Over |  In  |  Out | - Visual Studio
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |Debug |      |      |      |      |  |      |      |      |      |      | - Visual Studio
+ * |LConfg|      |      |      |      |  |      |      |      |      |      |
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |      |      |      |  | Tab  |DP_NPM|      |
  *               `--------------------'  `--------------------'
@@ -17,13 +17,13 @@
 #define VWNAV_L04     _______
 #define VWNAV_L05     LGUI(KC_F8)                   // [*] breakpoints (this one is toggle)
 
-#define VWNAV_L11     LCTL(LSFT(KC_D))              // Debug context/cursor
+#define VWNAV_L11     LSFT(LGUI(KC_F5))             // Restart Debug
 #define VWNAV_L12     _______
-#define VWNAV_L13     _______
-#define VWNAV_L14     LGUI(KC_F8)                   // Toggle breakpoint
-#define VWNAV_L15     LGUI(LSFT(KC_F8))             // Breakpoints
+#define VWNAV_L13     LCTL(LGUI(KC_X))              // Conditional breakpoint
+#define VWNAV_L14     KC_F9                         // Toggle breakpoint
+#define VWNAV_L15     LCTL(LGUI(KC_V))              // Toggle active breakpoints
 
-#define VWNAV_L21     LSFT(LGUI(KC_D))              // Run/Debug
+#define VWNAV_L21     LCTL(LGUI(KC_COMM))           // Open launch.json
 #define VWNAV_L22     _______
 #define VWNAV_L23     _______
 #define VWNAV_L24     _______
@@ -40,11 +40,11 @@
 #define VWNAV_R04     LGUI(KC_SCLN)                 // [*] debug in
 #define VWNAV_R05     LGUI(LSFT(KC_SCLN))           // [*] debug out
                              
-#define VWNAV_R11     LALT(KC_F8)                   // Evaluate expression
-#define VWNAV_R12     LALT(LGUI(KC_R))              // [*] Play/Pause
-#define VWNAV_R13     KC_F8                         // [*] Step over
-#define VWNAV_R14     KC_F7                         // [*] Step into
-#define VWNAV_R15     LSFT(KC_F8)                   // [*] Step out
+#define VWNAV_R11     LSFT(LGUI(KC_Y))               // Evaluate expression
+#define VWNAV_R12     KC_F5                          // [*] Play/Pause
+#define VWNAV_R13     KC_F10                         // [*] Step over
+#define VWNAV_R14     KC_F11                         // [*] Step into
+#define VWNAV_R15     LSFT(KC_F11)                   // [*] Step out
                              
 #define VWNAV_R21     _______
 #define VWNAV_R22     _______

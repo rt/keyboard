@@ -7,7 +7,7 @@
  * |------+------+------+------+------|  |------+------+------+------+------|
  * |Zoom0 | Mute | Vol- | Vol+ |SetSnd|  |  -   |  1   |  2   |  3   |  ,   |
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |      |Desktp|  MC  |  | Bspc |  0   | Del  |
+ *               |      |      |  MC  |  | Bspc |  0   | Del  |
 * `              `--------------------'  `--------------------'
  */
 
@@ -31,7 +31,7 @@
 #define ADJ_L25     LALT(KC_VOLD)
 
 #define ADJ_L33     _______
-#define ADJ_L34     KC_F11                          // show desktop
+#define ADJ_L34     _______
 #define ADJ_L35     LCTL(KC_UP)                     // mission control
 
 // Right
