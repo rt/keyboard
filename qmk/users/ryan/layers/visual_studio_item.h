@@ -19,7 +19,8 @@
 
 #define INAV_L11     LSFT(LGUI(KC_P))             // [*] Find action Note: there is a mac override need to disable https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog
 #define INAV_L12     _______             // [*] Local changes (Show Local History)
-#define INAV_L13     LCTL(KC_TAB)                 // [*] Recent files popup
+#define INAV_L13     LGUI(KC_P)                   // [*] Recent files popup (no good replacement but find file shows most recent to start)
+// #define INAV_L13     LCTL(KC_TAB)                 // [*] Recent files popup
 #define INAV_L14     LSFT(LGUI(KC_E))             // [*] Project Files View
 #define INAV_L15     LCTL((LGUI(KC_O)))           // [*] Select current file (or symbol) in any view
 

@@ -26,7 +26,7 @@
 #define VWNAV_L21     _______
 #define VWNAV_L22     _______
 #define VWNAV_L23     _______
-#define VWNAV_L24     
+#define VWNAV_L24     _______
 #define VWNAV_L25     _______
 
 #define VWNAV_L33     _______
@@ -55,7 +55,4 @@
 #define VWNAV_R31     KC_TAB                        // this makes for easy app switching LGUI(tap tab)
 #define VWNAV_R32     VIM_DISPATCH_NPM
 #define VWNAV_R33     _______
-
-
-
 
