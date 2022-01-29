@@ -8,23 +8,49 @@ Personal opinionated keyboard and layout.
 
 My keyboard maps ...
 
-I was having a hard time maintaining a fork of qmk_firmware without having conflicts (?)
-It's easier to just have my keyboard files here and copy them to a qmk_firmware clone.
+### Setup and flash
 
 ```bash
-git clone https://github.com/qmk/qmk_firmware
+brew install qmk/qmk/qmk
+
+# delete this directory and do again if you want the lastest
+qmk setup ~/projects/qmk_firmware
+
 cd keyboard/
 ./copy_qmk_files # assumes ../../qmk_firmware/
 cd ../qmk_firmware/
 make handwired/mrkabuda:ryan:avrdude
 ```
 
-**Dependencies**
-You won't be able to flash the first time, and there will be a warning.
-```bash
-./util/qmk_install.sh
-make git-submodule
-```
+
+### Concepts
+
+*macro vs ala carte*
+
+There definitely seems to be a sweet spot between macro and ala carte directly
+corresponding to use frequency. If you use something a lot a macro is great but
+if you don't ala carte pieces are easier to remember (because each piece usage
+is greated across tasks)
+
+*flash/different keyboard vs layer*
+
+Reflashing with different layers or having another keyboard handy to say change
+between IDEs is reasonable (IntelliJ - VSCode)
+
+*conceptual placement across different layers*
+
+Many apps have similar concepts, new item, search item, etc. Along with 
+functions editing items. Layers can be assigned to apps but reusing the 
+placements can make working with the apps keycuts easier to remember.
+
+- Shared: basic concepts/functionality
+- Overides: might not bet exactly the same but similar in result
+- Extentions: with other unassigned keys
+
+*concept layer*
+
+You can have a concept on a layers and have eash app take one line.
+This is good for specialized concepts like debugging (play/pause, over, in, out)
 
 ```c
 /* Concept-item
