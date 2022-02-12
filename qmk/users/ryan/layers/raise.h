@@ -1,7 +1,7 @@
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * | MISC | JAVA |CLOJUR|  JS  | BASH |  |TSIZEL|TSIZED|TSIZEU|TSIZER|KEYMPS|
+ * | MISC | JAVA |CLOJUR|  JS  | DOTF |  |TSIZEL|TSIZED|TSIZEU|TSIZER|KEYMPS|
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |TPCTLD|TPREDO|TPPARA|TPLINE|TPSEL |  |  F1  |  F2  |  F3  |  F4  |  F5  |
  * |------+------+------+------+------|  |------+------+------+------+------|
@@ -13,12 +13,10 @@
 
 // Left
 #define RAIS_L01     VIM_SHOW_PLAYGROUND_MISC
-// #define RAIS_L02     VIM_SHOW_PLAYGROUND_JAVA
-#define RAIS_L02     VIM_SHOW_PLAYGROUND_DATA
-// #define RAIS_L03     VIM_SHOW_PLAYGROUND_CLOJURE
-#define RAIS_L03     VIM_SHOW_PLAYGROUND_CLOUD
+#define RAIS_L02     VIM_SHOW_PLAYGROUND_JAVA
+#define RAIS_L03     VIM_SHOW_PLAYGROUND_CLOJURE
 #define RAIS_L04     VIM_SHOW_PLAYGROUND_JAVASCRIPT
-#define RAIS_L05     VIM_SHOW_PLAYGROUND_BASH
+#define RAIS_L05     VIM_SHOW_DOTFILES
 
 #define RAIS_L11     VIM_TMUX_CTLD
 #define RAIS_L12     VIM_TMUX_REDO

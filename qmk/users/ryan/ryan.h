@@ -6,14 +6,14 @@
 #include "layers/chrome.h"
 #include "layers/clojure.h"
 #include "layers/colemak_dhm.h"
-#include "layers/intellij_debug.h"
-#include "layers/intellij_editor.h"
-#include "layers/intellij_git.h"
-#include "layers/intellij_item.h"
-// #include "layers/visual_studio_debug.h"
-// #include "layers/visual_studio_editor.h"
-// #include "layers/visual_studio_git.h"
-// #include "layers/visual_studio_item.h"
+// #include "layers/intellij_debug.h"
+// #include "layers/intellij_editor.h"
+// #include "layers/intellij_git.h"
+// #include "layers/intellij_item.h"
+#include "layers/visual_studio_debug.h"
+#include "layers/visual_studio_editor.h"
+#include "layers/visual_studio_git.h"
+#include "layers/visual_studio_item.h"
 #include "layers/lower.h"
 #include "layers/nav.h"
 #include "layers/raise.h"
@@ -177,10 +177,8 @@ enum custom_keycodes {
   VIM_DISPATCH_NPM,
   VIM_SHOW_PLAYGROUND_JAVASCRIPT,
   VIM_SHOW_PLAYGROUND_JAVA,
-  VIM_SHOW_PLAYGROUND_DATA,
-  VIM_SHOW_PLAYGROUND_CLOUD,
   VIM_SHOW_PLAYGROUND_CLOJURE,
-  VIM_SHOW_PLAYGROUND_BASH,
+  VIM_SHOW_DOTFILES,
   VIM_SHOW_PLAYGROUND_MISC,
   VIM_SHOW_KEYMAPS,
   VIM_ONLY,
