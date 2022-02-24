@@ -44,7 +44,7 @@
 #define QWER_R12     _______                          // [*]
 #define QWER_R13     _______                          // [*]
 #define QWER_R14     _______
-#define QWER_R15     _______
+#define QWER_R15     XXXXXXX                          // Important! 'tion' 'io'
 
 #define QWER_R21     LCTL(LGUI(KC_L))                 // Stage all changes
 #define QWER_R22     LCTL(LGUI(KC_DOT))               // Stage single file

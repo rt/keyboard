@@ -44,7 +44,7 @@
 #define QWER_R12     KC_DOWN                      // [*]
 #define QWER_R13     KC_UP                        // [*]
 #define QWER_R14     _______
-#define QWER_R15     _______
+#define QWER_R15     XXXXXXX                      // Important! 'tion' 'io'
 
 #define QWER_R21     _______
 #define QWER_R22     _______

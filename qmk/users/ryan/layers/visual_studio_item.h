@@ -45,7 +45,7 @@
 #define INAV_R12     KC_F12                       // [*] Go to declaration
 #define INAV_R13     LGUI(KC_F12)                 // [*] Go to implementation
 #define INAV_R14     LCTL(LSFT(KC_MINS))          // [*] Navigate forward
-#define INAV_R15     _______
+#define INAV_R15     XXXXXXX                      // Important! 'you' 'ou'
 
 #define INAV_R21     LALT(LGUI(KC_LEFT))          // Prev Tab
 #define INAV_R22     LSFT(LGUI(KC_D))             // Debug View
