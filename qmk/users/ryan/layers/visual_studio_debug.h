@@ -43,8 +43,8 @@
 #define VWNAV_R11     LSFT(LGUI(KC_Y))               // Evaluate expression
 #define VWNAV_R12     KC_F5                          // [*] Play/Pause
 #define VWNAV_R13     KC_F10                         // [*] Step over
-#define VWNAV_R14     KC_F11                         // [*] Step into
-#define VWNAV_R15     LSFT(KC_F11)                   // [*] Step out
+#define VWNAV_R14     LALT(KC_E)                     // [*] Step into
+#define VWNAV_R15     LALT(KC_I)                     // [*] Step out
                              
 #define VWNAV_R21     _______
 #define VWNAV_R22     _______

@@ -22,9 +22,9 @@
 #define IDEA_L05     LGUI(KC_F12)                   // [*] File structure popup
 
 #define IDEA_L11     LGUI(KC_A)                     // [*] select all
-#define IDEA_L12     LSFT(KC_F6)                    // Rename, a little easier to do that select scope search replace
+#define IDEA_L12     LSFT(KC_F6)                    // Rename
 #define IDEA_L13     LGUI(KC_F6)                    // Change signature, and get the ask to reflect signature change
-#define IDEA_L14     LGUI(KC_P)                     // Get param infor
+#define IDEA_L14     _______
 #define IDEA_L15     _______
 
 #define IDEA_L21     VIM_HSPLIT                     // [*] hor split
@@ -42,7 +42,7 @@
 #define IDEA_R02     VIM_NEXT_BRACKET               // [*]
 #define IDEA_R03     VIM_PREV_BRACKET               // [*]
 #define IDEA_R04     LALT(KC_UP)                    // Extend selection (similar idea to editor but uses selection)
-#define IDEA_R05     VIM_QUIT                       // [*]
+#define IDEA_R05     VIM_QUIT                       // [*] Quit Editor
 
 #define IDEA_R11     LALT(LSFT(KC_UP))              // [*] Move line up
 #define IDEA_R12     LSFT(LGUI(KC_BSPC))             // [*] prev edit location

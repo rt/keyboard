@@ -26,7 +26,7 @@
 
 #define INAV_L21     _______
 #define INAV_L22     _______
-#define INAV_L23     LGUI(KC_1)                   // Focus on editor
+#define INAV_L23     _______
 #define INAV_L24     _______                      // [*] Go to test
 #define INAV_L25     _______                      // Go to super-method/super-class
 
@@ -37,9 +37,9 @@
 // Right
 #define INAV_R01     LGUI(KC_N)                   // New scratch
 #define INAV_R02     LCTL(LGUI(KC_I))             // [*] New
-#define INAV_R03     LGUI(KC_C)                   // [*] Copy
-#define INAV_R04     KC_ENTER                     // [*] Move
-#define INAV_R05     LGUI(KC_BSPC)                 // [*] Delete
+#define INAV_R03     LGUI(KC_C)                   // [*] Copy (copy paste is the way to do it)
+#define INAV_R04     LALT(KC_R)                   // [*] Move (rename, to move drag and drop)
+#define INAV_R05     LGUI(KC_BSPC)                // [*] Delete
 
 #define INAV_R11     LCTL(KC_MINS)                // [*] Navigate back
 #define INAV_R12     KC_F12                       // [*] Go to declaration
