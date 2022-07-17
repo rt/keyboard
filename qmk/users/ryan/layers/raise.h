@@ -1,22 +1,22 @@
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * | P.QR |P.STUP|P.FILE|P.DIR | DOTF |  |TSIZEL|TSIZED|TSIZEU|TSIZER|KEYMPS|
+ * |      | P.QR |P.FILE|P.DIR |P.STUP|  |TSIZEL|TSIZED|TSIZEU|TSIZER|KEYMPS|
  * |------+------+------+------+-------  -------+------+------+------+------|
  * |TPCTLD|TPREDO|TPPARA|TPLINE|TPSEL |  |TROTAW|      |      |      |TKILLW|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |MYSNIP|WORK  |      |TPCTLL|      |  |      |      |      |      |      | 
+ * |MYSNIP|WORK  | DOTF |TPCTLL|      |  |      |      |      |      |      | 
  * `------+------+------+------+------+  +------+------+------+------+------'
  *               |SftTab| Tab  |GuiBk |  |      |      |      |
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define RAIS_L01     VIM_SHOW_PLAYGROUND
-#define RAIS_L02     PLAYGROUND_SETUP
+#define RAIS_L01     _______
+#define RAIS_L02     VIM_SHOW_PLAYGROUND
 #define RAIS_L03     PLAYGROUND_OPEN_FILE_NEW_PANE
 #define RAIS_L04     PLAYGROUND_GOTO_DIR
-#define RAIS_L05     VIM_SHOW_DOTFILES
+#define RAIS_L05     PLAYGROUND_SETUP
 
 #define RAIS_L11     VIM_TMUX_CTLD
 #define RAIS_L12     VIM_TMUX_REDO
@@ -26,7 +26,7 @@
 
 #define RAIS_L21     VIM_SHOW_MY_SNIPPETS
 #define RAIS_L22     VIM_WORK_SHOW_NOTES
-#define RAIS_L23     _______
+#define RAIS_L23     VIM_SHOW_DOTFILES
 #define RAIS_L24     VIM_TMUX_CTLL
 #define RAIS_L25     _______
 
