@@ -1,21 +1,21 @@
 /* Raise
  * Global: Function Keys and Reference
  * ,----------------------------------.  ,----------------------------------.
- * | MISC | JAVA |CLOJUR|  JS  | DOTF |  |TSIZEL|TSIZED|TSIZEU|TSIZER|KEYMPS|
+ * | P.QR |P.STUP|P.FILE|P.DIR | DOTF |  |TSIZEL|TSIZED|TSIZEU|TSIZER|KEYMPS|
  * |------+------+------+------+-------  -------+------+------+------+------|
- * |TPCTLD|TPREDO|TPPARA|TPLINE|TPSEL |  |  F1  |  F2  |  F3  |  F4  |  F5  |
+ * |TPCTLD|TPREDO|TPPARA|TPLINE|TPSEL |  |TROTAW|      |      |      |TKILLW|
  * |------+------+------+------+------|  |------+------+------+------+------|
- * |MYSNIP|WORK  |      |TPCTLL|      |  |  F6  |  F7  |  F8  |  F9  |  F10 | 
+ * |MYSNIP|WORK  |      |TPCTLL|      |  |      |      |      |      |      | 
  * `------+------+------+------+------+  +------+------+------+------+------'
- *               |SftTab| Tab  |GuiBk |  |      |  F11 |  F12 |
+ *               |SftTab| Tab  |GuiBk |  |      |      |      |
  *               `--------------------'  `--------------------'
  */
 
 // Left
-#define RAIS_L01     VIM_SHOW_PLAYGROUND_MISC
-#define RAIS_L02     VIM_SHOW_PLAYGROUND_JAVA
-#define RAIS_L03     VIM_SHOW_PLAYGROUND_CLOJURE
-#define RAIS_L04     VIM_SHOW_PLAYGROUND_JAVASCRIPT
+#define RAIS_L01     VIM_SHOW_PLAYGROUND
+#define RAIS_L02     PLAYGROUND_SETUP
+#define RAIS_L03     PLAYGROUND_OPEN_FILE_NEW_PANE
+#define RAIS_L04     PLAYGROUND_GOTO_DIR
 #define RAIS_L05     VIM_SHOW_DOTFILES
 
 #define RAIS_L11     VIM_TMUX_CTLD
@@ -41,21 +41,21 @@
 #define RAIS_R04     TMUX_SIZE_RIGHT
 #define RAIS_R05     VIM_SHOW_KEYMAPS
                                     
-#define RAIS_R11     KC_F1
-#define RAIS_R12     KC_F2
-#define RAIS_R13     KC_F3
-#define RAIS_R14     KC_F4
-#define RAIS_R15     KC_F5
+#define RAIS_R11     TMUX_ROTATE_WIN
+#define RAIS_R12     _______
+#define RAIS_R13     _______
+#define RAIS_R14     _______
+#define RAIS_R15     TMUX_KILL_WIN
                                     
-#define RAIS_R21     KC_F6
-#define RAIS_R22     KC_F7
-#define RAIS_R23     KC_F8
-#define RAIS_R24     KC_F9
-#define RAIS_R25     KC_F10
+#define RAIS_R21     _______
+#define RAIS_R22     _______
+#define RAIS_R23     _______
+#define RAIS_R24     _______
+#define RAIS_R25     _______
 
 #define RAIS_R31     XXXXXXX
-#define RAIS_R32     KC_F11
-#define RAIS_R33     KC_F12
+#define RAIS_R32     _______
+#define RAIS_R33     _______
 
 
 

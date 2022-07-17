@@ -554,19 +554,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":Dispatch npm run ");
       }
         break;
-    case VIM_SHOW_PLAYGROUND_JAVASCRIPT:
+    case PLAYGROUND_GOTO_DIR:
       if (record->event.pressed) {
-        SEND_STRING(":ShowPlaygroundJavascript"SS_TAP(X_ENTER));
+        SEND_STRING("cd ~/projects/playground"SS_TAP(X_ENTER)SS_TAP(X_ESCAPE)"c");
       }
         break;
-    case VIM_SHOW_PLAYGROUND_JAVA:
+    case PLAYGROUND_SETUP:
       if (record->event.pressed) {
-        SEND_STRING(":ShowPlaygroundJava"SS_TAP(X_ENTER));
+        SEND_STRING("source setup.term.bash"SS_TAP(X_ENTER));
       }
         break;
-    case VIM_SHOW_PLAYGROUND_CLOJURE:
+    case PLAYGROUND_OPEN_FILE_NEW_PANE:
       if (record->event.pressed) {
-        SEND_STRING(":ShowPlaygroundClojure"SS_TAP(X_ENTER));
+        SEND_STRING("p.pane"SS_TAP(X_ENTER));
       }
         break;
     case VIM_SHOW_DOTFILES:
@@ -574,9 +574,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(":ShowDotfiles"SS_TAP(X_ENTER));
       }
         break;
-    case VIM_SHOW_PLAYGROUND_MISC:
+    case VIM_SHOW_PLAYGROUND:
       if (record->event.pressed) {
-        SEND_STRING(":ShowPlaygroundMisc"SS_TAP(X_ENTER));
+        SEND_STRING(":ShowPlayground"SS_TAP(X_ENTER));
       }
         break;
     case VIM_SHOW_KEYMAPS:
@@ -788,6 +788,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case TMUX_SIZE_RIGHT:
       if (record->event.pressed) {
         SEND_STRING(SS_LCTRL("b")"L");
+      }
+        break;
+    case TMUX_KILL_WIN:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("b")":kill-window"SS_TAP(X_ENTER));
+      }
+        break;
+    case TMUX_ROTATE_WIN:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTRL("b")":rotate-window"SS_TAP(X_ENTER));
       }
         break;
     case WORK_DB_MIGRATIONS_SHARED:
